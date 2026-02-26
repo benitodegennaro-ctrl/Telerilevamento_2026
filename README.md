@@ -1,7 +1,9 @@
-# Telerilevamento_2026
-## cos'è?
+# Telerilevamento_2026 🛰️
 
+![sentinel-2](https://github.com/user-attachments/assets/6a7c1188-cb78-4d8d-9c01-61bdc346ea4f)
+
+## cos'è? 📘
 il repo contine il codice di telerivemento geo-ecologgico presso di UNIBO
 [vedi corso] (https://www.unibo.it/it/studiare/insegnamenti-competenze-trasversali-moocs/insegnamenti/insegnamento/2024/504482)
-## il docente 
+## il docente 👨‍🏫
 [Duccio Rocchini] (https://www.unibo.it/sitoweb/duccio.rocchini)
