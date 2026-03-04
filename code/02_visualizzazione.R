@@ -1,13 +1,17 @@
 # R cod per visalizzare dati multispettrali 
-
+#pachetto che uso
 library(terra) #pachetto che usa 
 library(imageRy)
+library(viridis) 
 
+#lista immagini presente nella libreria (imageRy)
 im.list()
 
 #sentinel-2 bands 
 #https://gisgeography.com/sentinel-2-bands-combinations/
-
+#? serve per chiedere l'help 
+?im.import()
+#per ricevere la lista delle immagini 
 im.import()
 
 #modificare palet di colori 
@@ -20,8 +24,7 @@ plot(b2,col=cl)
 #usiamo viridis per cambiare i colori 
 plot(b2, col=inferno(100))
 
-#esercizio 
-cambiamo il colore della nostra immagine nella scala di grigi 
+#esercizio cambiamo il colore della nostra immagine nella scala di grigi 
 cl1<-colorRampPalette(c("gray100","gray50","gray1"))(100)
 plot(b2,col=cl1)
 
@@ -35,3 +38,6 @@ dev.off()
 #e piu semplice 
 ?im.multiframe
 im.multiframe(1,2)
+plot(b2, col=inferno(100))
+plot(b2,col=cl)
+
