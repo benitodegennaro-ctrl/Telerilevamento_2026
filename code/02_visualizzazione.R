@@ -1,5 +1,7 @@
 # R cod per visalizzare dati multispettrali 
 #pachetto che uso
+install.packages("patchwork")
+library(patchwork)
 library(terra) #pachetto che usa 
 library(imageRy)
 library(viridis) 
@@ -85,3 +87,21 @@ plot(sentinel$sentinel.dolomites.b8.tif)
 
 plot(sentinel [[4]])
 plot(sentinel [[2]])
+
+library(terra)
+library(ggplot2)
+library(imageRy)
+
+im.list()
+#ricariciamo b2
+b2<-im.import("sentinel.dolomites.b2.tif")
+b3<-im.import("sentinel.dolomites.b3.tif")
+b4<-im.import("sentinel.dolomites.b4.tif")
+b8<-im.import( "sentinel.dolomites.b8.tif")
+im.ggplot(b8)
+install.packages("patchwork")
+
+p1<-im.ggplot(b2)
+p2<-im.ggplot(b4)
+p1+p2
+
