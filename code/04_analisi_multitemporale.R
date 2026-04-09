@@ -35,3 +35,16 @@ plot(dif)
 
 im.plotRGB(g, r=1,g=2, b=4)
 
+library(imageRy)
+library(terra)
+library(viridis)
+
+im.list()
+##########
+#importare i dati 
+######## 
+NDVI<-im.import("Sentinel2_NDVI_2020")
+hist(NDVI)
+im.ridgeline(NDVI, scale=1, palette="viridis")
+
+plot(ndvi[[1]], ndvi[[2]])
