@@ -1,0 +1,67 @@
+#importare i dati 
+library(terra)
+library(viridis)
+library(imageRy)
+library(patchwork)
+
+setwd("~/Users/benny/Desktop/DRONE")
+getwd()
+#lista della cartella 
+list.file()
+#importo la banda del verde 
+gren<-rast("DJI_20260409152942_0001_MS_G.tiff")
+#flippo la banda 
+gre<-flip(gre)
+#plotto 
+plot(gren)
+#con il pachertto viridis posso cambiare la scala di colore 
+plot(gren, col=mako(100))
+# fo lo stesso per il rosso ed il vicino infrarosso 
+red<-rast("DJI_20260409152942_0001_MS_R.tiff")
+ red<-flip(red)
+plot(red)
+> NIR<-rast("DJI_20260409152942_0001_MS_NIR.tiff")
+NIR<-flip(NIR)
+> plot(NIR)
+#STACK
+stack<-c(grean,red,NIR)
+plot(stack)
+#creo immagine a falsi colori 
+plotRGB(stack, r=3, g=2, b=1, stretc="lin")
+> plotRGB(stack, r=3, g=2, b=1, stretc="hist")
+> library(imageRy)
+
+> im.multiframe(1,2)
+> plotRGB(stack, r=3, g=2, b=1, stretc="lin")
+> plotRGB(stack, r=3, g=2, b=1, stretc="hist")
+
+#clacolo l'NDVI
+ndvi<-im.ndvi(stack,3,2)
+
+#esportare dei dati 
+writeRaster(ndvi,"ndvi.tif")
+
+#esportare una figura non un dato
+im.multiframe(2,2)
+plot(red)
+plot(nir)
+plot(gren)
+plot(ndvi)
+png("figura1.png")
+im.multiframe(2,2)
+plot(red)
+plot(NIR)
+plot(gren)
+plot(ndvi)
+
+pdf("figura1.pdf")
+im.multiframe(2,2)
+plot(red)
+plot(NIR)
+plot(gren)
+plot(ndvi)
+
+p1<-im.ggplot(ndvi)
+p2<-im.ridgeline(ndvi, scale=1)
+
+greanghithub<-rast("https://raw.githubusercontent.com/ducciorocchini/Telerilevamento_2026/main/Drone2/DJI_20260409152942_0001_MS_G.TIF")
