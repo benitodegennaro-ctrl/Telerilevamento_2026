@@ -2,6 +2,9 @@
 library(terra)
 library(viridis)
 library(imageRy)
+library(ggplot2)
+library(patchwork)
+
 
 #lista delle immagini 
 im.list()
@@ -60,3 +63,22 @@ tabella<-data.frame(
   class=c("foresta","umana")
           perc1992=c(83, 17),
           perc2006=c(54,45))
+#per il 1992
+p1<-ggplot(tabout, aes(x=class, y=perc1992, color=class))+ #struttura
+ geom_bar(stat="identity", fill="white")+
+ ylim(c(0,100))+
+ theme(legend.position="none")
+ 
+ #limite 
+ #bar plot 
+ 
+#per il 2006
+p2<-ggplot(tabout, aes(x=class, y=perc2006, color=class))+ #struttura
+ geom_bar(stat="identity", fill="white")+
+ ylim(c(0,100))
+
+ #limite 
+ #bar plot
+ 
+p1+p2
+ 
