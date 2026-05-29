@@ -6,13 +6,13 @@
 ### 🗓️ Periodo di studio: 2021-2026
 ---
 # 📕 introduzione 
-Il progetto si propone di anlizzare gli efetti ambientali del conflitto armato nella regine di **Zaporizhzhia**, area di grande importanza agricola in Ucraina, attraverso l'impiego delle immagini satellitari di **sentinel 2** (programma copernicus) e stato possbile osservare le dinamiche di trasformazione del territorio in un arco temporale di 5 anni (2021-2026).
-L'analisi si é articolato in tre momenti chiave:
-- **2021** (Baseline): Rappresenta lo stato del territorio in condizioni di normalità, prima dell'escalation del conflitto.
-- **2023**  (Fase critica): Evidenzia l'impatto diretto delle attività belliche sulla copertura del suolo e sulla salute della vegetazione.
-- **2026** (Situazione attuale): Permette di valutare il grado di ripristino dell'ecosistema o, al contrario, la persistenza dei danni ambientali nel tempo.
+cco il testo corretto:
+Il progetto si propone di analizzare gli effetti ambientali del conflitto armato nella regione di Zaporizhzhia, area di grande importanza agricola in Ucraina, attraverso l'impiego delle immagini satellitari di Sentinel-2 (programma Copernicus); è stato possibile osservare le dinamiche di trasformazione del territorio in un arco temporale di 5 anni (2021-2026). L'analisi si è articolata in tre momenti chiave:
+- **2021** (Baseline): rappresenta lo stato del territorio in condizioni di normalità, prima dell'escalation del conflitto.
+- **2023** (Fase critica): evidenzia l'impatto diretto delle attività belliche sulla copertura del suolo e sulla salute della vegetazione.
+- **2026** (Situazione attuale): permette di valutare il grado di ripristino dell'ecosistema o, al contrario, la persistenza dei danni ambientali nel tempo.
 
-# 📌 obiettivo 
+# 📌Obiettivi
 L'obiettivo è quantificare l'impatto bellico non solo attraverso un'analisi qualitativa (composizioni RGB), ma mediante l'elaborazione quantitativa di indici di vegetazione (NDVI) e indici di distruzione (NBR). L'analisi multitemporale 2021-2026 permette di indagare la resilienza dell'ecosistema agrario in un'area soggetta a pressioni antropiche estreme.
 
 
