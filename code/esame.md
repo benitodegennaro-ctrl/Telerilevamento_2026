@@ -13,7 +13,7 @@ Il progetto si propone di analizzare gli effetti ambientali del conflitto armato
 - **2026** (Situazione attuale): permette di valutare il grado di ripristino dell'ecosistema o, al contrario, la persistenza dei danni ambientali nel tempo.
 
   <p align="center">
-  <img src="Code/img/Area di studio.png" alt="Area di studio Ucraina" width="1000">
+  <img src="Code/Screenshot 2026-05-29 alle 20.08.17" alt="Area di studio Ucraina" width="1000">
 </p>
   
 # 📌Obiettivi
