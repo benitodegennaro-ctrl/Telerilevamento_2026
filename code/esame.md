@@ -17,6 +17,16 @@ Il progetto si propone di analizzare gli effetti ambientali del conflitto armato
 # 📌Obiettivi
 L'obiettivo è quantificare l'impatto bellico non solo attraverso un'analisi qualitativa (composizioni RGB), ma mediante l'elaborazione quantitativa di indici di vegetazione (NDVI) e indici di distruzione (NBR). L'analisi multitemporale 2021-2026 permette di indagare la resilienza dell'ecosistema agrario in un'area soggetta a pressioni antropiche estreme.
 
+# 🛠️materiali e metodi 
+## Raccolta imagini 
+Le imagini sono state acquisite dal portale web di [Google Earth Engine] (https://earthengine.google.com/), selezionado una delle arre colpite nel conflitto.
+
+>[NOTE]
+>
+> Il codice java utilizzato per l'acquisizione delle immagini e nel file codes.Js
+
+
+
 
 
 
