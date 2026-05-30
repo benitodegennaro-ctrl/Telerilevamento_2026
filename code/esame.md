@@ -19,7 +19,7 @@ L'obiettivo è quantificare l'impatto bellico non solo attraverso un'analisi qua
 
 # 🛠️materiali e metodi 
 ## Raccolta imagini 
-Le imagini sono state acquisite dal portale web di [Google Earth Engine] (https://earthengine.google.com/), selezionado una delle arre colpite nel conflitto.
+Le imagini sono state acquisite dal portale web di [Google Earth Engine](https://earthengine.google.com/), selezionado una delle arre colpite nel conflitto.
 
 >[!NOTE]
 >
