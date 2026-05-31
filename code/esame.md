@@ -44,8 +44,7 @@ list.files()
 ````
 Caricamento dei pachetti che veranno utilizzati nello stuido 
 ````r
-#caricamento dei pachetti 
-library(terra)     # Per gestire le immagini satellitari
+library(terra)     # Per gestire i dati raster 
 library(imageRy)   # Per facilitarmi il lavoro con le bande
 library(ggplot2)   # Per fare i grafici
 library(patchwork) # Per mettere i grafici uno accanto all'altro
