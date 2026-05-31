@@ -32,6 +32,8 @@ Per l'analisi è stato utilizzato il satellite Sentinel-2 (programma Copernicus)
 > Il codice java utilizzato per l'acquisizione delle immagini e nel file codes.Js
 
 ## inzio dell'analisi tramite il sofftwer R 
+
+
 ````r
 # Imposta la cartella di lavoro per gestire correttamente l'input e l'output dei file del progetto
 setwd("~/Desktop/Progetto_ucraina.R")
@@ -40,7 +42,16 @@ getwd()
 # Elenco dei file presenti nella directory per verificare la corretta disponibilità del dataset
 list.files()
 ````
-
+Caricamento dei pachetti che veranno utilizzati nello stuido 
+````r
+#caricamento dei pachetti 
+library(terra)     # Per gestire le immagini satellitari
+library(imageRy)   # Per facilitarmi il lavoro con le bande
+library(ggplot2)   # Per fare i grafici
+library(patchwork) # Per mettere i grafici uno accanto all'altro
+library(viridis)   # Per i colori delle mappe (così si vedono bene)
+library(ggridges)  # Per i grafici a cresta (belli e utili)
+````
 
 
 
