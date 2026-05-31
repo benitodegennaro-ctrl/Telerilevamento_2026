@@ -18,12 +18,30 @@ Il progetto si propone di analizzare gli effetti ambientali del conflitto armato
 L'obiettivo è quantificare l'impatto bellico non solo attraverso un'analisi qualitativa (composizioni RGB), ma mediante l'elaborazione quantitativa di indici di vegetazione (NDVI) e indici di distruzione (NBR). L'analisi multitemporale 2021-2026 permette di indagare la resilienza dell'ecosistema agrario in un'area soggetta a pressioni antropiche estreme.
 
 # 🛠️materiali e metodi 
-## Raccolta imagini 
+## Acquisizione dati 
 Le imagini sono state acquisite dal portale web di [Google Earth Engine](https://earthengine.google.com/), selezionado una delle arre colpite nel conflitto.
+## Caratteristiche del sensore (sentinel 2) 
+Per l'analisi è stato utilizzato il satellite Sentinel-2 (programma Copernicus), scelto per le sue specifiche tecniche ottimali:
+- **Risoluzione spaziale**: 10 metri nelle bande del visibile e nel NIR, essenziale per il dettaglio agrario.
+- **Risoluzione temporale**: Alta frequenza di rivisitazione, ideale per serie storiche multitemporali (2021-2026).
+- **Bande spettrali**: Presenza delle bande NIR e SWIR, necessarie per il calcolo preciso degli indici NDVI e NBR.
+
 
 >[!NOTE]
 >
 > Il codice java utilizzato per l'acquisizione delle immagini e nel file codes.Js
+
+## inzio dell'analisi tramite il sofftwer R 
+````r
+# Imposta la cartella di lavoro per gestire correttamente l'input e l'output dei file del progetto
+setwd("~/Desktop/Progetto_ucraina.R")
+#Verifica del percorso impostato: conferma la cartella di lavoro corrente
+getwd()
+# Elenco dei file presenti nella directory per verificare la corretta disponibilità del dataset
+list.files()
+````
+
+
 
 
 
