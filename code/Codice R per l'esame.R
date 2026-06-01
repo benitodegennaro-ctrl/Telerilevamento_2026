@@ -1,5 +1,9 @@
 # Imposta la cartella di lavoro per gestire correttamente l'input e l'output dei file del progetto
 setwd("~/Desktop/Progetto_ucraina.R")
+#Verifica del percorso impostato: conferma la cartella di lavoro corrente
+getwd()
+# Elenco dei file presenti nella directory per verificare la corretta disponibilità del dataset
+list.files()
 
 #caricamento dei pachetti 
 library(terra)     # Per gestire le immagini satellitari
