@@ -74,6 +74,9 @@ Ucraina_2021
 Ucraina_2023
 Ucraina_2026
 ````
+Dall'interrogazione degli oggetti, risulta che tutti e tre i dataset presentano le medesime caratteristiche strutturali, nello specifico:
+- 
+
 
 
 
