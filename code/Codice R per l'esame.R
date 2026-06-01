@@ -8,3 +8,14 @@ library(ggplot2)   # Per fare i grafici
 library(patchwork) # Per mettere i grafici uno accanto all'altro
 library(viridis)   # Per i colori delle mappe (così si vedono bene)
 library(ggridges)  # Per i grafici a cresta (belli e utili)
+
+#caricamento dei dati raster 
+Ucraina_2021<-rast("Ucraina_2021_bands.tif") # dati pre-conflitto (2021)
+Ucraina_2023<-rast("Ucraina_2023_bands.tif") # Dati fase intermedia (2023)
+Ucraina_2026<-rast("Ucraina_2026_bands.tif") # Dati correnti (2026)
+
+# Interrogazione degli oggetti per la verifica delle informazioni spaziali e delle proprietà
+Ucraina_2021
+Ucraina_2023
+Ucraina_2026
+
