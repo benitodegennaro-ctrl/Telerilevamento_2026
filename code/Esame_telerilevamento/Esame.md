@@ -121,6 +121,35 @@ im.plotRGB(Ucraina_2026, r=3, g=2, b=1, title="Ucraina 2026 periodo attuale") #C
 # chiusura dell'interfaccia grfica 
 dev.off()
 ````
+## Analisi della scomposizione spettrale multitemporale
+````r
+#Composizione in Colori Naturali (True Color)
+im.multiframe(1,3) #divisione dell interfaccia grafica in 1 riga e tre colonne 
+im.plotRGB(Ucraina_2021, r=3, g=2, b=1, title="Ucraina 2021 pre-conflitto") #Composizione spettrale nel dominio del visibile
+im.plotRGB(Ucraina_2023, r=3, g=2, b=1, title="Ucraina 2023 periodo critico") #Composizione spettrale nel dominio del visibile
+im.plotRGB(Ucraina_2026, r=3, g=2, b=1, title="Ucraina 2026 periodo attuale") #Composizione spettrale nel dominio del visibile
+dev.off()
 
+im.multiframe(3, 4) 
+ 
+# Anno 2021
+plot(Ucraina_2021[[1]], col=magma(100), main="2021 - B2") # Riflettanza nel visibile (blu)
+plot(Ucraina_2021[[2]], col=magma(100), main="2021 - B3") # Riflettanza nel visibile (verde)
+plot(Ucraina_2021[[3]], col=magma(100), main="2021 - B4") # Riflettanza nel visibile (rosso)
+plot(Ucraina_2021[[4]], col=magma(100), main="2021 - B8") # Riflettanza nel vicino infrarosso (biomassa)
+ 
+# Anno 2023
+plot(Ucraina_2023[[1]], col=magma(100), main="2023 - B2") # Riflettanza nel visibile (blu)
+plot(Ucraina_2023[[2]], col=magma(100), main="2023 - B3") # Riflettanza nel visibile (verde)
+plot(Ucraina_2023[[3]], col=magma(100), main="2023 - B4") # Riflettanza nel visibile (rosso)
+plot(Ucraina_2023[[4]], col=magma(100), main="2023 - B8") # Riflettanza nel vicino infrarosso (biomassa)
+ 
+# Anno 2026
+plot(Ucraina_2026[[1]], col=magma(100), main="2026 - B2") # Riflettanza nel visibile (blu)
+plot(Ucraina_2026[[2]], col=magma(100), main="2026 - B3") # Riflettanza nel visibile (verde)
+plot(Ucraina_2026[[3]], col=magma(100), main="2026 - B4") # Riflettanza nel visibile (rosso)
+plot(Ucraina_2026[[4]], col=magma(100), main="2026 - B8") # Riflettanza nel vicino infrarosso (biomassa)
+````
+<img src="immagini/Visualizzaizoni_bande.png" width="800">
 
 
