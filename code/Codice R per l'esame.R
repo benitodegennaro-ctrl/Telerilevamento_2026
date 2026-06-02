@@ -23,3 +23,8 @@ Ucraina_2021
 Ucraina_2023
 Ucraina_2026
 
+#eseguo i plot dei vari file
+plot(Ucraina_2021)
+plot(Ucraina_2023)
+plot(Ucraina_2026)
+
