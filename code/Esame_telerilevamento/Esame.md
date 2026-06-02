@@ -89,7 +89,7 @@ Dall'interrogazione degli oggetti, risulta che tutti e tre i dataset presentano 
 plot(Ucraina_2021)
 ````
 <img src="immagini/Plot_2021.png" width="800">
-
+##
 
 **2023**
 ````r
