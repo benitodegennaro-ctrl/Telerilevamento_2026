@@ -82,8 +82,23 @@ Dall'interrogazione degli oggetti, risulta che tutti e tre i dataset presentano 
 - il sistema di riferimento : WGS 84 (EPSG:4326)
 - le bande : B2, B3, B4, B8, B11, B12
 
-  
+## Visualizzazione delle immagini 
+**2021**
+````r
+#visualizzazione delle bande spettrali (2021)
+plot(Ucraina_2021)
+````
 
+**2023**
+````r
+#visualizzazione delle bande spettrali (2021)
+plot(Ucraina_2023)
+````
+**2026**
+````r
+#visualizzazione delle bande spettrali (2021)
+plot(Ucraina_2021)
+````
 
 
 
