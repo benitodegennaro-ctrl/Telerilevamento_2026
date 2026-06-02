@@ -122,6 +122,8 @@ im.plotRGB(Ucraina_2026, r=3, g=2, b=1, title="Ucraina 2026 periodo attuale") #C
 dev.off()
 ````
 ## Analisi della scomposizione spettrale multitemporale
+La figura sottostante illustra la scomposizione spettrale multitemporale dell'area di studio. Attraverso il confronto tra le bande del visibile (B2, B3, B4) e la banda del vicino infrarosso (B8), è possibile isolare la risposta riflettiva del suolo e della vegetazione in tre differenti fasi temporali: baseline (2021), fase critica (2023) e situazione attuale (2026).
+
 ````r
 #suddivisione dell'interfaccia grafica 
 im.multiframe(3, 4) 
