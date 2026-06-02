@@ -38,19 +38,19 @@ dev.off()
 im.multiframe(3, 4) 
  
 # Anno 2021
-plot(Ucraina_2021[[1]], col=magma(100), main="2021 - B2")
-plot(Ucraina_2021[[2]], col=magma(100), main="2021 - B3")
-plot(Ucraina_2021[[3]], col=magma(100), main="2021 - B4")
-plot(Ucraina_2021[[4]], col=magma(100), main="2021 - B8")
+plot(Ucraina_2021[[1]], col=magma(100), main="2021 - B2") # Riflettanza nel visibile (blu)
+plot(Ucraina_2021[[2]], col=magma(100), main="2021 - B3") # Riflettanza nel visibile (verde)
+plot(Ucraina_2021[[3]], col=magma(100), main="2021 - B4") # Riflettanza nel visibile (rosso)
+plot(Ucraina_2021[[4]], col=magma(100), main="2021 - B8") # Riflettanza nel vicino infrarosso (biomassa)
  
 # Anno 2023
-plot(Ucraina_2023[[1]], col=magma(100), main="2023 - B2")
-plot(Ucraina_2023[[2]], col=magma(100), main="2023 - B3")
-plot(Ucraina_2023[[3]], col=magma(100), main="2023 - B4")
-plot(Ucraina_2023[[4]], col=magma(100), main="2023 - B8")
+plot(Ucraina_2023[[1]], col=magma(100), main="2023 - B2") # Riflettanza nel visibile (blu)
+plot(Ucraina_2023[[2]], col=magma(100), main="2023 - B3") # Riflettanza nel visibile (verde)
+plot(Ucraina_2023[[3]], col=magma(100), main="2023 - B4") # Riflettanza nel visibile (rosso)
+plot(Ucraina_2023[[4]], col=magma(100), main="2023 - B8") # Riflettanza nel vicino infrarosso (biomassa)
  
 # Anno 2026
-plot(Ucraina_2026[[1]], col=magma(100), main="2026 - B2")
-plot(Ucraina_2026[[2]], col=magma(100), main="2026 - B3")
-plot(Ucraina_2026[[3]], col=magma(100), main="2026 - B4")
-plot(Ucraina_2026[[4]], col=magma(100), main="2026 - B8")
+plot(Ucraina_2026[[1]], col=magma(100), main="2026 - B2") # Riflettanza nel visibile (blu)
+plot(Ucraina_2026[[2]], col=magma(100), main="2026 - B3") # Riflettanza nel visibile (verde)
+plot(Ucraina_2026[[3]], col=magma(100), main="2026 - B4") # Riflettanza nel visibile (rosso)
+plot(Ucraina_2026[[4]], col=magma(100), main="2026 - B8") # Riflettanza nel vicino infrarosso (biomassa)
