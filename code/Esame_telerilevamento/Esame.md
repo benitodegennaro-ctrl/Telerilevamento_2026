@@ -11,7 +11,7 @@ Il progetto si propone di analizzare gli effetti ambientali del conflitto armato
 - **2021** (Baseline): rappresenta lo stato del territorio in condizioni di normalità, prima dell'escalation del conflitto.
 - **2023** (Fase critica): evidenzia l'impatto diretto delle attività belliche sulla copertura del suolo e sulla salute della vegetazione.
 - **2026** (Situazione attuale): permette di valutare il grado di ripristino dell'ecosistema o, al contrario, la persistenza dei danni ambientali nel tempo.
-
+  
 <img src="Area%20di%20studio.png" width="600">
 
 # 📌Obiettivi
