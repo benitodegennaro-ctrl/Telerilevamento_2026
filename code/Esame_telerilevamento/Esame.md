@@ -93,15 +93,15 @@ plot(Ucraina_2021)
 
 **2023**
 ````r
-#visualizzazione delle bande spettrali (2021)
+#visualizzazione delle bande spettrali (2023)
 plot(Ucraina_2023)
 ````
 <img src="immagini/Plot_2023.png" width="800">
 
 **2026**
 ````r
-#visualizzazione delle bande spettrali (2021)
-plot(Ucraina_2021)
+#visualizzazione delle bande spettrali (2026)
+plot(Ucraina_2026)
 ````
 
 <img src="immagini/Plot_2026.png" width="800">
