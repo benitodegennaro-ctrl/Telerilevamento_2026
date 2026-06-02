@@ -113,7 +113,9 @@ im.plotRGB(Ucraina_2023, r=3, g=2, b=1, title="Ucraina 2023 periodo critico") #C
 im.plotRGB(Ucraina_2026, r=3, g=2, b=1, title="Ucraina 2026 periodo attuale") #Composizione spettrale nel dominio del visibile
 ````
 <img src="immagini/Confronto_RGB.png" width="800">
+
 > La serie multitemporale analizzata consente di quantificare i processi di degradazione del suolo in funzione dell'escalation del conflitto
+
 
 ````r
 # chiusura dell'interfaccia grfica 
