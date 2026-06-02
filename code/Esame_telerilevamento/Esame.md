@@ -122,7 +122,7 @@ im.plotRGB(Ucraina_2026, r=3, g=2, b=1, title="Ucraina 2026 periodo attuale") #C
 dev.off()
 ````
 ## Analisi della scomposizione spettrale multitemporale
-La figura sottostante illustra la scomposizione spettrale multitemporale dell'area di studio. Attraverso il confronto tra le bande del visibile (B2, B3, B4) e la banda del vicino infrarosso (B8), è possibile isolare la risposta riflettiva del suolo e della vegetazione in tre differenti fasi temporali: baseline (2021), fase critica (2023) e situazione attuale (2026).
+Attraverso il confronto tra le bande del visibile (B2, B3, B4) e la banda del vicino infrarosso (B8), è possibile isolare la risposta riflettiva del suolo e della vegetazione in tre differenti fasi temporali: baseline (2021), fase critica (2023) e situazione attuale (2026).
 
 ````r
 #suddivisione dell'interfaccia grafica 
@@ -147,5 +147,9 @@ plot(Ucraina_2026[[3]], col=magma(100), main="2026 - B4") # Riflettanza nel visi
 plot(Ucraina_2026[[4]], col=magma(100), main="2026 - B8") # Riflettanza nel vicino infrarosso (biomassa)
 ````
 <img src="immagini/Visualizzaizoni_bande.png" width="800">
+
+Dall'osservazione delle immagini emerge una netta variazione nella banda NIR (B8), dove la perdita di riflettanza tra il 2021 e il 2023 evidenzia una significativa distruzione della copertura vegetale. Al contrario, le bande del visibile (B2, B3, B4) mostrano variazioni meno marcate, confermando che il degrado ambientale causato dal conflitto è identificabile con precisione solo attraverso l'analisi specifica del segnale infrarosso.
+
+
 
 
