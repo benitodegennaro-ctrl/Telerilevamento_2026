@@ -14,7 +14,7 @@ Il progetto si propone di analizzare gli effetti ambientali del conflitto armato
 <img src="immagini/Screenshot%202026-05-29%20alle%2020.08.17.png" width="600">
 
 # 📌Obiettivi
-L'obiettivo è quantificare l'impatto bellico non solo attraverso un'analisi qualitativa (composizioni RGB), ma mediante l'elaborazione quantitativa di indici di vegetazione (NDVI) e indici di distruzione (NBR). L'analisi multitemporale 2021-2026 permette di indagare la resilienza dell'ecosistema agrario in un'area soggetta a pressioni antropiche estreme.
+L'obiettivo è quantificare l'impatto bellico non solo attraverso un'analisi qualitativa (composizioni RGB), ma mediante l'elaborazione quantitativa di indici di vegetazione (NDVI) e Difference Vegetation Index (DVI). L'analisi multitemporale 2021-2026 permette di indagare la resilienza dell'ecosistema agrario in un'area soggetta a pressioni antropiche estreme.
 
 # 🛠️materiali e metodi 
 ## Acquisizione dati 
@@ -24,6 +24,8 @@ Per l'analisi è stato utilizzato il satellite Sentinel-2 (programma Copernicus)
 - **Risoluzione spaziale**: 10 metri nelle bande del visibile e nel NIR, essenziale per il dettaglio agrario.
 - **Risoluzione temporale**: Alta frequenza di rivisitazione, ideale per serie storiche multitemporali (2021-2026).
 - **Bande spettrali**: Presenza delle bande NIR e SWIR, necessarie per il calcolo preciso degli indici NDVI e NBR.
+
+  
 
 
 >[!NOTE]
@@ -149,9 +151,31 @@ plot(Ucraina_2026[[4]], col=magma(100), main="2026 - B8") # Riflettanza nel vici
 
 Dall'osservazione delle immagini emerge una netta variazione nella banda NIR (B8), dove la perdita di riflettanza tra il 2021 e il 2023 evidenzia una significativa distruzione della copertura vegetale. Al contrario, le bande del visibile (B2, B3, B4) mostrano variazioni meno marcate, confermando che il degrado ambientale causato dal conflitto è identificabile con precisione solo attraverso l'analisi specifica del segnale infrarosso.
 
-# Calcolo degli indici vegetazionali 
+#🌾 Calcolo degli indici vegetazionali 
 
-## Indice NBR 
+## different vegetation index (DVI) 
+Il DVI index viene utilizzato per valutare la presenza di vegetazione. Il DVI sfrutta la differente risposta spettrale della vegetazione nelle bande del rosso e del vicino infrarosso. Le piante sane assorbono gran parte della radiazione nella banda del rosso per i processi fotosintetici e riflettono intensamente la radiazione nel vicino infrarosso. Di conseguenza, la differenza tra queste due bande consente di stimare la presenza e la vigoria della copertura vegetale.
+
+$` DVI = NIR - RED `$   
+````r
+#clacolo del DVI tramite im.dvi del pachetto ImageRy 
+dvi_2021<- im.dvi(Ucraina_2021, 4,3) #calcolo dell differnt vegetation index anno 2021 
+dvi_2023<- im.dvi(Ucraina_2023, 4,3) #calcolo dell differnt vegetation index anno 2023
+dvi_2026<- im.dvi(Ucraina_2026, 4,3) #calcolo dell differnt vegetation index anno 2026
+````
+Tramite la visualizzazione delle mappe dell'indice, è possibile apprezzare la variazione temporale della biomassa e identificare chiaramente le aree colpite dal degrado ambientale
+
+````R
+im.multiframe(1,3) #suddivisione dell'interfaccia grafica in una riga e tre colonne 
+#Utilizzo della palette 'inferno' per garantire una rappresentazione percettivamente uniforme e accessibile dei dati continui di DVI
+plot(dvi_2021, col=inferno(100), main="DVI 2021") #visione dell' indice dvi per l'anno 2021 
+plot(dvi_2023, col=inferno(100), main="DVI 2023") #visione dell' indice dvi per l'anno 2023
+plot(dvi_2026, col=inferno(100), main="DVI 2026") #visione dell' indice dvi per l'anno 2026
+````
+
+
+
+
 
 
 
