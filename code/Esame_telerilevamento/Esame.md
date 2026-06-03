@@ -172,6 +172,8 @@ plot(dvi_2021, col=inferno(100), main="DVI 2021") #visione dell' indice dvi per 
 plot(dvi_2023, col=inferno(100), main="DVI 2023") #visione dell' indice dvi per l'anno 2023
 plot(dvi_2026, col=inferno(100), main="DVI 2026") #visione dell' indice dvi per l'anno 2026
 ````
+<img src="immagini/DVI.png" width="800">
+
 
 
 
