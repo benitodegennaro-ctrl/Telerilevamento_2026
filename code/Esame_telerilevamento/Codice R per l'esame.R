@@ -66,3 +66,8 @@ im.multiframe(1,3) #suddivisione dell'interfaccia grafica in una riga e tre colo
 plot(dvi_2021, col=inferno(100), main="DVI 2021") #visione dell' indice dvi per l'anno 2021 
 plot(dvi_2023, col=inferno(100), main="DVI 2023") #visione dell' indice dvi per l'anno 2023
 plot(dvi_2026, col=inferno(100), main="DVI 2026") #visione dell' indice dvi per l'anno 2026 
+
+#caclo del NDVI
+ndvi_2021<-im.ndvi(Ucraina_2021,4,3) #NDVI anno 2021
+ndvi_2023<-im.ndvi(Ucraina_2023,4,3) #NDVI anno 2023
+ndvi_2026<-im.ndvi(Ucraina_2026,4,3) #NDVI anno 2026
