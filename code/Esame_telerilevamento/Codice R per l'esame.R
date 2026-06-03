@@ -59,3 +59,10 @@ plot(Ucraina_2026[[4]], col=magma(100), main="2026 - B8") # Riflettanza nel vici
 dvi_2021<- im.dvi(Ucraina_2021, 4,3) #calcolo dell differnt vegetation index anno 2021 
 dvi_2023<- im.dvi(Ucraina_2023, 4,3) #calcolo dell differnt vegetation index anno 2023
 dvi_2026<- im.dvi(Ucraina_2026, 4,3) #calcolo dell differnt vegetation index anno 2026
+
+#Visualizzazione su mappa dell DVI 
+im.multiframe(1,3) #suddivisione dell'interfaccia grafica in una riga e tre colonne 
+#Utilizzo della palette 'inferno' per garantire una rappresentazione percettivamente uniforme e accessibile dei dati continui di DVI
+plot(dvi_2021, col=inferno(100), main="DVI 2021") #visione dell' indice dvi per l'anno 2021 
+plot(dvi_2023, col=inferno(100), main="DVI 2023") #visione dell' indice dvi per l'anno 2023
+plot(dvi_2026, col=inferno(100), main="DVI 2026") #visione dell' indice dvi per l'anno 2026 
