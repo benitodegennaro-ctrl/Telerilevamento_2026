@@ -174,6 +174,8 @@ plot(dvi_2026, col=inferno(100), main="DVI 2026") #visione dell' indice dvi per 
 ````
 <img src="immagini/DVI.png" width="800">
 
+Dal confronto DVI si puo osservare un progressivo e  drastico calo vigore veggetativo, rilevando una forte diminuzione di biomasaa nel 2023, processo che appare ulteriormente accentuato nel 2026
+
 
 
 
