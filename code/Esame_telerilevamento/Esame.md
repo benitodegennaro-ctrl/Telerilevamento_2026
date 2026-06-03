@@ -176,6 +176,32 @@ plot(dvi_2026, col=inferno(100), main="DVI 2026") #visione dell' indice dvi per 
 
 Dal confronto DVI si puo osservare un progressivo e  drastico calo vigore veggetativo, rilevando una forte diminuzione di biomasaa nel 2023, processo che appare ulteriormente accentuato nel 2026
 
+## Normalized Difference Vegetation Index (NDVI)
+Si utilizza per valutare lo stato di salute e la densità di copertura vegetale. L'indice NDVI analogamente all'indice DVI sfrutta la differente risposta spettrale della vegetazione nelle bande del rosso (Red) e del vicino infrarosso (NIR). Tuttavia grazie alla normalizzazione l'NDVI assume volori compresi tra -1 e +1, facilitando il confronto tra immagini acquisite in perioodi differenzi 
+$` NDVI=NIR-Red/NIR+Red `$
+
+- valori prossimi a +1 indicano vegetazione sana e vigorosa
+- valori vicino allo 0 vegetazione rada
+- valori negativi generalmente sono associati
+
+````r
+#caclo del NDVI
+ndvi_2021<-im.ndvi(Ucraina_2021,4,3) #NDVI anno 2021
+ndvi_2023<-im.ndvi(Ucraina_2023,4,3) #NDVI anno 2023
+ndvi_2026<-im.ndvi(Ucraina_2026,4,3) #NDVI anno 2026
+````
+La distribuzione spaziale del vigore fotosintetico calcolato viene visualizzata di seguito per facilitare il confronto multitemporale dei dati.
+````r
+im.multiframe(1,3) #suddivisione dell'interfaccia grafica in  1 riga e 3 colonne
+#visualizzazione dei vari NDVI 
+plot(ndvi_2021, col=mako(100), main="NDVI 2021") # visualizzazione NDVI 2021
+plot(ndvi_2023, col=mako(100), main="NDVI 2023") # visualizzazione NDVI 2023
+plot(ndvi_2026, col=mako(100), main="NDVI 2026") # visualizzazione NDVI 2026
+````
+Il confronto tra le tre date mostra una diminuzione dei valori dell'indice nel 2023, indicativa di una riduzione della vigoria vegetativa durante la fase più intensa del conflitto e nel 2026.
+
+
+
 
 
 
