@@ -200,7 +200,7 @@ plot(ndvi_2026, col=mako(100), main="NDVI 2026") # visualizzazione NDVI 2026
 ````
 Il confronto tra le tre date mostra una diminuzione dei valori dell'indice nel 2023, indicativa di una riduzione della vigoria vegetativa durante la fase più intensa del conflitto e nel 2026.
 
-<img src="immagini/Visualizzazioni NDVI" width="800">
+<img src="immagini/Visulizazzioni NDVI.png" width="800">
 
 
 
