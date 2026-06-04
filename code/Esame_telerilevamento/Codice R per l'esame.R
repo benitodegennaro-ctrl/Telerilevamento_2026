@@ -71,3 +71,9 @@ plot(dvi_2026, col=inferno(100), main="DVI 2026") #visione dell' indice dvi per 
 ndvi_2021<-im.ndvi(Ucraina_2021,4,3) #NDVI anno 2021
 ndvi_2023<-im.ndvi(Ucraina_2023,4,3) #NDVI anno 2023
 ndvi_2026<-im.ndvi(Ucraina_2026,4,3) #NDVI anno 2026
+
+im.multiframe(1,3) #suddivisione dell'interfaccia grafica in  1 riga e 3 colonne
+#visualizzazione dei vari NDVI 
+plot(ndvi_2021, col=mako(100), main="NDVI 2021") # visualizzazione NDVI 2021
+plot(ndvi_2023, col=mako(100), main="NDVI 2023") # visualizzazione NDVI 2023
+plot(ndvi_2026, col=mako(100), main="NDVI 2026") # visualizzazione NDVI 2026
