@@ -202,6 +202,22 @@ Il confronto tra le tre date mostra una diminuzione dei valori dell'indice nel 2
 
 <img src="immagini/Visulizazzioni NDVI.png" width="800">
 
+## calcolo della differeenza multitemporale dell'NDVI
+Per analizzare l'evoluzione temporale dell'area di studio, viene calcolata la differenza tra NDVI, permettendo di mappare il gradiente di variazione del vigore vegetale, dove i valori negativi evidenziano i processi di degrado ambientale avvenuti negli anni selzionati 
+
+````r
+dif_23_21 <- ndvi_2023 - ndvi_2021 # Differenza tra il 2023 e il 2021
+dif_26_23 <- ndvi_2026 - ndvi_2023 # Differenza tra il 2026 e il 2023
+dif_26_21 <- ndvi_2026 - ndvi_2021# Differenza totale sull'intero periodo analizzato
+#suddivisione dell'interfaccia grafica in una riga e tre colonne 
+im.multiframe(1,3)
+plot(dif_23_21, col=mako (100), main="dif_NDVI_2023-2021") #visalizzazione della differenza tra l'anno 2023 e 2021
+plot(dif_26_23, col=mako (100), main="dif_NDVI_2026-2024") #visualizzazione della differenza tra l'anno 2026 e 2023
+plot(dif_23_21, col=mako (100), main="dif_NDVI_2023-2021") #visualizzazione della differenza tra l'anno 2023 e 2021
+````
+le mappe di differeneza evidenziano un'elevata frammentazione spaziale con valori che vanno da ± 6. si osserva che un alternanza tra fasi di degrado tra il 2021 e 2023, e successiva ripresa nella fascia tra il 2023 e il 2026. Sebbene tale incremento suggerisce un fenomeno di riconolizzaizone naturale il confronto tra 2021 e 2026 confermano che il bilancio ecologico totale rimane in deficit in diversee aree del dataset.
+
+
 
 
 
