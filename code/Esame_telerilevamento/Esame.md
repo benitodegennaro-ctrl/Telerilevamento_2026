@@ -175,7 +175,7 @@ Dal confronto DVI si puo osservare un progressivo e  drastico calo vigore vegget
 ### Normalized Difference Vegetation Index (NDVI)
 Si utilizza per valutare lo stato di salute e la densità di copertura vegetale. L'indice NDVI analogamente all'indice DVI sfrutta la differente risposta spettrale della vegetazione nelle bande del rosso (Red) e del vicino infrarosso (NIR). Tuttavia grazie alla normalizzazione l'NDVI assume volori compresi tra -1 e +1, facilitando il confronto tra immagini acquisite in perioodi differenzi 
 
-$` NDVI = (NIR − Red) / (NIR + Red) `$ 
+$NDVI = \frac{NIR - Red}{NIR + Red}$
 
 - valori prossimi a +1 indicano vegetazione sana e vigorosa
 - valori vicino allo 0 vegetazione rada
