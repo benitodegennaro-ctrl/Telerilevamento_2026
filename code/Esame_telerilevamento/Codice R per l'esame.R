@@ -92,9 +92,9 @@ plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021") #visualizzazione de
 
 # classificazione della vegetazione 
 # Classificazione in 3 cluster (es. 1 = Vegetazione, 2 = suolo nudo )
-class_2021 <- im.classify(ndvi_2021, num_clusters=2 ) #Classificazione dell'NDVI del 2021 
-class_2022 <- im.classify(ndvi_2022, num_clusters=2 ) #Classificazione dell'NDVI del 2022
-class_2026 <- im.classify(ndvi_2026, num_clusters=2 ) #Classificazione dell'NDVI del 2026
+class_2021 <- im.classify(ndvi_2021, seed=42, num_clusters=2 ) #Classificazione dell'NDVI del 2021 
+class_2022 <- im.classify(ndvi_2022, seed=42, num_clusters=2 ) #Classificazione dell'NDVI del 2022
+class_2026 <- im.classify(ndvi_2026, seed=42, num_clusters=2 ) #Classificazione dell'NDVI del 2026
 
 # Definizione della legenda a due classi
 levels(class_2021) <- data.frame( value = c(2, 1), label = c("vegetazione", "suolo nudo"))
@@ -124,11 +124,11 @@ perc2022 <- prop2022 * 100
 perc2026 <- prop2026 * 100
 
 #crazione di una tabella con i dati calcolati 
-tabella <- data.frame(
-  class = c("suolo nudo", "vegetazione"),
-  perc2021 = percentuale2021,
-  perc2022 = percentuale2022,
-  perc2026 = percentuale2026)
+tabella <- data.frame(class = c("suolo nudo", "vegetazione"),
+percentuale2021 = perc2021,
+percentuale2022 = perc2022,
+percentuale2026 = perc2026
+)
 
 # Visualizzazione della tabella finale
 tabella
