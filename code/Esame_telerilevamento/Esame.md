@@ -273,12 +273,13 @@ tabella <- data.frame(
 # Visualizzazione della tabella finale
 tabella
 ````
-| class | perc2021 | perc2022 | perc2026 |
+| class | percentuale 2021 | percentuale 2022 | percentuale 2026 |
 | :--- | :---: | :---: | :---: |
-| **suolo nudo** | 27.64959 | 64.25449 | 48.32758 |
-| **vegetazione** | 72.35041 | 35.74551 | 51.67242 |
+| **suolo nudo** | 27.64959 | 64.25449 | 51.67242 |
+| **vegetazione** | 72.35041 | 35.74551 | 48.32796 |
 
-come si puo vedere dai dati ottenuti la vegetazione ha avuto un forte calo nel 2023 a causa del conflitto ma nel 2026 e avvenuta una lieve ripresa 
+come si puo vedere dai dati ottenuti la vegetazione ha avuto un forte calo nel 2023 a causa del conflitto ma nel 2026 il pegioramento continua.
+
 
 
 
