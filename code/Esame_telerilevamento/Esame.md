@@ -89,21 +89,21 @@ Dall'interrogazione degli oggetti, risulta che tutti e tre i dataset presentano 
 #visualizzazione delle bande spettrali (2021)
 plot(Ucraina_2021)
 ````
-<img src="immagini/Plot_2021.png" width="800">
+<img src="Immagini/plot_2021.png" width="800">
 
-**2023**
+**2022**
 ````r
 #visualizzazione delle bande spettrali (2023)
-plot(Ucraina_2023)
+plot(Ucraina_2022)
 ````
-<img src="immagini/Plot_2023.png" width="800">
+<img src="Immagini/plot_2022.png" width="800">
 
 **2026**
 ````r
 #visualizzazione delle bande spettrali (2026)
 plot(Ucraina_2026)
 ````
-<img src="immagini/Plot_2026.png" width="800">
+<img src="Immagini/plot_2026.png" width="800">
 
 ## Composizione in Colori Naturali (True Color)
 ````r
