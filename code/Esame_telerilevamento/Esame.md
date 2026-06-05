@@ -275,8 +275,8 @@ tabella
 ````
 | class | percentuale 2021 | percentuale 2022 | percentuale 2026 |
 | :--- | :---: | :---: | :---: |
-| **suolo nudo** | 27.64959 | 64.25449 | 51.67242 |
-| **vegetazione** | 72.35041 | 35.74551 | 48.32796 |
+| **suolo nudo** | 27.64959 | 35.74551 | 51.67242 |
+| **vegetazione** | 72.35041 | 64.25449 | 48.32796 |
 
 come si puo vedere dai dati ottenuti la vegetazione ha avuto un forte calo nel 2023 a causa del conflitto ma nel 2026 il pegioramento continua.
 
