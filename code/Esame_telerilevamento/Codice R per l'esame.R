@@ -126,10 +126,9 @@ perc2026 <- prop2026 * 100
 #crazione di una tabella con i dati calcolati 
 tabella <- data.frame(
   class = c("suolo nudo", "vegetazione"),
-  perc2021 = perc2021,
-  perc2022 = perc2022,
-  perc2026 = perc2026
-)
+  perc2021 = percentuale2021,
+  perc2022 = percentuale2022,
+  perc2026 = percentuale2026)
 
 # Visualizzazione della tabella finale
 tabella
