@@ -223,7 +223,7 @@ class_2021 <- im.classify(ndvi_2021, seed=42, num_clusters=2 ) #Classificazione 
 class_2022 <- im.classify(ndvi_2022, sedd=42, num_clusters=2 ) #Classificazione dell'NDVI del 2022
 class_2026 <- im.classify(ndvi_2026, seed=42, num_clusters=2 ) #Classificazione dell'NDVI del 2026
 ````
-<img src="Immagini/classi.png" width="800">
+<img src="Immagini/Classidicazione_senza_legenda.png" width="800">
 
 ````r
 # Definizione della legenda a due classi(vegetazione, suolo budo)
@@ -237,7 +237,7 @@ plot(class_2021, main="2021") #visualizzazione classi 2021
 plot(class_2022, main="2022") #visualizzazione classi 2023
 plot(class_2026, main="2026") #visualizzazione classi 2026
 ````
-<img src="Immagini/classi_con_legenda.png" width="800">
+<img src="Immagini/Area_classificata.png" width="800">
 
 come si puo notare a colpo d'occhio dalle mappe la vegetazione e in netto calo nel 2023
 
