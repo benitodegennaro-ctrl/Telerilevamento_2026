@@ -220,7 +220,7 @@ Tramite la classificazione è possibile stabilire la frequenza della copertura v
 ````r
 # Classificazione in 2 cluster (es. 1 = Vegetazione, 2 = suolo nudo )
 class_2021 <- im.classify(ndvi_2021, seed=42, num_clusters=2 ) #Classificazione dell'NDVI del 2021 
-class_2022 <- im.classify(ndvi_2022, sedd=42, num_clusters=2 ) #Classificazione dell'NDVI del 2022
+class_2022 <- im.classify(ndvi_2022, seed=42, num_clusters=2 ) #Classificazione dell'NDVI del 2022
 class_2026 <- im.classify(ndvi_2026, seed=42, num_clusters=2 ) #Classificazione dell'NDVI del 2026
 ````
 <img src="Immagini/Classidicazione_senza_legenda.png" width="800">
