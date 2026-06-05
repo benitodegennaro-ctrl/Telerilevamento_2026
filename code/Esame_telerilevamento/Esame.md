@@ -56,13 +56,13 @@ library(ggridges)  # Per i grafici a cresta (belli e utili)
 Carico i dati raster percepiti da Sentinel 2 ,tramite la funzione **rast** del pachetto **terra**  
 ````r
 Ucraina_2021<-rast("Ucraina_2021_bands.tif") # dati pre-conflitto (2021)
-Ucraina_2023<-rast("Ucraina_2023_bands.tif") # Dati fase intermedia (2023)
+Ucraina_2022<-rast("Ucraina_2023_bands.tif") # Dati fase intermedia (2022)
 Ucraina_2026<-rast("Ucraina_2026_bands.tif") # Dati correnti (2026)
 ````
 
 ## verifica dei metatdati dei dati raster caricati 
 
-Prima di procedere con l'elaborazione, interrogo i tre oggetti ````Ucraina_2021````,````Ucraina_2023````e ```` Ucraina_2026````per validare le loro proprietà spaziali e strutturali. Questo passaggio è necessario per confermare che i dati siano correttamente allineati e pronti per l'analisi comparativa. In particolare, verifico:
+Prima di procedere con l'elaborazione, interrogo i tre oggetti ````Ucraina_2021````,````Ucraina_2022````e ```` Ucraina_2026````per validare le loro proprietà spaziali e strutturali. Questo passaggio è necessario per confermare che i dati siano correttamente allineati e pronti per l'analisi comparativa. In particolare, verifico:
 
 - **Dimensioni**:Risoluzione spaziale e numero di pixel.
 - **Bande**:Numero e tipologia di bande spettrali disponibili.
