@@ -147,9 +147,9 @@ plot(Ucraina_2026[[4]], col=magma(100), main="2026 - B8") # Riflettanza nel vici
 
 Dall'osservazione delle immagini emerge una netta variazione nella banda NIR (B8), dove la perdita di riflettanza tra il 2021 e il 2022 evidenzia una significativa distruzione della copertura vegetale. Al contrario, le bande del visibile (B2, B3, B4) mostrano variazioni meno marcate, confermando che il degrado ambientale causato dal conflitto è identificabile con precisione solo attraverso l'analisi specifica del segnale infrarosso.
 
-# 🌾 Calcolo degli indici vegetazionali 
+## 🌾 Calcolo degli indici vegetazionali 
 
-## different vegetation index (DVI) 
+### different vegetation index (DVI) 
 Il DVI index viene utilizzato per valutare la presenza di vegetazione. Il DVI sfrutta la differente risposta spettrale della vegetazione nelle bande del rosso e del vicino infrarosso. Le piante sane assorbono gran parte della radiazione nella banda del rosso per i processi fotosintetici e riflettono intensamente la radiazione nel vicino infrarosso. Di conseguenza, la differenza tra queste due bande consente di stimare la presenza e la vigoria della copertura vegetale.
 
 $` DVI = NIR - RED `$   
@@ -172,9 +172,9 @@ plot(dvi_2026, col=inferno(100), main="DVI 2026") #visione dell' indice dvi per 
 
 Dal confronto DVI si puo osservare un progressivo e  drastico calo vigore veggetativo, rilevando una forte diminuzione di biomasaa nel 2022, processo che appare ulteriormente accentuato nel 2026
 
-## Normalized Difference Vegetation Index (NDVI)
+### Normalized Difference Vegetation Index (NDVI)
 Si utilizza per valutare lo stato di salute e la densità di copertura vegetale. L'indice NDVI analogamente all'indice DVI sfrutta la differente risposta spettrale della vegetazione nelle bande del rosso (Red) e del vicino infrarosso (NIR). Tuttavia grazie alla normalizzazione l'NDVI assume volori compresi tra -1 e +1, facilitando il confronto tra immagini acquisite in perioodi differenzi 
-$` NDVI=NIR-Red/NIR+Red `$
+NDVI = (NIR − Red) / (NIR + Red)  
 
 - valori prossimi a +1 indicano vegetazione sana e vigorosa
 - valori vicino allo 0 vegetazione rada
@@ -198,7 +198,7 @@ Il confronto tra le tre date mostra una diminuzione dei valori dell'indice nel 2
 
 <img src="Immagini/NDVI_anni.png" width="800">
 
-## calcolo della differeenza multitemporale dell'NDVI
+### calcolo della differeenza multitemporale dell'NDVI
 Per analizzare l'evoluzione temporale dell'area di studio, viene calcolata la differenza tra NDVI, permettendo di mappare il gradiente di variazione del vigore vegetale, dove i valori negativi evidenziano i processi di degrado ambientale avvenuti negli anni selzionati 
 
 ````r
@@ -213,6 +213,18 @@ plot(dif_26_21, col=mako (100), main="dif_NDVI_2026-2021") #visualizzazione dell
 ````
 <img src="Immagini/dif_anni.png" width="800">  
 le mappe di differeneza evidenziano un'elevata frammentazione spaziale con valori che vanno da ± 6. si osserva che un alternanza tra fasi di degrado tra il 2021 e 2023, e successiva ripresa nella fascia tra il 2023 e il 2026. Sebbene tale incremento suggerisce un fenomeno di riconolizzaizone naturale il confronto tra 2021 e 2026 confermano che il bilancio ecologico totale rimane in deficit in diversee aree del dataset.
+
+### Analisi statistica della densità di distribuzione dell'NDVI
+al fine di poter valutare quantitativamente le variazioni spaziali osservata nei cartogrammi dell'NDVI e nelle relative mappe differenzali. procedendo con l'analisis statistica della distribuzione dei valori dei pixel per ciascun anno. A tale scopo, viene utilizzato il grafico a cresta (ridgeline plot), uno strumento specifico per il confronto multitemporale immediato della densità dei dati. Per osservare la variazione temporale continua in un unico grafico, i singoli layer raster dell'NDVI vengono uniti in uno stack
+
+````r
+# Creazione dello stack dei tre NDVI e generazione del ridgeline plot
+ndvi_stack <- c(ndvi_2021, ndvi_2022, ndvi_2026)
+names(ndvi_stack) <- c("NDVI_2021", "NDVI_2022", "NDVI_2026") # Assegnazione nomi ai layer
+
+im.ridgeline(ndvi_stack, scale=1, palette="viridis")
+````
+<img src="Immagini/ridgline.png" width="800">  
 
 ## Classificazione 
 Tramite la classificazione è possibile stabilire la frequenza della copertura vegetazionale e quella del suolo nudo. Per questo studio sono state scelte tre classi poiché, come si percepisce dalle immagini, l'area è composta in gran parte da campi coltivati; la terza classe permette quindi di distinguere con maggiore precisione la vegetazione bassa (tipica delle colture) dalla vegetazione più densa e dal suolo nudo o danneggiato.
@@ -279,6 +291,39 @@ tabella
 | **vegetazione** | 72.35041 | 64.25449 | 48.32796 |
 
 come si puo vedere dai dati ottenuti la vegetazione ha avuto un forte calo nel 2023 a causa del conflitto ma nel 2026 il pegioramento continua.
+Al fine di facilitare ancor di piu la comprensione visiva dei dati quantittativi emessi dalla classificiazione, vengono generati grafici a barre 
+````r
+p1 <- ggplot(tabella, aes(x=class, y=percentuale2021, color=class)) + 
+  geom_bar(stat="identity", fill="white") + 
+  ylim(c(0,100)) + 
+  labs(title="Copertura 2021", x="Classe", y="Percentuale (%)") +
+  theme(legend.position="none")
+
+p2 <- ggplot(tabella, aes(x=class, y=percentuale2022, color=class)) + 
+  geom_bar(stat="identity", fill="white") + 
+  ylim(c(0,100)) + 
+  labs(title="Copertura 2022", x="Classe", y="Percentuale (%)") +
+  theme(legend.position="none")
+
+p3 <- ggplot(tabella, aes(x=class, y=percentuale2026, color=class)) + 
+  geom_bar(stat="identity", fill="white") + 
+  ylim(c(0,100)) + 
+  labs(title="Copertura 2026", x="Classe", y="Percentuale (%)") +
+  theme(legend.position="none")
+
+# Visualizzazione a schermo dei grafici affiancati
+p1 + p2 + p3
+````
+<img src="Immagini/grafico.png" width="800">
+
+
+# Conclusioni 
+lo studio condotto tramite telerilevamento satellitare multitemporale ha permesso di quantificare e confrontare l'evoluzione del danno ambientale nella regione di Zaporizhzhia tra il 2021 e il 2026. L'integrazione degli indici spettrali (DVI e NDVI), dell'analisi statistica della densità dei pixel mediante ridgeline plot e della classificazione finale ha evidenziato un processo di degrado continuo e cumulativo del territorio.
+I risultati analitici mostrano che i danni non sono riconducibili solo al primo periodo nel 2022,ma hanno determinato un collasso persistente della biomassa fotosinteticamente attiva nel 2026.
+nell'ultimo anno la biomassa di suolo nudo e diventato la matrice dominante con una copertura di circa il 56,67% della copertura totale mentre la vegetazione scende ad una copertura di circa il 48.33% confermando i gravi danni ecologici che si stanno susseguendo nel territorio ucraino 
+# sitografia 
+
+
 
 
 
