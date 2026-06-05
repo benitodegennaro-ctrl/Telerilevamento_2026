@@ -217,7 +217,15 @@ plot(dif_23_21, col=mako (100), main="dif_NDVI_2023-2021") #visualizzazione dell
 ````
 le mappe di differeneza evidenziano un'elevata frammentazione spaziale con valori che vanno da ± 6. si osserva che un alternanza tra fasi di degrado tra il 2021 e 2023, e successiva ripresa nella fascia tra il 2023 e il 2026. Sebbene tale incremento suggerisce un fenomeno di riconolizzaizone naturale il confronto tra 2021 e 2026 confermano che il bilancio ecologico totale rimane in deficit in diversee aree del dataset.
 
+## Classificazione 
+Tramite la classificazione è possibile stabilire la frequenza della copertura vegetazionale e quella del suolo nudo. Per questo studio sono state scelte tre classi poiché, come si percepisce dalle immagini, l'area è composta in gran parte da campi coltivati; la terza classe permette quindi di distinguere con maggiore precisione la vegetazione bassa (tipica delle colture) dalla vegetazione più densa e dal suolo nudo o danneggiato.
 
+````r
+# Classificazione in 3 cluster (es. 1 = Vegetazione, 2 = vegetazione bassa, 3 suolo nudo )
+c2021 <- im.classify(ndvi_2021, num_clusters=3 ) #Classificazione dell'NDVI del 2021 
+c2023 <- im.classify(ndvi_2023, num_clusters=3 ) #Classificazione dell'NDVI del 2023
+c2026 <- im.classify(ndvi_2026, num_clusters=3 ) #Classificazione dell'NDVI del 2026
+````
 
 
 
