@@ -6,12 +6,12 @@ getwd()
 list.files()
 
 #caricamento dei pachetti 
-library(terra)     # Per gestire le immagini satellitari
-library(imageRy)   # Per facilitarmi il lavoro con le bande
-library(ggplot2)   # Per fare i grafici
-library(patchwork) # Per mettere i grafici uno accanto all'altro
-library(viridis)   # Per i colori delle mappe (così si vedono bene)
-library(ggridges)  # Per i grafici a cresta (belli e utili)
+library(terra)     # Per la gestione di dati raster 
+library(imageRy)   # Gestione, analisi e visualizzazione multiframe di immagini raster.
+library(ggplot2)   # Creazione di grafici statici basata sulla Grammatica della Grafica.
+library(patchwork) # Combinazione e composizione flessibile di più grafici.
+library(viridis)   # Palette di colori ad alta leggibilità per daltonici.
+library(ggridges)  # Grafici a cresta (ridgeline) per visualizzare distribuzioni continue
 
 #caricamento dei dati raster 
 Ucraina_2021<-rast("Sentinel2_Izyum_2021.tif") # dati pre-conflitto (2021)
