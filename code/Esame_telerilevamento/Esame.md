@@ -193,7 +193,7 @@ $NDVI = \frac{NIR - Red}{NIR + Red}$
 ````r
 #caclo del NDVI
 ndvi_2021<-im.ndvi(Ucraina_2021,4,3) #NDVI anno 2021
-ndvi_2023<-im.ndvi(Ucraina_2022,4,3) #NDVI anno 2022
+ndvi_2022<-im.ndvi(Ucraina_2022,4,3) #NDVI anno 2022
 ndvi_2026<-im.ndvi(Ucraina_2026,4,3) #NDVI anno 2026
 ````
 La distribuzione spaziale del vigore fotosintetico calcolato viene visualizzata di seguito.
@@ -337,7 +337,7 @@ p1 + p2 + p3
 # Conclusioni 
 lo studio condotto tramite telerilevamento satellitare multitemporale ha permesso di quantificare e confrontare l'evoluzione del danno ambientale nella regione di Zaporizhzhia tra il 2021 e il 2026. L'integrazione degli indici spettrali (DVI e NDVI), dell'analisi statistica della densità dei pixel mediante ridgeline plot e della classificazione finale ha evidenziato un processo di degrado continuo e cumulativo del territorio.
 I risultati analitici mostrano che i danni non sono riconducibili esclusivamente al periodo iniziale del conflitto nel 2022, ma 2022,ma hanno determinato un collasso persistente della biomassa fotosinteticamente attiva nel 2026.
-nell'ultimo anno la biomassa di suolo nudo e diventato la matrice dominante con una copertura di circa il 56,67% della copertura totale mentre la vegetazione scende ad una copertura di circa il 48.33% confermando i gravi danni ecologici che si stanno susseguendo nel territorio ucraino 
+Nel 2026 il suolo nudo è diventato la matrice dominante con una copertura di circa il 56,67% della copertura totale mentre la vegetazione scende ad una copertura di circa il 48.33% confermando i gravi danni ecologici che si stanno susseguendo nel territorio ucraino 
 # sitografia 
 
 
