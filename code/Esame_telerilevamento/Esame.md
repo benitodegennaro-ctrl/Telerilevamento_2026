@@ -51,12 +51,12 @@ list.files()
 ````
 Caricamento dei pachetti che veranno utilizzati nello stuido 
 ````r
-library(terra)     # Per gestire i dati raster 
-library(imageRy)   # Per facilitarmi il lavoro con le bande
-library(ggplot2)   # Per fare i grafici
-library(patchwork) # Per mettere i grafici uno accanto all'altro
-library(viridis)   # Per i colori delle mappe (così si vedono bene)
-library(ggridges)  # Per i grafici a cresta (belli e utili)
+library(terra)     # Per la gestione di dati raster 
+library(imageRy)   # Per manipolare, visualizzare ed esportare immagini raster, funzioni per applicare scale di colore, visualizzazioni Multiframe
+library(ggplot2)   # Per la creazione "dichiarativa" di grafici, basato sulla "Grammatica della Grafica"
+library(patchwork) # Per consentire la composizione di grafici di complessità arbitraria, operatori matematici per combinare più grafici
+library(viridis)   # Per migliorare la leggibilità dei grafici per i lettori con forme comuni di daltonismo e/o deficit della visione dei colori
+library(ggridges)  # Per costruzione di grafici a cresta per per visualizzare le variazioni nelle distribuzioni nel tempo o nello spazio.
 ````
 ## importazione dei dati 
 Carico i dati raster percepiti da Sentinel 2 ,tramite la funzione **rast** del pachetto **terra**  
