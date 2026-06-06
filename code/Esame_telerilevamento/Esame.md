@@ -14,25 +14,31 @@ Il progetto si propone di analizzare gli effetti ambientali del conflitto armato
 <img src="Immagini/Screenshot 2026-06-05 alle 14.26.48.png" width="600">
 
 # 📌Obiettivi
-L'obiettivo è quantificare l'impatto bellico non solo attraverso un'analisi qualitativa (composizioni RGB), ma mediante l'elaborazione quantitativa di indici di vegetazione (NDVI) e Difference Vegetation Index (DVI). L'analisi multitemporale 2021-2026 permette di indagare la resilienza dell'ecosistema agrario in un'area soggetta a pressioni antropiche estreme.
+L'obiettivo è quantificare l'impatto bellico, non solo attraverso un'analisi qualitativa (composizioni RGB), ma anche mediante l'elaborazione quantitativa di indici di vegetazione: Difference Vegetation Index (DVI) e Normalized Difference Vegetation Index (NDVI). L'analisi multitemporale 2021-2026 invece, permette di indagare la resilienza dell'ecosistema in un'area soggetta a pressioni antropiche estreme.
 
 # 🛠️materiali e metodi 
 ## Acquisizione dati 
-Le imagini sono state acquisite dal portale web di [Google Earth Engine](https://earthengine.google.com/), selezionado una delle arre colpite nel conflitto.
+Le imagini sono state acquisite dal portale web di [Google Earth Engine](https://earthengine.google.com/), selezionado una delle area colpite nel conflitto.
 ## Caratteristiche del sensore (sentinel 2) 
 Per l'analisi è stato utilizzato il satellite Sentinel-2 (programma Copernicus), scelto per le sue specifiche tecniche ottimali:
 - **Risoluzione spaziale**: 10 metri nelle bande del visibile e nel NIR, essenziale per il dettaglio agrario.
 - **Risoluzione temporale**: Alta frequenza di rivisitazione, ideale per serie storiche multitemporali (2021-2026).
 - **Bande spettrali**: Presenza delle bande NIR e SWIR, necessarie per il calcolo preciso degli indici NDVI e NBR.
 
-  
+| Banda | Nome Comune |
+| :---: | :--- |
+| **B2** | Blu |
+| **B3** | Verde |
+| **B4** | Rosso |
+| **B8** | Vicino Infrarosso (NIR) |
+| **B11** | Infrarosso a onde corte (SWIR 1) |
 
 
 >[!NOTE]
 >
 > Il codice java utilizzato per l'acquisizione delle immagini e nel file codes.Js
 
-## inzio dell'analisi tramite il sofftwer R 
+## inzio dell'analisi tramite il software R 
 
 
 ````r
