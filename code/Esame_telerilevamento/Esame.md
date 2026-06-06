@@ -125,7 +125,7 @@ im.plotRGB(Ucraina_2026, r=3, g=2, b=1, title="Ucraina 2026 periodo attuale") #C
 
 
 ## Analisi della scomposizione spettrale multitemporale
-Attraverso il confronto tra le bande del visibile (B2, B3, B4) e la banda del vicino infrarosso (B8), è possibile isolare la risposta riflettiva del suolo e della vegetazione in tre differenti fasi temporali: baseline (2021), fase critica (2023) e situazione attuale (2026).
+Attraverso il confronto tra le bande del visibile (B2, B3, B4) e la banda del vicino infrarosso (B8), è possibile isolare la risposta riflettiva del suolo e della vegetazione in tre differenti fasi temporali: baseline (2021), fase critica (2022) e situazione attuale (2026).
 
 ````r
 #suddivisione dell'interfaccia grafica 
@@ -151,7 +151,10 @@ plot(Ucraina_2026[[4]], col=magma(100), main="2026 - B8") # Riflettanza nel vici
 ````
 <img src="Immagini/Visualizzazione_bande.png" width="800">
 
-Dall'osservazione delle immagini emerge una netta variazione nella banda NIR (B8), dove la perdita di riflettanza tra il 2021 e il 2022 evidenzia una significativa distruzione della copertura vegetale. Al contrario, le bande del visibile (B2, B3, B4) mostrano variazioni meno marcate, confermando che il degrado ambientale causato dal conflitto è identificabile con precisione solo attraverso l'analisi specifica del segnale infrarosso.
+Dall'osservazione delle immagini emerge una netta variazione nella banda del vicino infrarosso (B8), dove la perdita di riflettanza tra il 2021 e il 2026 evidenzia una significativa distruzione della copertura vegetale. 
+•⁠  ⁠Nel **2021** la presenza di pixel arancioni e gialli nella banda B(8) indica una elevata riflettanza nel vicino infrarosso, caratteriistica tipica vegetazione, ricca, sana
+•⁠  ⁠Nel **2022** i toni chiari si inziano ad attenuare, indicando un primo calo di della riflettanza
+•⁠  ⁠nel **2026** l'immagine diventa molto scura questa massicciaperdita di riflettanza nel vicino infrarosso documenta una quasi totale perdita di vegetazione
 
 ## 🌾 Calcolo degli indici vegetazionali 
 
@@ -165,7 +168,7 @@ dvi_2021<- im.dvi(Ucraina_2021, 4,3) #calcolo dell differnt vegetation index ann
 dvi_2022<- im.dvi(Ucraina_2022, 4,3) #calcolo dell differnt vegetation index anno 2022
 dvi_2026<- im.dvi(Ucraina_2026, 4,3) #calcolo dell differnt vegetation index anno 2026
 ````
-Tramite la visualizzazione delle mappe dell'indice, è possibile apprezzare la variazione temporale della biomassa e identificare chiaramente le aree colpite dal degrado ambientale
+Tramite la visualizzazione dell'carte prodotte, è possibile apprezzare la variazione temporale della biomassa e identificare chiaramente le aree colpite dal degrado ambientale
 
 ````R
 im.multiframe(1,3) #suddivisione dell'interfaccia grafica in una riga e tre colonne 
@@ -176,7 +179,7 @@ plot(dvi_2026, col=inferno(100), main="DVI 2026") #visione dell' indice dvi per 
 ````
 <img src="Immagini/Calcolo_DVI.png" width="800">
 
-Dal confronto DVI si puo osservare un progressivo e  drastico calo vigore veggetativo, rilevando una forte diminuzione di biomasaa nel 2022, processo che appare ulteriormente accentuato nel 2026
+Dal confronto del DVI si può osservare un progressivo e drastico calo del vigore vegetativo, rilevando una forte diminuzione di biomassa nel 2022, processo che appare ulteriormente accentuato nel 2026.
 
 ### Normalized Difference Vegetation Index (NDVI)
 Si utilizza per valutare lo stato di salute e la densità di copertura vegetale. L'indice NDVI analogamente all'indice DVI sfrutta la differente risposta spettrale della vegetazione nelle bande del rosso (Red) e del vicino infrarosso (NIR). Tuttavia grazie alla normalizzazione l'NDVI assume volori compresi tra -1 e +1, facilitando il confronto tra immagini acquisite in perioodi differenzi 
