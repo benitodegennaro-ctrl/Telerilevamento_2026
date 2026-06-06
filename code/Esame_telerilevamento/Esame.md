@@ -1,4 +1,4 @@
-> ### esame di telerilevamneto geo-Ecologico in R 2026
+<img width="1344" height="876" alt="ridgline" src="https://github.com/user-attachments/assets/f39899ed-f070-4f96-8eff-7e5d12401a41" />> ### esame di telerilevamneto geo-Ecologico in R 2026
 > > Benito De Gennaro mat. 1218365
 
 # Analisi tramite telerilevamento degli effetti del conflitto armato sull'ambiente in Ucraina 🛰️       
@@ -121,7 +121,7 @@ im.plotRGB(Ucraina_2026, r=3, g=2, b=1, title="Ucraina 2026 periodo attuale") #C
 ````
 <img src="Immagini/RGB.png" width="800">
 
-> La serie multitemporale analizzata consente di quantificare i processi di degradazione del suolo in funzione dell'escalation del conflitto
+La serie multitemporale analizzata consente di quantificare i processi di degradazione del suolo in funzione dell'escalation del conflitto
 
 
 ## Analisi della scomposizione spettrale multitemporale
@@ -182,7 +182,7 @@ plot(dvi_2026, col=inferno(100), main="DVI 2026") #visione dell' indice dvi per 
 Dal confronto del DVI si può osservare un progressivo e drastico calo del vigore vegetativo, rilevando una forte diminuzione di biomassa nel 2022, processo che appare ulteriormente accentuato nel 2026.
 
 ### Normalized Difference Vegetation Index (NDVI)
-Si utilizza per valutare lo stato di salute e la densità di copertura vegetale. L'indice NDVI analogamente all'indice DVI sfrutta la differente risposta spettrale della vegetazione nelle bande del rosso (Red) e del vicino infrarosso (NIR). Tuttavia grazie alla normalizzazione l'NDVI assume volori compresi tra -1 e +1, facilitando il confronto tra immagini acquisite in perioodi differenzi 
+Il *Normalized Difference Vegetation Index*  si utilizza per valutare lo stato di salute e la densità di copertura vegetale. L'indice NDVI analogamente all'indice DVI sfrutta la differente risposta spettrale della vegetazione nelle bande del rosso (Red) e del vicino infrarosso (NIR). Tuttavia grazie alla normalizzazione l'NDVI assume volori compresi tra -1 e +1, facilitando il confronto tra immagini acquisite in periodi differenti. 
 
 $NDVI = \frac{NIR - Red}{NIR + Red}$
 
@@ -196,7 +196,8 @@ ndvi_2021<-im.ndvi(Ucraina_2021,4,3) #NDVI anno 2021
 ndvi_2023<-im.ndvi(Ucraina_2022,4,3) #NDVI anno 2022
 ndvi_2026<-im.ndvi(Ucraina_2026,4,3) #NDVI anno 2026
 ````
-La distribuzione spaziale del vigore fotosintetico calcolato viene visualizzata di seguito per facilitare il confronto multitemporale dei dati.
+La distribuzione spaziale del vigore fotosintetico calcolato viene visualizzata di seguito.
+
 ````r
 im.multiframe(1,3) #suddivisione dell'interfaccia grafica in  1 riga e 3 colonne
 #visualizzazione dei vari NDVI 
@@ -204,12 +205,12 @@ plot(ndvi_2021, col=mako(100), main="NDVI 2021") # visualizzazione NDVI 2021
 plot(ndvi_2022, col=mako(100), main="NDVI 2022") # visualizzazione NDVI 2022
 plot(ndvi_2026, col=mako(100), main="NDVI 2026") # visualizzazione NDVI 2026
 ````
-Il confronto tra le tre date mostra una diminuzione dei valori dell'indice nel 2022, indicativa di una riduzione della vigoria vegetativa durante la fase più intensa del conflitto e nel 2026.
+Il confronto multitemporale delle mappe di NDVI mostra una progressiva diminuzione dei valori dell'indice a partire dal 2022, indicativa di una significativa riduzione della vigoria vegetativa durante la fase più intensa del conflitto. Tale fenomeno di degrado non manifesta segni di ripresa, evidenziando un ulteriore e progressivo peggioramento nel 2026.
 
 <img src="Immagini/NDVI_anni.png" width="800">
 
 ### calcolo della differeenza multitemporale dell'NDVI
-Per analizzare l'evoluzione temporale dell'area di studio, viene calcolata la differenza tra NDVI, permettendo di mappare il gradiente di variazione del vigore vegetale, dove i valori negativi evidenziano i processi di degrado ambientale avvenuti negli anni selzionati 
+Per analizzare l'evoluzione temporale dell'area di studio, viene calcolata la differenza tra NDVI, permettendo di mappare il gradiente di variazione del vigore vegetale, dove i valori negativi evidenziano i processi di degrado ambientale avvenuti negli anni.
 
 ````r
 dif_22_21 <- ndvi_2022 - ndvi_2021 # Differenza tra il 2022 e il 2021
@@ -225,16 +226,20 @@ plot(dif_26_21, col=mako (100), main="dif_NDVI_2026-2021") #visualizzazione dell
 le mappe di differeneza evidenziano un'elevata frammentazione spaziale con valori che vanno da ± 6. si osserva che un alternanza tra fasi di degrado tra il 2021 e 2023, e successiva ripresa nella fascia tra il 2023 e il 2026. Sebbene tale incremento suggerisce un fenomeno di riconolizzaizone naturale il confronto tra 2021 e 2026 confermano che il bilancio ecologico totale rimane in deficit in diversee aree del dataset.
 
 ### Analisi statistica della densità di distribuzione dell'NDVI
-al fine di poter valutare quantitativamente le variazioni spaziali osservata nei cartogrammi dell'NDVI e nelle relative mappe differenzali. procedendo con l'analisis statistica della distribuzione dei valori dei pixel per ciascun anno. A tale scopo, viene utilizzato il grafico a cresta (ridgeline plot), uno strumento specifico per il confronto multitemporale immediato della densità dei dati. Per osservare la variazione temporale continua in un unico grafico, i singoli layer raster dell'NDVI vengono uniti in uno stack
+Al fine di poter valutare quantitativamente le variazioni spaziali osservata nei cartogrammi dell'NDVI e nelle relative mappe differenzali, viene utilizzata l'analisi statistica della distribuzione dei valori dei pixel per ciascun anno. A tale scopo, viene utilizzato il grafico a cresta (ridgeline plot), uno strumento specifico per il confronto multitemporale immediato della densità dei dati. Per osservare la variazione temporale continua in un unico grafico, i singoli layer raster dell'NDVI vengono uniti in uno stack
 
 ````r
 # Creazione dello stack dei tre NDVI e generazione del ridgeline plot
 ndvi_stack <- c(ndvi_2021, ndvi_2022, ndvi_2026)
 names(ndvi_stack) <- c("NDVI_2021", "NDVI_2022", "NDVI_2026") # Assegnazione nomi ai layer
 
-im.ridgeline(ndvi_stack, scale=1, palette="viridis")
+im.ridgeline(ndvi_stack, scale=1, palette="viridis") # Generazione di un ridlglineplot 
 ````
 <img src="Immagini/ridgline.png" width="800">  
+Il grafico mostra chiaramente l'evoluzione temporale della distribuzione dell'NDVI per gli anni 2021, 2022 e 2026.
+Il grafico evidenzia: 
+- **2021** : la distribuzione e sbilanciata verso destra con un picco acuto verso lo 0.9, indicando una forte prevaleza di vegetazione densa.
+** 2022 ** 
 
 ## Classificazione 
 Tramite la classificazione è possibile stabilire la frequenza della copertura vegetazionale e quella del suolo nudo. Per questo studio sono state scelte tre classi poiché, come si percepisce dalle immagini, l'area è composta in gran parte da campi coltivati; la terza classe permette quindi di distinguere con maggiore precisione la vegetazione bassa (tipica delle colture) dalla vegetazione più densa e dal suolo nudo o danneggiato.
