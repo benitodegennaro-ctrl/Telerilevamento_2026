@@ -1,4 +1,4 @@
-<img width="1344" height="876" alt="ridgline" src="https://github.com/user-attachments/assets/f39899ed-f070-4f96-8eff-7e5d12401a41" />> ### esame di telerilevamneto geo-Ecologico in R 2026
+>> ### Esame di telerilevamneto geo-Ecologico in R 2026
 > > Benito De Gennaro mat. 1218365
 
 # Analisi tramite telerilevamento degli effetti del conflitto armato sull'ambiente in Ucraina 🛰️       
@@ -236,13 +236,16 @@ names(ndvi_stack) <- c("NDVI_2021", "NDVI_2022", "NDVI_2026") # Assegnazione nom
 im.ridgeline(ndvi_stack, scale=1, palette="viridis") # Generazione di un ridlglineplot 
 ````
 <img src="Immagini/ridgline.png" width="800">  
+
 Il grafico mostra chiaramente l'evoluzione temporale della distribuzione dell'NDVI per gli anni 2021, 2022 e 2026.
 Il grafico evidenzia: 
-- **2021** : la distribuzione e sbilanciata verso destra con un picco acuto verso lo 0.9, indicando una forte prevaleza di vegetazione densa.
-** 2022 ** 
+
+- **2021** : la distribuzione è sbilanciata verso destra con un picco acuto verso lo 0.9, indicando una forte prevalenza di vegetazione densa.
+- **2022** : si individua uno spostamento della massa verso valori in torno allo 0.4 con una parziale riduzione del picco massimo di vigore rispetto al 2021.
+- **2026** : La distribuzione subisce una contrazione drastica e un netto spostamento verso sinistra. Il picco si spsota verso vaori dello 0.25, con una scomparsa di valori >0.7 (componente di vegetazione ad alto vigore)
 
 ## Classificazione 
-Tramite la classificazione è possibile stabilire la frequenza della copertura vegetazionale e quella del suolo nudo. Per questo studio sono state scelte tre classi poiché, come si percepisce dalle immagini, l'area è composta in gran parte da campi coltivati; la terza classe permette quindi di distinguere con maggiore precisione la vegetazione bassa (tipica delle colture) dalla vegetazione più densa e dal suolo nudo o danneggiato.
+Tramite la classificazione è possibile stabilire la frequenza della copertura vegetazionale e quella del suolo nudo. Per questo studio e stata scelta una classificazione a due class.
 
 ````r
 # Classificazione in 2 cluster (es. 1 = Vegetazione, 2 = suolo nudo )
@@ -265,28 +268,25 @@ plot(class_2022, main="2022") #visualizzazione classi 2023
 plot(class_2026, main="2026") #visualizzazione classi 2026
 ````
 <img src="Immagini/Area_classificata.png" width="800">
-
-come si puo notare a colpo d'occhio dalle mappe la vegetazione e in netto calo nel 2023
-
-Per confermare cio vengono calcolate le frequenza percetuali di vegetazione e di suolo nudo 
+Per confermare cio che viene visualizzato vengono calcolte le frequenze percentuali 
 
 ````r
-#frequenza assoluto 
+# calcolo delle frequenza assoluto 
 f2021 <- freq(class_2021) # calcolo delle classi di vegetazione e suolo nudo 2021 
 f2023 <- freq(class_2022) # calcolo delle classi di vegetazione e suolo nudo 2022
 f2026 <- freq(class_2026) # calcolo delle classi di vegetazione e suolo nudo 2026
 
-#calcolo fgrequenza relativa 
-prop2021 <- f2021$count / ncell(class_2021)
-prop2022 <- f2023$count / ncell(class_2022)
-prop2026 <- f2026$count / ncell(class_2026)
+#calcolo delle fgrequenza relativa 
+prop2021 <- f2021$count / ncell(class_2021) # frequenza assoluta diviso numero di celle del 2021 
+prop2022 <- f2023$count / ncell(class_2022) # frequenza assoluta diviso numero di celle del 2022
+prop2026 <- f2026$count / ncell(class_2026) # frequenza assoluta diviso numero di celle del 2026 
 
 #conversione in dati percentuali 
-perc2021 <- prop2021 * 100
-perc2022 <- prop2022 * 100
-perc2026 <- prop2026 * 100
+perc2021 <- prop2021 * 100 #2021
+perc2022 <- prop2022 * 100 #2022
+perc2026 <- prop2026 * 100 #2026
 ````
-per una visualizzazione diretta creiamo una tabella  con sue righe e tre colonne 
+Per una visualizzazione diretta viene generata una tabella.
 
 ````r
 #crazione di una tabella con i dati calcolati 
@@ -295,7 +295,7 @@ tabella <- data.frame(
   perc2021 = perc2021,
   perc2022 = perc2022,
   perc2026 = perc2026
-)
+) # creazione di una tabella conteneti le percentuali di suolo nudo e di vegetazione per ogni anno 
 
 # Visualizzazione della tabella finale
 tabella
@@ -305,8 +305,9 @@ tabella
 | **suolo nudo** | 27.64959 | 35.74551 | 51.67242 |
 | **vegetazione** | 72.35041 | 64.25449 | 48.32796 |
 
-come si puo vedere dai dati ottenuti la vegetazione ha avuto un forte calo nel 2023 a causa del conflitto ma nel 2026 il pegioramento continua.
-Al fine di facilitare ancor di piu la comprensione visiva dei dati quantittativi emessi dalla classificiazione, vengono generati grafici a barre 
+Come si puo vedere dai dati ottenuti la vegetazione ha avuto un forte calo di circa l' 8% nel 2023 a causa del conflitto  con un ulteriore calo nel 2026 con un valore di circa del 24% rispetto al 2021.
+Con i dati forniti dalla tabella prodotta vengono generati tre grafici a barre.
+
 ````r
 p1 <- ggplot(tabella, aes(x=class, y=percentuale2021, color=class)) + 
   geom_bar(stat="identity", fill="white") + 
