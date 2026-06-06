@@ -62,7 +62,7 @@ library(ggridges)  # Grafici a cresta (ridgeline) per visualizzare distribuzioni
 Carico i dati raster percepiti da Sentinel 2 ,tramite la funzione **rast** del pachetto **terra**  
 ````r
 Ucraina_2021<-rast("Ucraina_2021_bands.tif") # dati pre-conflitto (2021)
-Ucraina_2022<-rast("Ucraina_2023_bands.tif") # Dati fase intermedia (2022)
+Ucraina_2022<-rast("Ucraina_2022_bands.tif") # Dati fase intermedia (2022)
 Ucraina_2026<-rast("Ucraina_2026_bands.tif") # Dati correnti (2026)
 ````
 
