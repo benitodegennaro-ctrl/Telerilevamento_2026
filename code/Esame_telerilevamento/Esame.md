@@ -152,9 +152,9 @@ plot(Ucraina_2026[[4]], col=magma(100), main="2026 - B8") # Riflettanza nel vici
 <img src="Immagini/Scomposizione.png" width="800">
 
 Dall'osservazione delle immagini emerge una netta variazione nella banda del vicino infrarosso (B8), dove la perdita di riflettanza tra il 2021 e il 2026 evidenzia una significativa distruzione della copertura vegetale. 
-•⁠  ⁠Nel **2021** la presenza di pixel arancioni e gialli nella banda B(8) indica una elevata riflettanza nel vicino infrarosso, caratteristica tipica di una vegetazione sana e vigorosa
-•⁠  ⁠Nel **2022** i toni chiari iniziano ad attenuarsi, indicando un primo calo della riflettanza
-•⁠  ⁠nel **2026** l'immagine diventa molto scura questa massiccia perdita di riflettanza nel vicino infrarosso documenta una quasi totale perdita di vegetazione
+- Nel **2021** la presenza di pixel gialli nella banda (B8) indica una elevata riflettanza nel vicino infrarosso, caratteristica tipica di una vegetazione sana e vigorosa
+- ⁠Nel **2022** i toni chiari iniziano ad attenuarsi, indicando un primo calo della riflettanza
+- ⁠nel **2026** l'immagine diventa molto scura questa massiccia perdita di riflettanza nel vicino infrarosso documenta una quasi totale perdita di vegetazione
 
 ## 🌾 Calcolo degli indici vegetazionali 
 
