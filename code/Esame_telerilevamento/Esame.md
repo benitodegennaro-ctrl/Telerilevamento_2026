@@ -149,7 +149,7 @@ plot(Ucraina_2026[[2]], col=magma(100), main="2026 - B3") # Riflettanza nel visi
 plot(Ucraina_2026[[3]], col=magma(100), main="2026 - B4") # Riflettanza nel visibile (rosso)
 plot(Ucraina_2026[[4]], col=magma(100), main="2026 - B8") # Riflettanza nel vicino infrarosso (biomassa)
 ````
-<img src="Immagini/Visualizzazione_bande.png" width="800">
+<img src="Immagini/Scomposizione.png" width="800">
 
 Dall'osservazione delle immagini emerge una netta variazione nella banda del vicino infrarosso (B8), dove la perdita di riflettanza tra il 2021 e il 2026 evidenzia una significativa distruzione della copertura vegetale. 
 •⁠  ⁠Nel **2021** la presenza di pixel arancioni e gialli nella banda B(8) indica una elevata riflettanza nel vicino infrarosso, caratteristica tipica di una vegetazione sana e vigorosa
