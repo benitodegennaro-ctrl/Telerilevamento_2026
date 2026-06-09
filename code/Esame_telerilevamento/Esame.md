@@ -219,9 +219,9 @@ dif_26_21 <- ndvi_2026 - ndvi_2021# Differenza totale sull'intero periodo analiz
 
 #Suddivisione dell'interfaccia grafica in una riga e tre colonne 
 im.multiframe(1,3)
-plot(dif_22_21, col=mako (100), main="dif_NDVI_2022-2021") #Visalizzazione della differenza tra l'anno 2022 e 2021
-plot(dif_26_22, col=mako (100), main="dif_NDVI_2026-2022") #Visualizzazione della differenza tra l'anno 2026 e 2022
-plot(dif_26_21, col=mako (100), main="dif_NDVI_2026-2021") #Visualizzazione della differenza tra l'anno 2023 e 2021
+plot(dif_22_21, col=inferno(100), main="dif_NDVI_2022-2021") #Visalizzazione della differenza tra l'anno 2022 e 2021
+plot(dif_26_22, col=inferno(100), main="dif_NDVI_2026-2022") #Visualizzazione della differenza tra l'anno 2026 e 2022
+plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021") #Visualizzazione della differenza tra l'anno 2023 e 2021
 ````
 <img src="Immagini/dif_NDVI.png" width="800">  
 Le mappe di differeneza evidenziano un'elevata frammentazione spaziale con valori che vanno da ± 6. Si osserva che un alternanza tra fasi di degrado tra il 2021 e 2023, con un successivo peggioramento nel 2026
@@ -236,7 +236,7 @@ names(ndvi_stack) <- c("NDVI_2021", "NDVI_2022", "NDVI_2026") # Assegnazione nom
 
 im.ridgeline(ndvi_stack, scale=1, palette="viridis") # Generazione di un ridlgline plot 
 ````
-<img src="Immagini/ridgline.png" width="800">  
+<img src="Immagini/rifgline.png" width="800">  
 
 Il grafico mostra chiaramente l'evoluzione temporale della distribuzione dell'NDVI per gli anni 2021, 2022 e 2026.
 Il grafico evidenzia: 
