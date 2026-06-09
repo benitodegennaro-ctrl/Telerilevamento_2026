@@ -12,7 +12,7 @@ Il progetto si propone di analizzare gli effetti ambientali del conflitto armato
 - **2026** (Situazione attuale): permette di valutare il grado di ripristino dell'ecosistema o, al contrario, la persistenza dei danni ambientali nel tempo.
   
 <img src="Immagini/Screenshot 2026-06-05 alle 14.26.48.png" width="600">
-*Figura 1*
+*Figura 1: Sezione della zona di studio*
 
 # 📌Obiettivi
 L'obiettivo è quantificare l'impatto bellico, non solo attraverso un'analisi qualitativa (composizioni RGB), ma anche mediante l'elaborazione quantitativa di indici di vegetazione: Difference Vegetation Index (DVI) e Normalized Difference Vegetation Index (NDVI). L'analisi multitemorale 2021-2026 permette inoltre, di indagare la resilienza dell'ecosistema in un'area soggetta a pressioni antropiche estreme.
