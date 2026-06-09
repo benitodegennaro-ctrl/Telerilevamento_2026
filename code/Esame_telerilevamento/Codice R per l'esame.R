@@ -14,9 +14,9 @@ library(viridis)   # Palette di colori ad alta leggibilità per daltonici.
 library(ggridges)  # Grafici a cresta (ridgeline) per visualizzare distribuzioni continue
 
 #caricamento dei dati raster 
-Ucraina_2021<-rast("Sentinel2_Izyum_2021.tif") # dati pre-conflitto (2021)
-Ucraina_2022<-rast("Sentinel2_Izyum_2022.tif") # Dati fase intermedia (2023)
-Ucraina_2026<-rast("Sentinel2_Izyum_2026.tif") # Dati correnti (2026)
+Ucraina_2021<-rast("Ucraina_2021_bands.tif") # dati pre-conflitto (2021)
+Ucraina_2022<-rast("Ucraina_2022_bands.tif") # Dati fase intermedia (2022)
+Ucraina_2026<-rast("Ucraina_2026_bands.tif") # Dati correnti (2026)
 
 # Interrogazione degli oggetti per la verifica delle informazioni spaziali e delle proprietà
 Ucraina_2021
@@ -86,9 +86,14 @@ dif_26_21 <- ndvi_2026 - ndvi_2021
 
 #suddivisione dell'interfaccia grafica in una riga e tre colonne 
 im.multiframe(1,3)
-plot(dif_22_21, col=inferno(100), main="dif_NDVI_2023-2021") #visalizzazione della differenza tra l'anno 2023 e 2021
-plot(dif_26_22, col=inferno(100), main="dif_NDVI_2026-2023") #visualizzazione della differenza tra l'anno 2026 e 2023
+plot(dif_22_21, col=inferno(100), main="dif_NDVI_2022-2021") #visalizzazione della differenza tra l'anno 2022 e 2021
+plot(dif_26_22, col=inferno(100), main="dif_NDVI_2026-2022") #visualizzazione della differenza tra l'anno 2026 e 2022
 plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021") #visualizzazione della differenza tra l'anno 2023 e 2021
+
+# Creazione dello stack dei tre NDVI e generazione del ridgeline plot
+ndvi_stack <- c(ndvi_2021, ndvi_2022, ndvi_2026)
+names(ndvi_stack) <- c("NDVI_2021", "NDVI_2022", "NDVI_2026") # Assegnazione nomi ai layer
+im.ridgeline(ndvi_stack, scale=1, palette="inferno") # Generazione di un ridlgline plot 
 
 # classificazione della vegetazione 
 # Classificazione in 3 cluster (es. 1 = Vegetazione, 2 = suolo nudo )
@@ -132,3 +137,5 @@ percentuale2026 = perc2026
 
 # Visualizzazione della tabella finale
 tabella
+
+
