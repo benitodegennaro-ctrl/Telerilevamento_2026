@@ -223,7 +223,7 @@ plot(dif_22_21, col=mako (100), main="dif_NDVI_2022-2021") #Visalizzazione della
 plot(dif_26_22, col=mako (100), main="dif_NDVI_2026-2022") #Visualizzazione della differenza tra l'anno 2026 e 2022
 plot(dif_26_21, col=mako (100), main="dif_NDVI_2026-2021") #Visualizzazione della differenza tra l'anno 2023 e 2021
 ````
-<img src="Immagini/dif_anni.png" width="800">  
+<img src="Immagini/dif_NDVI.png" width="800">  
 Le mappe di differeneza evidenziano un'elevata frammentazione spaziale con valori che vanno da ± 6. Si osserva che un alternanza tra fasi di degrado tra il 2021 e 2023, con un successivo peggioramento nel 2026
 
 ### Analisi statistica della densità di distribuzione dell'NDVI
