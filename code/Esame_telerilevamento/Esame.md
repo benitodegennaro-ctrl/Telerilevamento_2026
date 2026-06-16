@@ -68,7 +68,7 @@ Ucraina_2026<-rast("Ucraina_2026_bands.tif") # Dati correnti (2026)
 
 ## Verifica dei metadati dei dati raster caricati 
 
-Prima di procedere con l'elaborazione, interrogo i tre oggetti ````Ucraina_2021````,````Ucraina_2022````e ```` Ucraina_2026````per validare le loro proprietà spaziali e strutturali. Questo passaggio è necessario per confermare che i dati siano correttamente allineati e pronti per l'analisi comparativa. In particolare, verifico:
+Prima di procedere con l'elaborazione, interrogo i tre oggetti ````Ucraina_2021````, ````Ucraina_2022````e ```` Ucraina_2026````per validare le loro proprietà spaziali e strutturali. Questo passaggio è necessario per confermare che i dati siano correttamente allineati e pronti per l'analisi comparativa. In particolare, verifico:
 
 - **Dimensioni**:Risoluzione spaziale e numero di pixel.
 - **Bande**:Numero e tipologia di bande spettrali disponibili.
@@ -154,12 +154,12 @@ plot(Ucraina_2026[[4]], col=magma(100), main="2026 - B8") # Riflettanza nel vici
 Dall'osservazione delle immagini emerge una netta variazione nella banda del vicino infrarosso (B8), dove la perdita di riflettanza tra il 2021 e il 2026 evidenzia una significativa distruzione della copertura vegetale. 
 - Nel **2021** la presenza di pixel gialli nella banda (B8) indica una elevata riflettanza nel vicino infrarosso, caratteristica tipica di una vegetazione sana e vigorosa
 - ⁠Nel **2022** i toni chiari iniziano ad attenuarsi, indicando un primo calo della riflettanza
-- ⁠nel **2026** l'immagine diventa molto scura questa massiccia perdita di riflettanza nel vicino infrarosso documenta una quasi totale perdita di vegetazione
+- ⁠Nel **2026** l'immagine diventa molto scura questa massiccia perdita di riflettanza nel vicino infrarosso documenta una quasi totale perdita di vegetazione
 
 ## 🌾 Calcolo degli indici vegetazionali 
 
 ### Different vegetation index (DVI) 
-Il DVI index viene utilizzato per valutare la presenza di vegetazione. Il DVI sfrutta la differente risposta spettrale della vegetazione nelle bande del rosso e del vicino infrarosso. Le piante sane assorbono gran parte della radiazione nella banda del rosso per i processi fotosintetici e riflettono intensamente la radiazione nel vicino infrarosso. Di conseguenza, la differenza tra queste due bande consente di stimare la presenza e la vigoria della copertura vegetale.
+Il DVI index viene utilizzato per valutare la presenza di vegetazione. Il DVI sfrutta la differente risposta spettrale della vegetazione nelle bande del vicino infrarosso **(NIR)** e del rosso **(RED)**. Le piante sane assorbono gran parte della radiazione nella banda del rosso per i processi fotosintetici e riflettono intensamente la radiazione nel vicino infrarosso. Di conseguenza, la differenza tra queste due bande consente di stimare la presenza e la vigoria della copertura vegetale.
 
 $` DVI = NIR - RED `$   
 ````r
@@ -343,7 +343,7 @@ Nel 2026 il suolo nudo è diventato la matrice dominante con una copertura di ci
 - **La Repubblica** *"Ucraina, forze russe occupano la centrale nucleare di Zaporizhzhia dopo l'attacco della notte"* (Pubblicato il 4 marzo 2022). Articolo giornalistico che documenta l'attacco militare e l'occupazione dell'area della centrale di Zaporizhzhia, evento cardine che ha determinato l'inizio delle ostilità nella zona e il conseguente abbandono delle attività agricole nel territorio circostante. Disponibile al link: https://www.repubblica.it/esteri/2022/03/04/news/ucraina_russi_zaporizhzhia-340217401/
 ### Piattaforme dati e librerie software
 - **Google Earth Engine:** https://earthengine.google.com/ (Piattaforma cloud per il pre-processing e l'estrazione dei dati raster).
-- **CRAN Repository:** https://cran.r-project.org/ (Documentazione ufficiale dei pacchetti R utilizzati: `terra`, `ggplot2`, `ggridges`, `viridis`).
+- **CRAN Repository:** https://cran.r-project.org/ (Documentazione ufficiale dei pacchetti R utilizzati: `terra`, `ggplot2`, `ggridges`, `viridis`,`imageRy`, `patchwork`).
 - **Copernicus Data Space Ecosystem:** https://dataspace.copernicus.eu/ (Consultato per la verifica delle specifiche tecniche, delle lunghezze d'onda e delle risoluzioni geometriche delle bande spettrali di Sentinel-2).
 
 
