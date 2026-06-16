@@ -224,7 +224,7 @@ plot(dif_26_22, col=inferno(100), main="dif_NDVI_2026-2022") #Visualizzazione de
 plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021") #Visualizzazione della differenza tra l'anno 2026 e 2021
 ````
 <img src="Immagini/dif_NDVI.png" width="800">  
-Le mappe di differenza evidenziano un'elevata frammentazione spaziale con valori che vanno da ± 1. Si osserva che un'alternanza tra fasi di degrado tra il 2021 e 2023, con un successivo peggioramento nel 2026.
+Le mappe di differenza evidenziano un'elevata frammentazione spaziale con valori che vanno da ± 1. Si osserva che un'alternanza tra fasi di degrado tra il 2021 e 2022, con un successivo peggioramento nel 2026.
 
 ### Analisi statistica della densità di distribuzione dell'NDVI
 Al fine di poter valutare quantitativamente le variazioni spaziali osservate nei cartogrammi dell'NDVI e nelle relative mappe differenzali, viene utilizzata l'analisi statistica della distribuzione dei valori dei pixel per ciascun anno. A tale scopo, viene utilizzato il grafico a cresta (ridgeline plot), uno strumento specifico per il confronto multitemporale immediato della densità dei dati. Per osservare la variazione temporale continua in un unico grafico, i singoli layer raster dell'NDVI vengono uniti in uno stack.
