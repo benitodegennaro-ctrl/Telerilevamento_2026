@@ -219,7 +219,7 @@ dif_26_21 <- ndvi_2026 - ndvi_2021# Differenza totale sull'intero periodo analiz
 
 #Suddivisione dell'interfaccia grafica in una riga e tre colonne 
 im.multiframe(1,3)
-plot(dif_22_21, col=inferno(100), main="dif_NDVI_2022-2021") #Visalizzazione della differenza tra l'anno 2022 e 2021
+plot(dif_22_21, col=inferno(100), main="dif_NDVI_2022-2021") #Visualizzazione della differenza tra l'anno 2022 e 2021
 plot(dif_26_22, col=inferno(100), main="dif_NDVI_2026-2022") #Visualizzazione della differenza tra l'anno 2026 e 2022
 plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021") #Visualizzazione della differenza tra l'anno 2026 e 2021
 ````
@@ -242,7 +242,7 @@ Il grafico mostra chiaramente l'evoluzione temporale della distribuzione dell'ND
 Il grafico evidenzia: 
 
 - **2021** : la distribuzione è sbilanciata verso destra con un picco acuto verso lo 0.9, indicando una forte prevalenza di vegetazione densa.
-- **2022** : si individua uno spostamento della massa verso valori in torno a 0.4 con una parziale riduzione del picco massimo di vigore rispetto al 2021.
+- **2022** : si individua uno spostamento della massa verso valori intorno a 0.4 con una parziale riduzione del picco massimo di vigore rispetto al 2021.
 - **2026** : La distribuzione subisce una contrazione drastica e un netto spostamento verso sinistra. Il picco si sposta verso valori dello 0.25, con una scomparsa di valori >0.7 (componente di vegetazione ad alto vigore)
 
 ## Classificazione 
@@ -263,9 +263,9 @@ levels(class_2022) <- data.frame( value = c(2, 1), label = c("vegetazione", "suo
 levels(class_2026) <- data.frame( value = c(2, 1), label = c("vegetazione", "suolo nudo"))
 
 #visualizzazione della Classificazione
-im.multiframe(1,3) #divisione dell'interfaccia grafica in un riga tre colonne 
+im.multiframe(1,3) #divisione dell'interfaccia grafica in un riga e tre colonne 
 plot(class_2021, main="2021") #visualizzazione classi 2021
-plot(class_2022, main="2022") #visualizzazione classi 2023
+plot(class_2022, main="2022") #visualizzazione classi 2022
 plot(class_2026, main="2026") #visualizzazione classi 2026
 ````
 <img src="Immagini/Area_classificata.png" width="800">
@@ -306,7 +306,7 @@ tabella
 | **suolo nudo** | 27.64959 | 35.74551 | 51.67242 |
 | **vegetazione** | 72.35041 | 64.25449 | 48.32796 |
 
-Come si puo vedere dai dati ottenuti la vegetazione ha avuto un forte calo di circa l' 8% nel 2022 a causa del conflitto  con un ulteriore calo nel 2026 con un valore di circa del 24% rispetto al 2021.
+Come si può vedere dai dati ottenuti la vegetazione ha avuto un forte calo di circa l' 8% nel 2022 a causa del conflitto  con un ulteriore calo nel 2026 con un valore di circa del 24% rispetto al 2021.
 Con i dati forniti dalla tabella prodotta vengono generati tre grafici a barre.
 
 ````r
