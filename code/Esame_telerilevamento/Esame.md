@@ -1,4 +1,4 @@
->> ### Esame di telerilevamneto geo-ecologico in R 2026
+>> ### Esame di telerilevamento geo-ecologico in R 2026
 > > Benito De Gennaro mat. 1218365
 
 # Analisi tramite telerilevamento degli effetti del conflitto armato sull'ambiente in Ucraina 🛰️       
@@ -6,8 +6,8 @@
 ### 🗓️ Periodo di studio: 2021-2026
 ---
 # 📕 Introduzione 
-Il progetto si propone di analizzare gli effetti ambientali del conflitto armato nella regione di **Zaporizhzhia**, area di grande importanza agricola in Ucraina, attraverso l'impiego delle immagini satellitari di Sentinel-2 (programma Copernicus); è stato possibile osservare le dinamiche di trasformazione del territorio nell'arco temporale 2021-2026. L'analisi si è articolata in tre momenti chiave:
-- **2021** (Baseline): rappresenta lo stato del territorio in condizioni di normalità, prima dell'escalation del conflitto.
+Il progetto si propone di analizzare gli effetti ambientali del conflitto armato nella regione di **Zaporizhzhia**, area di grande importanza agricola in Ucraina, attraverso l'impiego delle immagini satellitari di Sentinel-2 (programma Copernicus) è stato possibile osservare le dinamiche di trasformazione del territorio nell'arco temporale 2021-2026. L'analisi si è articolata in tre momenti chiave:
+- **2021** (Baseline): rappresenta il territorio in condizioni di normalità, prima dell'escalation del conflitto.
 - **2022** (Fase critica): evidenzia l'impatto diretto delle attività belliche sulla copertura del suolo e sulla salute della vegetazione.
 - **2026** (Situazione attuale): permette di valutare il grado di ripristino dell'ecosistema o, al contrario, la persistenza dei danni ambientali nel tempo.
   
@@ -38,7 +38,7 @@ Per l'analisi è stato utilizzato il satellite Sentinel-2 (programma Copernicus)
 >
 > Il codice JavaScript utilizzato per l'acquisizione delle immagini è disponibile nel file code.js.
 
-## Inzio dell'analisi tramite il software R 
+## Inizio dell'analisi tramite il software R 
 
 
 ````r
@@ -49,13 +49,13 @@ getwd()
 # Elenco dei file presenti nella directory per verificare la corretta disponibilità del dataset
 list.files()
 ````
-Caricamento dei pacchetti che verranno utilizzati nello studio
+Caricamento dei pacchetti che verranno utilizzati nello studio.
 ````r
-library(terra)     # Per la gestione di dati raster 
-library(imageRy)   # Gestione, analisi e visualizzazione multiframe di immagini raster.
-library(ggplot2)   # Creazione di grafici statici basata sulla Grammatica della Grafica.
-library(patchwork) # Combinazione e composizione flessibile di più grafici.
-library(viridis)   # Palette di colori ad alta leggibilità per daltonici.
+library(terra)     # Per la gestione di dati raster. 
+library(imageRy)   # Gestione, analisi e visualizzazione multiframe di immagini raster
+library(ggplot2)   # Creazione di grafici statici basata sulla Grammatica della Grafica
+library(patchwork) # Combinazione e composizione flessibile di più grafici
+library(viridis)   # Palette di colori ad alta leggibilità per daltonici
 library(ggridges)  # Grafici a cresta (ridgeline) per visualizzare distribuzioni continue
 ````
 ## Importazione dei dati 
@@ -114,7 +114,7 @@ plot(Ucraina_2026)
 ## Composizione in Colori Naturali (True Color)
 ````r
 #Composizione in Colori Naturali (True Color)
-im.multiframe(1,3) #divisione dell interfaccia grafica in 1 riga e tre colonne 
+im.multiframe(1,3) #divisione dell' interfaccia grafica in 1 riga e tre colonne 
 im.plotRGB(Ucraina_2021, r=3, g=2, b=1, title="Ucraina 2021 pre-conflitto") #Composizione spettrale nel dominio del visibile (2021 pre-conflitto)
 im.plotRGB(Ucraina_2022, r=3, g=2, b=1, title="Ucraina 2022 periodo critico") #Composizione spettrale nel dominio del visibile (2022 fase critica)
 im.plotRGB(Ucraina_2026, r=3, g=2, b=1, title="Ucraina 2026 periodo attuale") #Composizione spettrale nel dominio del visibile (2026 stato attuale)
@@ -163,12 +163,12 @@ Il DVI index viene utilizzato per valutare la presenza di vegetazione. Il DVI sf
 
 $` DVI = NIR - RED `$   
 ````r
-#Calcolo del DVI tramite im.dvi del pachetto ImageRy 
-dvi_2021<- im.dvi(Ucraina_2021, 4,3) #calcolo dell differnt vegetation index anno 2021 
-dvi_2022<- im.dvi(Ucraina_2022, 4,3) #calcolo dell differnt vegetation index anno 2022
-dvi_2026<- im.dvi(Ucraina_2026, 4,3) #calcolo dell differnt vegetation index anno 2026
+#Calcolo del DVI tramite im.dvi del pacchetto ImageRy 
+dvi_2021<- im.dvi(Ucraina_2021, 4,3) #calcolo del different vegetation index anno 2021 
+dvi_2022<- im.dvi(Ucraina_2022, 4,3) #calcolo del differnet vegetation index anno 2022
+dvi_2026<- im.dvi(Ucraina_2026, 4,3) #calcolo del differnet vegetation index anno 2026
 ````
-Tramite la visualizzazione dell'carte prodotte, è possibile apprezzare la variazione temporale della biomassa e identificare chiaramente le aree colpite dal degrado ambientale
+Tramite la visualizzazione delle carte prodotte, è possibile apprezzare la variazione temporale della biomassa e identificare chiaramente le aree colpite dal degrado ambientale
 
 ````R
 im.multiframe(1,3) #suddivisione dell'interfaccia grafica in una riga e tre colonne 
@@ -209,7 +209,7 @@ Il confronto multitemporale delle mappe di NDVI mostra una progressiva diminuzio
 
 <img src="Immagini/NDVI_anni.png" width="800">
 
-### calcolo della differeenza multitemporale dell'NDVI
+### Calcolo della differenza multitemporale dell'NDVI
 Per analizzare l'evoluzione temporale dell'area di studio, viene calcolata la differenza tra NDVI, permettendo di mappare il gradiente di variazione del vigore vegetale, dove i valori negativi evidenziano i processi di degrado ambientale avvenuti negli anni.
 
 ````r
@@ -224,10 +224,10 @@ plot(dif_26_22, col=inferno(100), main="dif_NDVI_2026-2022") #Visualizzazione de
 plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021") #Visualizzazione della differenza tra l'anno 2023 e 2021
 ````
 <img src="Immagini/dif_NDVI.png" width="800">  
-Le mappe di differeneza evidenziano un'elevata frammentazione spaziale con valori che vanno da ± 6. Si osserva che un alternanza tra fasi di degrado tra il 2021 e 2023, con un successivo peggioramento nel 2026
+Le mappe di differenza evidenziano un'elevata frammentazione spaziale con valori che vanno da ± 6. Si osserva che un'alternanza tra fasi di degrado tra il 2021 e 2023, con un successivo peggioramento nel 2026.
 
 ### Analisi statistica della densità di distribuzione dell'NDVI
-Al fine di poter valutare quantitativamente le variazioni spaziali osservate nei cartogrammi dell'NDVI e nelle relative mappe differenzali, viene utilizzata l'analisi statistica della distribuzione dei valori dei pixel per ciascun anno. A tale scopo, viene utilizzato il grafico a cresta (ridgeline plot), uno strumento specifico per il confronto multitemporale immediato della densità dei dati. Per osservare la variazione temporale continua in un unico grafico, i singoli layer raster dell'NDVI vengono uniti in uno stack
+Al fine di poter valutare quantitativamente le variazioni spaziali osservate nei cartogrammi dell'NDVI e nelle relative mappe differenzali, viene utilizzata l'analisi statistica della distribuzione dei valori dei pixel per ciascun anno. A tale scopo, viene utilizzato il grafico a cresta (ridgeline plot), uno strumento specifico per il confronto multitemporale immediato della densità dei dati. Per osservare la variazione temporale continua in un unico grafico, i singoli layer raster dell'NDVI vengono uniti in uno stack.
 
 ````r
 # Creazione dello stack dei tre NDVI e generazione del ridgeline plot
@@ -269,15 +269,15 @@ plot(class_2022, main="2022") #visualizzazione classi 2023
 plot(class_2026, main="2026") #visualizzazione classi 2026
 ````
 <img src="Immagini/Area_classificata.png" width="800">
-Per confermare cio che viene visualizzato vengono calcolate le frequenze percentuali 
+Per confermare ciò che viene visualizzato vengono calcolate le frequenze percentuali 
 
 ````r
-# calcolo delle frequenza assoluto 
+# calcolo delle frequenza assoluta 
 f2021 <- freq(class_2021) # calcolo delle classi di vegetazione e suolo nudo 2021 
 f2022 <- freq(class_2022) # calcolo delle classi di vegetazione e suolo nudo 2022
 f2026 <- freq(class_2026) # calcolo delle classi di vegetazione e suolo nudo 2026
 
-#calcolo delle fgrequenza relativa 
+#calcolo delle frequenza relativa 
 prop2021 <- f2021$count / ncell(class_2021) # frequenza assoluta diviso numero di celle del 2021 
 prop2022 <- f2022$count / ncell(class_2022) # frequenza assoluta diviso numero di celle del 2022
 prop2026 <- f2026$count / ncell(class_2026) # frequenza assoluta diviso numero di celle del 2026 
@@ -335,12 +335,12 @@ p1 + p2 + p3
 
 
 # Conclusioni 
-lo studio condotto tramite telerilevamento satellitare multitemporale ha permesso di quantificare e confrontare l'evoluzione del danno ambientale nella regione di Zaporizhzhia tra il 2021 e il 2026. L'integrazione degli indici spettrali (DVI e NDVI), dell'analisi statistica della densità dei pixel mediante ridgeline plot e della classificazione finale ha evidenziato un processo di degrado continuo e cumulativo del territorio.
+Lo studio condotto tramite telerilevamento satellitare multitemporale ha permesso di quantificare e confrontare l'evoluzione del danno ambientale nella regione di Zaporizhzhia tra il 2021 e il 2026. L'integrazione degli indici spettrali (DVI e NDVI), dell'analisi statistica della densità dei pixel mediante ridgeline plot e della classificazione finale ha evidenziato un processo di degrado continuo e cumulativo del territorio.
 I risultati analitici mostrano che i danni non sono riconducibili esclusivamente al periodo iniziale del conflitto nel 2022, ma hanno determinato un collasso persistente della biomassa fotosinteticamente attiva nel 2026.
-Nel 2026 il suolo nudo è diventato la matrice dominante con una copertura di circa il 56,67% della copertura totale mentre la vegetazione scende ad una copertura di circa il 48.33% confermando i gravi danni ecologici che si stanno susseguendo nel territorio ucraino 
+Nel 2026 il suolo nudo è diventato la matrice dominante con una copertura di circa il 56,67% della copertura totale mentre la vegetazione scende ad una copertura di circa il 48.33% confermando i gravi danni ecologici che si stanno susseguendo nel territorio ucraino. 
 # 🌐 Sitografia 
 ## Contesto storico e geopolitico 
-- **La Republica** *"Ucraina, forze russe occupano la centrale nucleare di Zaporizhzhia dopo l'attacco della notte"* (Pubblicato il 4 marzo 2022). Articolo giornalistico che documenta l'attacco militare e l'occupazione dell'area della centrale di Zaporizhzhia, evento cardine che ha determinato l'inizio delle ostilità nella zona e il conseguente abbandono delle attività agricole nel territorio circostante. Disponibile al link: https://www.repubblica.it/esteri/2022/03/04/news/ucraina_russi_zaporizhzhia-340217401/
+- **La Repubblica** *"Ucraina, forze russe occupano la centrale nucleare di Zaporizhzhia dopo l'attacco della notte"* (Pubblicato il 4 marzo 2022). Articolo giornalistico che documenta l'attacco militare e l'occupazione dell'area della centrale di Zaporizhzhia, evento cardine che ha determinato l'inizio delle ostilità nella zona e il conseguente abbandono delle attività agricole nel territorio circostante. Disponibile al link: https://www.repubblica.it/esteri/2022/03/04/news/ucraina_russi_zaporizhzhia-340217401/
 ### Piattaforme dati e librerie software
 - **Google Earth Engine:** https://earthengine.google.com/ (Piattaforma cloud per il pre-processing e l'estrazione dei dati raster).
 - **CRAN Repository:** https://cran.r-project.org/ (Documentazione ufficiale dei pacchetti R utilizzati: `terra`, `ggplot2`, `ggridges`, `viridis`).
