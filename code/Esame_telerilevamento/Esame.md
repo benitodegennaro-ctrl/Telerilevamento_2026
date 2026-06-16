@@ -138,10 +138,10 @@ plot(Ucraina_2021[[3]], col=magma(100), main="2021 - B4") # Riflettanza nel visi
 plot(Ucraina_2021[[4]], col=magma(100), main="2021 - B8") # Riflettanza nel vicino infrarosso (biomassa)
  
 # Anno 2022
-plot(Ucraina_2022[[1]], col=magma(100), main="2023 - B2") # Riflettanza nel visibile (blu)
-plot(Ucraina_2022[[2]], col=magma(100), main="2023 - B3") # Riflettanza nel visibile (verde)
-plot(Ucraina_2022[[3]], col=magma(100), main="2023 - B4") # Riflettanza nel visibile (rosso)
-plot(Ucraina_2022[[4]], col=magma(100), main="2023 - B8") # Riflettanza nel vicino infrarosso (biomassa)
+plot(Ucraina_2022[[1]], col=magma(100), main="2022 - B2") # Riflettanza nel visibile (blu)
+plot(Ucraina_2022[[2]], col=magma(100), main="2022 - B3") # Riflettanza nel visibile (verde)
+plot(Ucraina_2022[[3]], col=magma(100), main="2022 - B4") # Riflettanza nel visibile (rosso)
+plot(Ucraina_2022[[4]], col=magma(100), main="2022 - B8") # Riflettanza nel vicino infrarosso (biomassa)
  
 # Anno 2026
 plot(Ucraina_2026[[1]], col=magma(100), main="2026 - B2") # Riflettanza nel visibile (blu)
