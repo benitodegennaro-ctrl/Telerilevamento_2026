@@ -87,7 +87,7 @@ Dall'interrogazione degli oggetti, risulta che tutti e tre i dataset presentano 
 - la risoluzione : 8.983153e-05, 8.983153e-05
 - l'estensione : 35.79993, 35.95004, 47.39997, 47.50004
 - il sistema di riferimento : WGS 84 (EPSG:4326)
-- le bande : B2, B3, B4, B8, B11, B12
+- le bande : B2, B3, B4, B8, B11
 
 ## Visualizzazione delle immagini 
 **2021**
@@ -338,7 +338,13 @@ p1 + p2 + p3
 lo studio condotto tramite telerilevamento satellitare multitemporale ha permesso di quantificare e confrontare l'evoluzione del danno ambientale nella regione di Zaporizhzhia tra il 2021 e il 2026. L'integrazione degli indici spettrali (DVI e NDVI), dell'analisi statistica della densità dei pixel mediante ridgeline plot e della classificazione finale ha evidenziato un processo di degrado continuo e cumulativo del territorio.
 I risultati analitici mostrano che i danni non sono riconducibili esclusivamente al periodo iniziale del conflitto nel 2022, ma hanno determinato un collasso persistente della biomassa fotosinteticamente attiva nel 2026.
 Nel 2026 il suolo nudo è diventato la matrice dominante con una copertura di circa il 56,67% della copertura totale mentre la vegetazione scende ad una copertura di circa il 48.33% confermando i gravi danni ecologici che si stanno susseguendo nel territorio ucraino 
-# sitografia 
+# 🌐 Sitografia 
+## Contesto storico e geopolitico 
+- **La Republica** *"Ucraina, forze russe occupano la centrale nucleare di Zaporizhzhia dopo l'attacco della notte"* (Pubblicato il 4 marzo 2022). Articolo giornalistico che documenta l'attacco militare e l'occupazione dell'area della centrale di Zaporizhzhia, evento cardine che ha determinato l'inizio delle ostilità nella zona e il conseguente abbandono delle attività agricole nel territorio circostante. Disponibile al link: https://www.repubblica.it/esteri/2022/03/04/news/ucraina_russi_zaporizhzhia-340217401/
+### Piattaforme dati e librerie software
+- **Google Earth Engine:** https://earthengine.google.com/ (Piattaforma cloud per il pre-processing e l'estrazione dei dati raster).
+- **CRAN Repository:** https://cran.r-project.org/ (Documentazione ufficiale dei pacchetti R utilizzati: `terra`, `ggplot2`, `ggridges`, `viridis`).
+- **Copernicus Data Space Ecosystem:** https://dataspace.copernicus.eu/ (Consultato per la verifica delle specifiche tecniche, delle lunghezze d'onda e delle risoluzioni geometriche delle bande spettrali di Sentinel-2).
 
 
 
