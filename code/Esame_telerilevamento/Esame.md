@@ -6,7 +6,7 @@
 ### 🗓️ Periodo di studio: 2021-2026
 ---
 # 📕 Introduzione 
-Il progetto si propone di analizzare gli effetti ambientali del conflitto armato nella regione di **Zaporizhzhia**, area di grande importanza agricola in Ucraina, attraverso l'impiego delle immagini satellitari di Sentinel-2 (programma Copernicus) è stato possibile osservare le dinamiche di trasformazione del territorio nell'arco temporale 2021-2026. L'analisi si è articolata in tre momenti chiave:
+Il progetto si propone di analizzare gli effetti ambientali del conflitto armato nella regione di **Zaporizhzhia**, area di grande importanza agricola in Ucraina, attraverso l'impiego delle immagini satellitari di Sentinel-2 (programma Copernicus), è stato possibile osservare le dinamiche di trasformazione del territorio nell'arco temporale 2021-2026. L'analisi si è articolata in tre momenti chiave:
 - **2021** (Baseline): rappresenta il territorio in condizioni di normalità, prima dell'escalation del conflitto.
 - **2022** (Fase critica): evidenzia l'impatto diretto delle attività belliche sulla copertura del suolo e sulla salute della vegetazione.
 - **2026** (Situazione attuale): permette di valutare il grado di ripristino dell'ecosistema o, al contrario, la persistenza dei danni ambientali nel tempo.
@@ -191,7 +191,7 @@ $NDVI = \frac{NIR - Red}{NIR + Red}$
 - Valori negativi sono generalmente associati a superfici d'acqua, aree urbanizzate o suoli privi di vegetazione.
 
 ````r
-#caclo del NDVI
+#calcolo del NDVI
 ndvi_2021<-im.ndvi(Ucraina_2021,4,3) #NDVI anno 2021
 ndvi_2022<-im.ndvi(Ucraina_2022,4,3) #NDVI anno 2022
 ndvi_2026<-im.ndvi(Ucraina_2026,4,3) #NDVI anno 2026
@@ -221,10 +221,10 @@ dif_26_21 <- ndvi_2026 - ndvi_2021# Differenza totale sull'intero periodo analiz
 im.multiframe(1,3)
 plot(dif_22_21, col=inferno(100), main="dif_NDVI_2022-2021") #Visalizzazione della differenza tra l'anno 2022 e 2021
 plot(dif_26_22, col=inferno(100), main="dif_NDVI_2026-2022") #Visualizzazione della differenza tra l'anno 2026 e 2022
-plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021") #Visualizzazione della differenza tra l'anno 2023 e 2021
+plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021") #Visualizzazione della differenza tra l'anno 2026 e 2021
 ````
 <img src="Immagini/dif_NDVI.png" width="800">  
-Le mappe di differenza evidenziano un'elevata frammentazione spaziale con valori che vanno da ± 6. Si osserva che un'alternanza tra fasi di degrado tra il 2021 e 2023, con un successivo peggioramento nel 2026.
+Le mappe di differenza evidenziano un'elevata frammentazione spaziale con valori che vanno da ± 1. Si osserva che un'alternanza tra fasi di degrado tra il 2021 e 2023, con un successivo peggioramento nel 2026.
 
 ### Analisi statistica della densità di distribuzione dell'NDVI
 Al fine di poter valutare quantitativamente le variazioni spaziali osservate nei cartogrammi dell'NDVI e nelle relative mappe differenzali, viene utilizzata l'analisi statistica della distribuzione dei valori dei pixel per ciascun anno. A tale scopo, viene utilizzato il grafico a cresta (ridgeline plot), uno strumento specifico per il confronto multitemporale immediato della densità dei dati. Per osservare la variazione temporale continua in un unico grafico, i singoli layer raster dell'NDVI vengono uniti in uno stack.
@@ -234,7 +234,7 @@ Al fine di poter valutare quantitativamente le variazioni spaziali osservate nei
 ndvi_stack <- c(ndvi_2021, ndvi_2022, ndvi_2026)
 names(ndvi_stack) <- c("NDVI_2021", "NDVI_2022", "NDVI_2026") # Assegnazione nomi ai layer
 
-im.ridgeline(ndvi_stack, scale=1, palette="viridis") # Generazione di un ridlgline plot 
+im.ridgeline(ndvi_stack, scale=1, palette="viridis")  # Generazione di un ridgeline plot
 ````
 <img src="Immagini/rifgline.png" width="800">  
 
@@ -242,7 +242,7 @@ Il grafico mostra chiaramente l'evoluzione temporale della distribuzione dell'ND
 Il grafico evidenzia: 
 
 - **2021** : la distribuzione è sbilanciata verso destra con un picco acuto verso lo 0.9, indicando una forte prevalenza di vegetazione densa.
-- **2022** : si individua uno spostamento della massa verso valori in torno allo 0.4 con una parziale riduzione del picco massimo di vigore rispetto al 2021.
+- **2022** : si individua uno spostamento della massa verso valori in torno a 0.4 con una parziale riduzione del picco massimo di vigore rispetto al 2021.
 - **2026** : La distribuzione subisce una contrazione drastica e un netto spostamento verso sinistra. Il picco si sposta verso valori dello 0.25, con una scomparsa di valori >0.7 (componente di vegetazione ad alto vigore)
 
 ## Classificazione 
@@ -336,8 +336,8 @@ p1 + p2 + p3
 
 # Conclusioni 
 Lo studio condotto tramite telerilevamento satellitare multitemporale ha permesso di quantificare e confrontare l'evoluzione del danno ambientale nella regione di Zaporizhzhia tra il 2021 e il 2026. L'integrazione degli indici spettrali (DVI e NDVI), dell'analisi statistica della densità dei pixel mediante ridgeline plot e della classificazione finale ha evidenziato un processo di degrado continuo e cumulativo del territorio.
-I risultati analitici mostrano che i danni non sono riconducibili esclusivamente al periodo iniziale del conflitto nel 2022, ma hanno determinato un collasso persistente della biomassa fotosinteticamente attiva nel 2026.
-Nel 2026 il suolo nudo è diventato la matrice dominante con una copertura di circa il 56,67% della copertura totale mentre la vegetazione scende ad una copertura di circa il 48.33% confermando i gravi danni ecologici che si stanno susseguendo nel territorio ucraino. 
+I risultati analitici mostrano che i danni non sono riconducibili esclusivamente al periodo iniziale del conflitto nel 2022, sono associati a una significativa diminuzione della biomassa fotosinteticamente attiva.
+Nel 2026 il suolo nudo è diventato la matrice dominante con una copertura di circa il 51,67% della copertura totale mentre la vegetazione scende ad una copertura di circa il 48.33% confermando i gravi danni ecologici che si stanno susseguendo nel territorio ucraino. 
 # 🌐 Sitografia 
 ## Contesto storico e geopolitico 
 - **La Repubblica** *"Ucraina, forze russe occupano la centrale nucleare di Zaporizhzhia dopo l'attacco della notte"* (Pubblicato il 4 marzo 2022). Articolo giornalistico che documenta l'attacco militare e l'occupazione dell'area della centrale di Zaporizhzhia, evento cardine che ha determinato l'inizio delle ostilità nella zona e il conseguente abbandono delle attività agricole nel territorio circostante. Disponibile al link: https://www.repubblica.it/esteri/2022/03/04/news/ucraina_russi_zaporizhzhia-340217401/
