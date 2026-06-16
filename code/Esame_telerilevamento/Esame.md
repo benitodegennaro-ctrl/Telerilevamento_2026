@@ -85,7 +85,7 @@ Dall'interrogazione degli oggetti, risulta che tutti e tre i dataset presentano 
 - la classe : SpatRaster
 - la dimensione : 1114, 1671, 6 
 - la risoluzione : 8.983153e-05, 8.983153e-05
-- l'estenzione : 35.79993, 35.95004, 47.39997, 47.50004
+- l'estensione : 35.79993, 35.95004, 47.39997, 47.50004
 - il sistema di riferimento : WGS 84 (EPSG:4326)
 - le bande : B2, B3, B4, B8, B11, B12
 
@@ -306,7 +306,7 @@ tabella
 | **suolo nudo** | 27.64959 | 35.74551 | 51.67242 |
 | **vegetazione** | 72.35041 | 64.25449 | 48.32796 |
 
-Come si puo vedere dai dati ottenuti la vegetazione ha avuto un forte calo di circa l' 8% nel 2023 a causa del conflitto  con un ulteriore calo nel 2026 con un valore di circa del 24% rispetto al 2021.
+Come si puo vedere dai dati ottenuti la vegetazione ha avuto un forte calo di circa l' 8% nel 2022 a causa del conflitto  con un ulteriore calo nel 2026 con un valore di circa del 24% rispetto al 2021.
 Con i dati forniti dalla tabella prodotta vengono generati tre grafici a barre.
 
 ````r
@@ -336,7 +336,7 @@ p1 + p2 + p3
 
 # Conclusioni 
 lo studio condotto tramite telerilevamento satellitare multitemporale ha permesso di quantificare e confrontare l'evoluzione del danno ambientale nella regione di Zaporizhzhia tra il 2021 e il 2026. L'integrazione degli indici spettrali (DVI e NDVI), dell'analisi statistica della densità dei pixel mediante ridgeline plot e della classificazione finale ha evidenziato un processo di degrado continuo e cumulativo del territorio.
-I risultati analitici mostrano che i danni non sono riconducibili esclusivamente al periodo iniziale del conflitto nel 2022, ma 2022,ma hanno determinato un collasso persistente della biomassa fotosinteticamente attiva nel 2026.
+I risultati analitici mostrano che i danni non sono riconducibili esclusivamente al periodo iniziale del conflitto nel 2022, ma hanno determinato un collasso persistente della biomassa fotosinteticamente attiva nel 2026.
 Nel 2026 il suolo nudo è diventato la matrice dominante con una copertura di circa il 56,67% della copertura totale mentre la vegetazione scende ad una copertura di circa il 48.33% confermando i gravi danni ecologici che si stanno susseguendo nel territorio ucraino 
 # sitografia 
 
