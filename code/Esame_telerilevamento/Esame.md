@@ -274,12 +274,12 @@ Per confermare cio che viene visualizzato vengono calcolate le frequenze percent
 ````r
 # calcolo delle frequenza assoluto 
 f2021 <- freq(class_2021) # calcolo delle classi di vegetazione e suolo nudo 2021 
-f2023 <- freq(class_2022) # calcolo delle classi di vegetazione e suolo nudo 2022
+f2022 <- freq(class_2022) # calcolo delle classi di vegetazione e suolo nudo 2022
 f2026 <- freq(class_2026) # calcolo delle classi di vegetazione e suolo nudo 2026
 
 #calcolo delle fgrequenza relativa 
 prop2021 <- f2021$count / ncell(class_2021) # frequenza assoluta diviso numero di celle del 2021 
-prop2022 <- f2023$count / ncell(class_2022) # frequenza assoluta diviso numero di celle del 2022
+prop2022 <- f2022$count / ncell(class_2022) # frequenza assoluta diviso numero di celle del 2022
 prop2026 <- f2026$count / ncell(class_2026) # frequenza assoluta diviso numero di celle del 2026 
 
 #conversione in dati percentuali 
@@ -293,15 +293,15 @@ Per una visualizzazione diretta viene generata una tabella.
 #creazione di una tabella con i dati calcolati 
 tabella <- data.frame(
   class = c("suolo nudo", "vegetazione"),
-  perc2021 = perc2021,
-  perc2022 = perc2022,
-  perc2026 = perc2026
+  percentuale_2021 = perc2021,
+  percentuale_2022 = perc2022,
+  percentuale_2026 = perc2026
 ) # creazione di una tabella contenente le percentuali di suolo nudo e di vegetazione per ogni anno 
 
 # Visualizzazione della tabella finale
 tabella
 ````
-| class | percentuale 2021 | percentuale 2022 | percentuale 2026 |
+| class | percentuale_2021 | percentuale_2022 | percentuale_2026 |
 | :--- | :---: | :---: | :---: |
 | **suolo nudo** | 27.64959 | 35.74551 | 51.67242 |
 | **vegetazione** | 72.35041 | 64.25449 | 48.32796 |
@@ -310,19 +310,19 @@ Come si puo vedere dai dati ottenuti la vegetazione ha avuto un forte calo di ci
 Con i dati forniti dalla tabella prodotta vengono generati tre grafici a barre.
 
 ````r
-p1 <- ggplot(tabella, aes(x=class, y=percentuale2021, color=class)) + 
+p1 <- ggplot(tabella, aes(x=class, y=percentuale_2021, color=class)) + 
   geom_bar(stat="identity", fill="white") + 
   ylim(c(0,100)) + 
   labs(title="Copertura 2021", x="Classe", y="Percentuale (%)") +
   theme(legend.position="none")
 
-p2 <- ggplot(tabella, aes(x=class, y=percentuale2022, color=class)) + 
+p2 <- ggplot(tabella, aes(x=class, y=percentuale_2022, color=class)) + 
   geom_bar(stat="identity", fill="white") + 
   ylim(c(0,100)) + 
   labs(title="Copertura 2022", x="Classe", y="Percentuale (%)") +
   theme(legend.position="none")
 
-p3 <- ggplot(tabella, aes(x=class, y=percentuale2026, color=class)) + 
+p3 <- ggplot(tabella, aes(x=class, y=percentuale_2026, color=class)) + 
   geom_bar(stat="identity", fill="white") + 
   ylim(c(0,100)) + 
   labs(title="Copertura 2026", x="Classe", y="Percentuale (%)") +
