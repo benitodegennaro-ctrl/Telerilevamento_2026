@@ -174,7 +174,7 @@ Tramite la visualizzazione dell'carte prodotte, è possibile apprezzare la varia
 im.multiframe(1,3) #suddivisione dell'interfaccia grafica in una riga e tre colonne 
 #Utilizzo della palette 'inferno' per garantire una rappresentazione percettivamente uniforme e accessibile dei dati continui di DVI
 plot(dvi_2021, col=inferno(100), main="DVI 2021") #visione dell' indice dvi per l'anno 2021 
-plot(dvi_2022, col=inferno(100), main="DVI 2022") #visione dell' indice dvi per l'anno 2023
+plot(dvi_2022, col=inferno(100), main="DVI 2022") #visione dell' indice dvi per l'anno 2022
 plot(dvi_2026, col=inferno(100), main="DVI 2026") #visione dell' indice dvi per l'anno 2026
 ````
 <img src="Immagini/Calcolo_DVI.png" width="800">
