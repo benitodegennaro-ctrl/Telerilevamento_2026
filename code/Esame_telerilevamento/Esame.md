@@ -42,11 +42,13 @@ Per l'analisi è stato utilizzato il satellite Sentinel-2 (programma Copernicus)
 
 
 ````r
-# Imposta la cartella di lavoro per gestire correttamente l'input e l'output dei file del progetto
+# Impostazione della cartella di lavoro del progetto
 setwd("~/Desktop/Progetto_ucraina.R")
-#Verifica del percorso impostato: conferma la cartella di lavoro corrente
+
+# Verifica del percorso corrente
 getwd()
-# Elenco dei file presenti nella directory per verificare la corretta disponibilità del dataset
+
+# Verifica dei file disponibili nella directory
 list.files()
 ````
 Caricamento dei pacchetti che verranno utilizzati nello studio.
@@ -76,7 +78,7 @@ Prima di procedere con l'elaborazione, interrogo i tre oggetti ````Ucraina_2021`
 - **Estensione** Coordinate dei limiti dell'area di studio.
 
 ````r
-# Interrogazione degli oggetti per la verifica delle informazioni spaziali e delle proprietà
+# Verifica dei metadati e delle proprietà spaziali dei dataset (2021, 2022, 2026)
 Ucraina_2021
 Ucraina_2022
 Ucraina_2026
@@ -113,11 +115,13 @@ plot(Ucraina_2026)
 
 ## Composizione in Colori Naturali (True Color)
 ````r
-#Composizione in Colori Naturali (True Color)
-im.multiframe(1,3) #divisione dell' interfaccia grafica in 1 riga e tre colonne 
-im.plotRGB(Ucraina_2021, r=3, g=2, b=1, title="Ucraina 2021 pre-conflitto") #Composizione spettrale nel dominio del visibile (2021 pre-conflitto)
-im.plotRGB(Ucraina_2022, r=3, g=2, b=1, title="Ucraina 2022 periodo critico") #Composizione spettrale nel dominio del visibile (2022 fase critica)
-im.plotRGB(Ucraina_2026, r=3, g=2, b=1, title="Ucraina 2026 periodo attuale") #Composizione spettrale nel dominio del visibile (2026 stato attuale)
+# Configurazione dello schermo su 1 riga e 3 colonne
+im.multiframe(1,3)
+
+# Visualizzazione in colori naturali (RGB 3,2,1) per il confronto temporale (2021, 2022,2026)
+im.plotRGB(Ucraina_2021, r=3, g=2, b=1, title="Ucraina 2021 pre-conflitto")
+im.plotRGB(Ucraina_2022, r=3, g=2, b=1, title="Ucraina 2022 periodo critico")
+im.plotRGB(Ucraina_2026, r=3, g=2, b=1, title="Ucraina 2026 periodo attuale")
 ````
 <img src="Immagini/RGB.png" width="800">
 
@@ -128,26 +132,27 @@ La serie multitemporale analizzata consente di visualizzare i processi di degrad
 Attraverso il confronto tra le bande del visibile (B2, B3, B4) e la banda del vicino infrarosso (B8), è possibile isolare la risposta riflettiva del suolo e della vegetazione in tre differenti fasi temporali: baseline (2021), fase critica (2022) e situazione attuale (2026).
 
 ````r
-#Suddivisione dell'interfaccia grafica 
+# Configurazione dello schermo su 3 righe e 4 colonne
 im.multiframe(3, 4) 
- 
+
+# Visualizzazione delle singole bande (B2=Blu, B3=Verde, B4=Rosso, B8=NIR) con palette cividis
 # Anno 2021
-plot(Ucraina_2021[[1]], col=mako(1000), main="2021 - B2") # Riflettanza nel visibile (blu)
-plot(Ucraina_2021[[2]], col=mako(1000), main="2021 - B3") # Riflettanza nel visibile (verde)
-plot(Ucraina_2021[[3]], col=mako(1000), main="2021 - B4") # Riflettanza nel visibile (rosso)
-plot(Ucraina_2021[[4]], col=mako(1000), main="2021 - B8") # Riflettanza nel vicino infrarosso (biomassa)
- 
+plot(Ucraina_2021[[1]], col=cividis(100), main="2021 - B2") 
+plot(Ucraina_2021[[2]], col=cividis(100), main="2021 - B3") 
+plot(Ucraina_2021[[3]], col=cividis(100), main="2021 - B4") 
+plot(Ucraina_2021[[4]], col=cividis(100), main="2021 - B8") 
+
 # Anno 2022
-plot(Ucraina_2022[[1]], col=mako(1000), main="2022 - B2") # Riflettanza nel visibile (blu)
-plot(Ucraina_2022[[2]], col=mako(1000), main="2022 - B3") # Riflettanza nel visibile (verde)
-plot(Ucraina_2022[[3]], col=mako(1000), main="2022 - B4") # Riflettanza nel visibile (rosso)
-plot(Ucraina_2022[[4]], col=mako(1000), main="2022 - B8") # Riflettanza nel vicino infrarosso (biomassa)
- 
+plot(Ucraina_2022[[1]], col=cividis(100), main="2022 - B2") 
+plot(Ucraina_2022[[2]], col=cividis(100), main="2022 - B3") 
+plot(Ucraina_2022[[3]], col=cividis(100), main="2022 - B4") 
+plot(Ucraina_2022[[4]], col=cividis(100), main="2022 - B8") 
+
 # Anno 2026
-plot(Ucraina_2026[[1]], col=mako(1000), main="2026 - B2") # Riflettanza nel visibile (blu)
-plot(Ucraina_2026[[2]], col=mako(1000), main="2026 - B3") # Riflettanza nel visibile (verde)
-plot(Ucraina_2026[[3]], col=mako(1000), main="2026 - B4") # Riflettanza nel visibile (rosso)
-plot(Ucraina_2026[[4]], col=mako(1000), main="2026 - B8") # Riflettanza nel vicino infrarosso (biomassa)
+plot(Ucraina_2026[[1]], col=cividis(100), main="2026 - B2") 
+plot(Ucraina_2026[[2]], col=cividis(100), main="2026 - B3") 
+plot(Ucraina_2026[[3]], col=cividis(100), main="2026 - B4") 
+plot(Ucraina_2026[[4]], col=cividis(100), main="2026 - B8")
 ````
 <img src="Immagini/Scomposizione.png" width="800">
 
@@ -159,23 +164,25 @@ Dall'osservazione delle immagini emerge una netta variazione nella banda del vic
 ## 🌾 Calcolo degli indici vegetazionali 
 
 ### Different vegetation index (DVI) 
-Il DVI index viene utilizzato per valutare la presenza di vegetazione. Il DVI sfrutta la differente risposta spettrale della vegetazione nelle bande del vicino infrarosso **(NIR)** e del rosso **(RED)**. Le piante sane assorbono gran parte della radiazione nella banda del rosso per i processi fotosintetici e riflettono intensamente la radiazione nel vicino infrarosso. Di conseguenza, la differenza tra queste due bande consente di stimare la presenza e la vigoria della copertura vegetale.
+Il DVI, viene utilizzato per valutare la presenza di vegetazione. Il DVI sfrutta la differente risposta spettrale della vegetazione nelle bande del vicino infrarosso **(NIR)** e del rosso **(RED)**. Le piante sane assorbono gran parte della radiazione nella banda del rosso per i processi fotosintetici e riflettono intensamente la radiazione nel vicino infrarosso. Di conseguenza, la differenza tra queste due bande consente di stimare la presenza e la vigoria della copertura vegetale.
 
 $` DVI = NIR - RED `$   
 ````r
-#Calcolo del DVI tramite im.dvi del pacchetto ImageRy 
-dvi_2021<- im.dvi(Ucraina_2021, 4,3) #calcolo del different vegetation index anno 2021 
-dvi_2022<- im.dvi(Ucraina_2022, 4,3) #calcolo del differnet vegetation index anno 2022
-dvi_2026<- im.dvi(Ucraina_2026, 4,3) #calcolo del differnet vegetation index anno 2026
+# Calcolo del Difference Vegetation Index (DVI) utilizzando la banda 4 (NIR) e la banda 3 (Rosso)
+dvi_2021 <- im.dvi(Ucraina_2021, 4, 3)
+dvi_2022 <- im.dvi(Ucraina_2022, 4, 3)
+dvi_2026 <- im.dvi(Ucraina_2026, 4, 3)
 ````
 Tramite la visualizzazione delle carte prodotte, è possibile apprezzare la variazione temporale della biomassa e identificare chiaramente le aree colpite dal degrado ambientale
 
 ````R
-im.multiframe(1,3) #suddivisione dell'interfaccia grafica in una riga e tre colonne 
-#Utilizzo della palette 'inferno' per garantire una rappresentazione percettivamente uniforme e accessibile dei dati continui di DVI
-plot(dvi_2021, col=inferno(100), main="DVI 2021") #visione dell' indice dvi per l'anno 2021 
-plot(dvi_2022, col=inferno(100), main="DVI 2022") #visione dell' indice dvi per l'anno 2022
-plot(dvi_2026, col=inferno(100), main="DVI 2026") #visione dell' indice dvi per l'anno 2026
+# Configurazione dello schermo su 1 riga e 3 colonne
+im.multiframe(1, 3) 
+
+# Visualizzazione dell'indice DVI con palette inferno per il confronto temporale
+plot(dvi_2021, col=inferno(100), main="DVI 2021") 
+plot(dvi_2022, col=inferno(100), main="DVI 2022") 
+plot(dvi_2026, col=inferno(100), main="DVI 2026")
 ````
 <img src="Immagini/Calcolo_DVI.png" width="800">
 
@@ -192,19 +199,21 @@ $NDVI = \frac{NIR - Red}{NIR + Red}$
 - Valori negativi sono generalmente associati a superfici d'acqua, aree urbanizzate o suoli privi di vegetazione.
 
 ````r
-#calcolo del NDVI
-ndvi_2021<-im.ndvi(Ucraina_2021,4,3) #NDVI anno 2021
-ndvi_2022<-im.ndvi(Ucraina_2022,4,3) #NDVI anno 2022
-ndvi_2026<-im.ndvi(Ucraina_2026,4,3) #NDVI anno 2026
+# Calcolo del Normalized Difference Vegetation Index (NDVI) tramite bande 4 (NIR) e 3 (Rosso)
+ndvi_2021 <- im.ndvi(Ucraina_2021, 4, 3)
+ndvi_2022 <- im.ndvi(Ucraina_2022, 4, 3)
+ndvi_2026 <- im.ndvi(Ucraina_2026, 4, 3)
 ````
 La distribuzione spaziale del vigore fotosintetico calcolato viene visualizzata di seguito.
 
 ````r
-im.multiframe(1,3) #suddivisione dell'interfaccia grafica in  1 riga e 3 colonne
-#visualizzazione dei vari NDVI 
-plot(ndvi_2021, col=mako(100), main="NDVI 2021") # visualizzazione NDVI 2021
-plot(ndvi_2022, col=mako(100), main="NDVI 2022") # visualizzazione NDVI 2022
-plot(ndvi_2026, col=mako(100), main="NDVI 2026") # visualizzazione NDVI 2026
+# Configurazione dello schermo su 1 riga e 3 colonne
+im.multiframe(1, 3) 
+
+# Visualizzazione dell'indice NDVI con palette mako per il confronto temporale
+plot(ndvi_2021, col=mako(100), main="NDVI 2021") 
+plot(ndvi_2022, col=mako(100), main="NDVI 2022") 
+plot(ndvi_2026, col=mako(100), main="NDVI 2026")
 ````
 Il confronto multitemporale delle mappe di NDVI mostra una progressiva diminuzione dei valori dell'indice a partire dal 2022, indicativa di una significativa riduzione del vigore vegetativo durante la fase più intensa del conflitto. Tale fenomeno di degrado non manifesta segni di ripresa, evidenziando un ulteriore e progressivo peggioramento nel 2026.
 
@@ -214,15 +223,18 @@ Il confronto multitemporale delle mappe di NDVI mostra una progressiva diminuzio
 Per analizzare l'evoluzione temporale dell'area di studio, viene calcolata la differenza tra NDVI, permettendo di mappare il gradiente di variazione del vigore vegetativo, dove i valori negativi evidenziano i processi di degrado ambientale avvenuti negli anni.
 
 ````r
-dif_22_21 <- ndvi_2022 - ndvi_2021 # Differenza tra il 2022 e il 2021
-dif_26_22 <- ndvi_2026 - ndvi_2022 # Differenza tra il 2026 e il 2022
-dif_26_21 <- ndvi_2026 - ndvi_2021# Differenza totale sull'intero periodo analizzato
+# Calcolo delle differenze temporali dell'NDVI tra i diversi periodi
+dif_22_21 <- ndvi_2022 - ndvi_2021 
+dif_26_22 <- ndvi_2026 - ndvi_2022 
+dif_26_21 <- ndvi_2026 - ndvi_2021
 
-#Suddivisione dell'interfaccia grafica in una riga e tre colonne 
-im.multiframe(1,3)
-plot(dif_22_21, col=inferno(100), main="dif_NDVI_2022-2021") #Visualizzazione della differenza tra l'anno 2022 e 2021
-plot(dif_26_22, col=inferno(100), main="dif_NDVI_2026-2022") #Visualizzazione della differenza tra l'anno 2026 e 2022
-plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021") #Visualizzazione della differenza tra l'anno 2026 e 2021
+# Configurazione dello schermo su 1 riga e 3 colonne
+im.multiframe(1, 3)
+
+# Visualizzazione delle variazioni di NDVI con palette inferno
+plot(dif_22_21, col=inferno(100), main="dif_NDVI_2022-2021") 
+plot(dif_26_22, col=inferno(100), main="dif_NDVI_2026-2022") 
+plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021")
 ````
 <img src="Immagini/dif_NDVI.png" width="800">  
 Le mappe di differenza evidenziano una forte variazione spaziale. Nella prima fase (2021-2022) i valori variano tra +1.0 e -0.5, mostrando una situazione ancora parzialmente stabile. Nelle mappe successive, che includono il 2026, la scala dei valori si sposta verso il basso, variando tra +0.5 e -1.0; la diffusione delle tonalità scure e arancioni documenta il calo generalizzato dell'NDVI e l'estensione del degrado ambientale.
@@ -231,11 +243,12 @@ Le mappe di differenza evidenziano una forte variazione spaziale. Nella prima fa
 Al fine di poter valutare quantitativamente le variazioni spaziali osservate nei cartogrammi dell'NDVI e nelle relative mappe differenziali, viene utilizzata l'analisi statistica della distribuzione dei valori dei pixel per ciascun anno. A tale scopo, viene utilizzato il grafico a cresta (ridgeline plot), uno strumento specifico per il confronto multitemporale immediato della densità dei dati. Per osservare la variazione temporale continua in un unico grafico, i singoli layer raster dell'NDVI vengono uniti in uno stack.
 
 ````r
-# Creazione dello stack dei tre NDVI e generazione del ridgeline plot
+# Creazione dello stack dei layer NDVI e assegnazione dei relativi nomi
 ndvi_stack <- c(ndvi_2021, ndvi_2022, ndvi_2026)
-names(ndvi_stack) <- c("NDVI_2021", "NDVI_2022", "NDVI_2026") # Assegnazione nomi ai layer
+names(ndvi_stack) <- c("NDVI_2021", "NDVI_2022", "NDVI_2026")
 
-im.ridgeline(ndvi_stack, scale=1, palette="viridis")  # Generazione di un ridgeline plot
+# Generazione del ridgeline plot per il confronto delle distribuzioni con palette inferno
+im.ridgeline(ndvi_stack, scale=1, palette="inferno")
 ````
 <img src="Immagini/rifgline.png" width="800">  
 
@@ -250,54 +263,56 @@ Il grafico evidenzia:
 Tramite la classificazione è possibile stabilire la frequenza dei pixel della copertura vegetale e di quella del suolo nudo. Per questo studio è stata scelta una classificazione a due classi.
 
 ````r
-# Classificazione in 2 cluster (es. 1 = Vegetazione, 2 = suolo nudo )
-class_2021 <- im.classify(ndvi_2021, seed=42, num_clusters=2 ) #Classificazione dell'NDVI del 2021 
-class_2022 <- im.classify(ndvi_2022, seed=42, num_clusters=2 ) #Classificazione dell'NDVI del 2022
-class_2026 <- im.classify(ndvi_2026, seed=42, num_clusters=2 ) #Classificazione dell'NDVI del 2026
+# Classificazione non supervisionata in 2 cluster (es. vegetazione e suolo nudo)
+class_2021 <- im.classify(ndvi_2021, seed=42, num_clusters=2)
+class_2022 <- im.classify(ndvi_2022, seed=42, num_clusters=2)
+class_2026 <- im.classify(ndvi_2026, seed=42, num_clusters=2)
 ````
 <img src="Immagini/Classidicazione_senza_legenda.png" width="800">
 
 ````r
-# Definizione della legenda a due classi(vegetazione, suolo nudo)
-levels(class_2021) <- data.frame( value = c(2, 1), label = c("vegetazione", "suolo nudo"))
-levels(class_2022) <- data.frame( value = c(2, 1), label = c("vegetazione", "suolo nudo"))
-levels(class_2026) <- data.frame( value = c(2, 1), label = c("vegetazione", "suolo nudo"))
+# Definizione della legenda a due classi (valori basati sull'ordine dei cluster generati)
+levels(class_2021) <- data.frame(value = c(2, 1), label = c("vegetazione", "suolo nudo"))
+levels(class_2022) <- data.frame(value = c(2, 1), label = c("vegetazione", "suolo nudo"))
+levels(class_2026) <- data.frame(value = c(2, 1), label = c("vegetazione", "suolo nudo"))
 
-#visualizzazione della Classificazione
-im.multiframe(1,3) #divisione dell'interfaccia grafica in un riga e tre colonne 
-plot(class_2021, main="2021") #visualizzazione classi 2021
-plot(class_2022, main="2022") #visualizzazione classi 2022
-plot(class_2026, main="2026") #visualizzazione classi 2026
+# Configurazione dello schermo su 1 riga e 3 colonne
+im.multiframe(1, 3)
+
+# Visualizzazione delle mappe classificate per il confronto temporale
+plot(class_2021, main="2021")
+plot(class_2022, main="2022")
+plot(class_2026, main="2026")
 ````
 <img src="Immagini/Area_classificata.png" width="800">
 Al fine di validare quantitativamente le variazioni spaziali osservate nei cartogrami, vengono calcolate le frequenze percentuali sei pixel per ciascuna classe nei tre anni considerati.Dal confronto visivo delle mappe si rileva una progressiva e marcata espansione delle aree classificate come suolo nudo (in viola) a scapito della copertura vegetale (in giallo), fenomeno che trova riscontro analitico nel calcolo delle frequenze.
 
 ````r
-# calcolo delle frequenza assoluta 
-f2021 <- freq(class_2021) # calcolo delle classi di vegetazione e suolo nudo 2021 
-f2022 <- freq(class_2022) # calcolo delle classi di vegetazione e suolo nudo 2022
-f2026 <- freq(class_2026) # calcolo delle classi di vegetazione e suolo nudo 2026
+# Calcolo della frequenza assoluta dei pixel per ciascuna classe
+f2021 <- freq(class_2021) 
+f2022 <- freq(class_2022) 
+f2026 <- freq(class_2026) 
 
-#calcolo delle frequenza relativa 
-prop2021 <- f2021$count / ncell(class_2021) # frequenza assoluta diviso numero di celle del 2021 
-prop2022 <- f2022$count / ncell(class_2022) # frequenza assoluta diviso numero di celle del 2022
-prop2026 <- f2026$count / ncell(class_2026) # frequenza assoluta diviso numero di celle del 2026 
+# Calcolo della proporzione (frequenza relativa) rispetto al numero totale di celle
+prop2021 <- f2021$count / ncell(class_2021) 
+prop2022 <- f2022$count / ncell(class_2022) 
+prop2026 <- f2026$count / ncell(class_2026) 
 
-#conversione in dati percentuali 
-perc2021 <- prop2021 * 100 #2021
-perc2022 <- prop2022 * 100 #2022
-perc2026 <- prop2026 * 100 #2026
+# Conversione delle proporzioni in valori percentuali
+perc2021 <- prop2021 * 100 
+perc2022 <- prop2022 * 100 
+perc2026 <- prop2026 * 100
 ````
 Per una visualizzazione diretta viene generata una tabella.
 
 ````r
-#creazione di una tabella con i dati calcolati 
+# Creazione del dataframe riassuntivo con le percentuali di suolo nudo e vegetazione per ogni anno
 tabella <- data.frame(
   class = c("suolo nudo", "vegetazione"),
   percentuale_2021 = perc2021,
   percentuale_2022 = perc2022,
   percentuale_2026 = perc2026
-) # creazione di una tabella contenente le percentuali di suolo nudo e di vegetazione per ogni anno 
+)
 
 # Visualizzazione della tabella finale
 tabella
@@ -311,6 +326,7 @@ Come si può vedere dai dati ottenuti la vegetazione ha avuto un forte calo di c
 Con i dati forniti dalla tabella prodotta vengono generati tre grafici a barre.
 
 ````r
+# Generazione dei grafici a barre per il confronto della copertura percentuale negli anni (2021, 2022, 2026)
 p1 <- ggplot(tabella, aes(x=class, y=percentuale_2021, color=class)) + 
   geom_bar(stat="identity", fill="white") + 
   ylim(c(0,100)) + 
@@ -334,10 +350,10 @@ p1 + p2 + p3
 ````
 <img src="Immagini/grafico.png" width="800">
 
-
 # Conclusioni 
 Lo studio condotto tramite telerilevamento satellitare multitemporale ha permesso di quantificare e confrontare l'evoluzione del danno ambientale nell'area di studio tra il 2021 e il 2026. L'integrazione degli indici spettrali (DVI e NDVI), dell'analisi statistica della densità dei pixel mediante ridgeline plot e della classificazione finale ha evidenziato un processo di degrado continuo e cumulativo del territorio.
 I risultati analitici mostrano che i danni non sono riconducibili esclusivamente al periodo iniziale del conflitto nel 2022, ma che essi risultano associati a una significativa e progressiva diminuzione della biomassa fotosinteticamente attiva. Nel 2026 il suolo nudo è diventato la matrice dominante con una copertura di circa il 51,67% del totale, mentre la vegetazione è scesa a una copertura di circa il 48,33%, confermando i gravi impatti ecologici in atto nel territorio ucraino.
+
 # 🌐 Sitografia 
 ## Contesto storico e geopolitico 
 "Kharkiv, la città martire sotto il tiro dei razzi: 'Ma resisteremo'" (2 marzo 2022). Articolo giornalistico che documenta l'inizio dell'offensiva militare e i bombardamenti sistematici nella regione di Kharkiv. L'intensificarsi delle ostilità sul territorio ha determinato il progressivo abbandono delle attività agricole e la conseguente alterazione della copertura vegetale nell'area di studio. Disponibile al link: https://www.repubblica.it/esteri/2022/03/02/news/kharkiv_la_citta_martire_sotto_il_tiro_dei_razzi_ma_resisteremo-339910718/
