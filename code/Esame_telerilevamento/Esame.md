@@ -62,7 +62,7 @@ library(viridis)   # Palette di colori ad alta leggibilità per daltonici
 library(ggridges)  # Grafici a cresta (ridgeline) per visualizzare distribuzioni continue
 ````
 ## Importazione dei dati 
-Carico i dati raster acquisiti da Sentinel-2.
+caricamento dei dati raster acquisiti da Sentinel-2.
 ````r
 Ucraina_2021<-rast("Ucraina_2021_bands.tif") # dati pre-conflitto (2021)
 Ucraina_2022<-rast("Ucraina_2022_bands.tif") # Dati fase intermedia (2022)
