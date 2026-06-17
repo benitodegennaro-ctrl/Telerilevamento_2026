@@ -35,26 +35,27 @@ im.plotRGB(Ucraina_2022, r=3, g=2, b=1, title="Ucraina 2022 periodo critico") #C
 im.plotRGB(Ucraina_2026, r=3, g=2, b=1, title="Ucraina 2026 periodo attuale") #Composizione spettrale nel dominio del visibile
 
 
-# Analisi della scomposizione spettrale multitemporale
-im.multiframe(3, 4) #suddivisione interfaccia grafica 
+# Analisi della scomposizione spettrale multitemporale 
+#Suddivisione dell'interfaccia grafica 
+im.multiframe(3, 4) 
  
 # Anno 2021
-plot(Ucraina_2021[[1]], col=magma(100), main="2021 - B2") # Riflettanza nel visibile (blu)
-plot(Ucraina_2021[[2]], col=magma(100), main="2021 - B3") # Riflettanza nel visibile (verde)
-plot(Ucraina_2021[[3]], col=magma(100), main="2021 - B4") # Riflettanza nel visibile (rosso)
-plot(Ucraina_2021[[4]], col=magma(100), main="2021 - B8") # Riflettanza nel vicino infrarosso (biomassa)
- 
+plot(Ucraina_2021[[1]], col=cividis(100), main="2021 - B2") # Riflettanza nel visibile (blu)
+plot(Ucraina_2021[[2]], col=cividis(100), main="2021 - B3") # Riflettanza nel visibile (verde)
+plot(Ucraina_2021[[3]], col=cividis(100), main="2021 - B4") # Riflettanza nel visibile (rosso)
+plot(Ucraina_2021[[4]], col=cividis(100), main="2021 - B8") # Riflettanza nel vicino infrarosso (biomassa)
+
 # Anno 2022
-plot(Ucraina_2022[[1]], col=magma(100), main="2022 - B2") # Riflettanza nel visibile (blu)
-plot(Ucraina_2022[[2]], col=magma(100), main="2022 - B3") # Riflettanza nel visibile (verde)
-plot(Ucraina_2022[[3]], col=magma(100), main="2022 - B4") # Riflettanza nel visibile (rosso)
-plot(Ucraina_2022[[4]], col=magma(100), main="2022 - B8") # Riflettanza nel vicino infrarosso (biomassa)
- 
+plot(Ucraina_2022[[1]], col=cividis(100), main="2022 - B2") # Riflettanza nel visibile (blu)
+plot(Ucraina_2022[[2]], col=cividis(100), main="2022 - B3") # Riflettanza nel visibile (verde)
+plot(Ucraina_2022[[3]], col=cividis(100), main="2022 - B4") # Riflettanza nel visibile (rosso)
+plot(Ucraina_2022[[4]], col=cividis(100), main="2022 - B8") # Riflettanza nel vicino infrarosso (biomassa)
+
 # Anno 2026
-plot(Ucraina_2026[[1]], col=magma(100), main="2026 - B2") # Riflettanza nel visibile (blu)
-plot(Ucraina_2026[[2]], col=magma(100), main="2026 - B3") # Riflettanza nel visibile (verde)
-plot(Ucraina_2026[[3]], col=magma(100), main="2026 - B4") # Riflettanza nel visibile (rosso)
-plot(Ucraina_2026[[4]], col=magma(100), main="2026 - B8") # Riflettanza nel vicino infrarosso (biomassa)
+plot(Ucraina_2026[[1]], col=cividis(100), main="2026 - B2") # Riflettanza nel visibile (blu)
+plot(Ucraina_2026[[2]], col=cividis(100), main="2026 - B3") # Riflettanza nel visibile (verde)
+plot(Ucraina_2026[[3]], col=cividis(100), main="2026 - B4") # Riflettanza nel visibile (rosso)
+plot(Ucraina_2026[[4]], col=cividis(100), main="2026 - B8") # Riflettanza nel vicino infrarosso (biomassa)
 
 #clacolo del DVI tramite im.dvi del pachetto ImageRy 
 dvi_2021<- im.dvi(Ucraina_2021, 4,3) #calcolo dell differnt vegetation index anno 2021 
@@ -137,5 +138,29 @@ percentuale2026 = perc2026
 
 # Visualizzazione della tabella finale
 tabella
+
+# Generazione dei grafici a barre per il confronto della copertura percentuale negli anni (2021, 2022, 2026)
+p1 <- ggplot(tabella, aes(x=class, y=percentuale_2021, color=class)) + 
+  geom_bar(stat="identity", fill="white") + 
+  ylim(c(0,100)) + 
+  labs(title="Copertura 2021", x="Classe", y="Percentuale (%)") +
+  theme(legend.position="none")
+
+p2 <- ggplot(tabella, aes(x=class, y=percentuale_2022, color=class)) + 
+  geom_bar(stat="identity", fill="white") + 
+  ylim(c(0,100)) + 
+  labs(title="Copertura 2022", x="Classe", y="Percentuale (%)") +
+  theme(legend.position="none")
+
+p3 <- ggplot(tabella, aes(x=class, y=percentuale_2026, color=class)) + 
+  geom_bar(stat="identity", fill="white") + 
+  ylim(c(0,100)) + 
+  labs(title="Copertura 2026", x="Classe", y="Percentuale (%)") +
+  theme(legend.position="none")
+
+# Visualizzazione a schermo dei grafici affiancati
+p1 + p2 + p3
+
+
 
 
