@@ -8,7 +8,6 @@
 # 📕 Introduzione 
 Il progetto si propone di analizzare gli effetti ambientali del conflitto armato nella regione di **Charkiv (area di Izjum)**, un territorio storicamente caratterizzato da suoli altamente fertili e da un'intensa vocazione agricola. Le ostilità in quest'area hanno innescato severi processi di degrado fisico ed ecologico, riconducibili principalmente all'abbandono prolungato delle pratiche colturali, al passaggio di mezzi pesanti e agli incendi causati dalle esplosioni. 
 Attraverso l'impiego delle immagini satellitari di Sentinel-2 (programma Copernicus), è stato possibile osservare le dinamiche di trasformazione del territorio nell'arco temporale 2021-2026. L'analisi si è articolata in tre momenti chiave:
-- **2021** (Baseline): rappresenta il territorio in condizioni di normalità.... Attraverso l'impiego delle immagini satellitari di Sentinel-2 (programma Copernicus), è stato possibile osservare le dinamiche di trasformazione del territorio nell'arco temporale 2021-2026. L'analisi si è articolata in tre momenti chiave:
 - **2021** (Baseline): rappresenta il territorio in condizioni di normalità, prima dell'escalation del conflitto.
 - **2022** (Fase critica): evidenzia l'impatto diretto delle attività belliche sulla copertura del suolo e sulla salute della vegetazione.
 - **2026** (Situazione attuale): permette di valutare il grado di ripristino dell'ecosistema o, al contrario, la persistenza dei danni ambientali nel tempo.
@@ -16,7 +15,7 @@ Attraverso l'impiego delle immagini satellitari di Sentinel-2 (programma Coperni
 <img src="Immagini/Screenshot 2026-06-05 alle 14.26.48.png" width="600">
 
 # 📌Obiettivi
-L'obiettivo è quantificare l'impatto bellico, non solo attraverso un'analisi qualitativa (composizioni RGB), ma anche mediante l'elaborazione quantitativa di indici di vegetazione: Difference Vegetation Index (DVI) e Normalized Difference Vegetation Index (NDVI). L'analisi multitemorale 2021-2026 permette inoltre, di indagare la resilienza dell'ecosistema in un'area soggetta a pressioni antropiche estreme.
+L'obiettivo è quantificare l'impatto bellico, non solo attraverso un'analisi qualitativa (composizioni RGB), ma anche mediante l'elaborazione quantitativa di indici di vegetazione: Difference Vegetation Index (DVI) e Normalized Difference Vegetation Index (NDVI). L'analisi multitemporale 2021-2026 permette inoltre, di indagare la resilienza dell'ecosistema in un'area soggetta a pressioni antropiche estreme.
 
 # 🛠️Materiali e metodi 
 ## Acquisizione dati 
