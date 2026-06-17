@@ -132,22 +132,22 @@ Attraverso il confronto tra le bande del visibile (B2, B3, B4) e la banda del vi
 im.multiframe(3, 4) 
  
 # Anno 2021
-plot(Ucraina_2021[[1]], col=magma(100), main="2021 - B2") # Riflettanza nel visibile (blu)
-plot(Ucraina_2021[[2]], col=magma(100), main="2021 - B3") # Riflettanza nel visibile (verde)
-plot(Ucraina_2021[[3]], col=magma(100), main="2021 - B4") # Riflettanza nel visibile (rosso)
-plot(Ucraina_2021[[4]], col=magma(100), main="2021 - B8") # Riflettanza nel vicino infrarosso (biomassa)
+plot(Ucraina_2021[[1]], col=mako(1000), main="2021 - B2") # Riflettanza nel visibile (blu)
+plot(Ucraina_2021[[2]], col=mako(1000), main="2021 - B3") # Riflettanza nel visibile (verde)
+plot(Ucraina_2021[[3]], col=mako(1000), main="2021 - B4") # Riflettanza nel visibile (rosso)
+plot(Ucraina_2021[[4]], col=mako(1000), main="2021 - B8") # Riflettanza nel vicino infrarosso (biomassa)
  
 # Anno 2022
-plot(Ucraina_2022[[1]], col=magma(100), main="2022 - B2") # Riflettanza nel visibile (blu)
-plot(Ucraina_2022[[2]], col=magma(100), main="2022 - B3") # Riflettanza nel visibile (verde)
-plot(Ucraina_2022[[3]], col=magma(100), main="2022 - B4") # Riflettanza nel visibile (rosso)
-plot(Ucraina_2022[[4]], col=magma(100), main="2022 - B8") # Riflettanza nel vicino infrarosso (biomassa)
+plot(Ucraina_2022[[1]], col=mako(1000), main="2022 - B2") # Riflettanza nel visibile (blu)
+plot(Ucraina_2022[[2]], col=mako(1000), main="2022 - B3") # Riflettanza nel visibile (verde)
+plot(Ucraina_2022[[3]], col=mako(1000), main="2022 - B4") # Riflettanza nel visibile (rosso)
+plot(Ucraina_2022[[4]], col=mako(1000), main="2022 - B8") # Riflettanza nel vicino infrarosso (biomassa)
  
 # Anno 2026
-plot(Ucraina_2026[[1]], col=magma(100), main="2026 - B2") # Riflettanza nel visibile (blu)
-plot(Ucraina_2026[[2]], col=magma(100), main="2026 - B3") # Riflettanza nel visibile (verde)
-plot(Ucraina_2026[[3]], col=magma(100), main="2026 - B4") # Riflettanza nel visibile (rosso)
-plot(Ucraina_2026[[4]], col=magma(100), main="2026 - B8") # Riflettanza nel vicino infrarosso (biomassa)
+plot(Ucraina_2026[[1]], col=mako(1000), main="2026 - B2") # Riflettanza nel visibile (blu)
+plot(Ucraina_2026[[2]], col=mako(1000), main="2026 - B3") # Riflettanza nel visibile (verde)
+plot(Ucraina_2026[[3]], col=mako(1000), main="2026 - B4") # Riflettanza nel visibile (rosso)
+plot(Ucraina_2026[[4]], col=mako(1000), main="2026 - B8") # Riflettanza nel vicino infrarosso (biomassa)
 ````
 <img src="Immagini/Scomposizione.png" width="800">
 
