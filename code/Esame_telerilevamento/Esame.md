@@ -33,8 +33,6 @@ Per l'analisi è stato utilizzato il satellite Sentinel-2 (programma Copernicus)
 | **B3** | Verde |
 | **B4** | Rosso |
 | **B8** | Vicino Infrarosso (NIR) |
-| **B11** | Infrarosso a onde corte (SWIR 1) |
-
 
 >[!NOTE]
 >
