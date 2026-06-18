@@ -7,7 +7,8 @@
 ---
 # 📕 Introduzione 
 Il progetto si propone di analizzare gli effetti ambientali del conflitto armato nella regione di **Charkiv (area di Izjum)**, un territorio storicamente caratterizzato da suoli altamente fertili e da un'intensa vocazione agricola. Le ostilità in quest'area hanno innescato severi processi di degrado fisico ed ecologico, riconducibili principalmente all'abbandono prolungato delle pratiche colturali, al passaggio di mezzi pesanti e agli incendi causati dalle esplosioni. 
-Attraverso l'impiego delle immagini satellitari di Sentinel-2 (programma Copernicus), è stato possibile osservare le dinamiche di trasformazione del territorio nell'arco temporale 2021-2026. L'analisi si è articolata in tre momenti chiave:
+Attraverso l'impiego delle immagini satellitari di Sentinel-2 (programma Copernicus), è stato possibile osservare le dinamiche di trasformazione del territorio. 
+L'analisi si è articolata in tre momenti chiave:
 - **2021** (Baseline): rappresenta il territorio in condizioni di normalità, prima dell'escalation del conflitto.
 - **2022** (Fase critica): evidenzia l'impatto diretto delle attività belliche sulla copertura del suolo e sulla salute della vegetazione.
 - **2026** (Situazione attuale): permette di valutare il grado di ripristino dell'ecosistema o, al contrario, la persistenza dei danni ambientali nel tempo.
@@ -69,7 +70,7 @@ Ucraina_2022<-rast("Ucraina_2022_bands.tif") # Dati fase intermedia (2022)
 Ucraina_2026<-rast("Ucraina_2026_bands.tif") # Dati correnti (2026)
 ````
 
-## Verifica dei metadati dei dati raster caricati 
+## Verifica dei metadati dei raster  
 
 Prima di procedere con l'elaborazione, interrogo i tre oggetti ````Ucraina_2021````, ````Ucraina_2022````e ```` Ucraina_2026````per validare le loro proprietà spaziali e strutturali. Questo passaggio è necessario per confermare che i dati siano correttamente allineati e pronti per l'analisi comparativa. In particolare, verifico:
 
@@ -160,7 +161,7 @@ plot(Ucraina_2026[[4]], col=cividis(100), main="2026 - B8")
 Dall'osservazione delle immagini emerge una netta variazione nella banda del vicino infrarosso (B8), dove la perdita di riflettanza tra il 2021 e il 2026 evidenzia una significativa distruzione della copertura vegetale. 
 - Nel **2021** la presenza di pixel gialli nella banda (B8) indica una elevata riflettanza nel vicino infrarosso, caratteristica tipica di una vegetazione sana e vigorosa
 - ⁠Nel **2022** i toni chiari iniziano ad attenuarsi, indicando un primo calo della riflettanza
-- ⁠Nel **2026** l'immagine diventa molto scura questa massiccia perdita di riflettanza nel vicino infrarosso documenta una quasi totale perdita di vegetazione
+- ⁠Nel **2026** l'immagine diventa molto scura, questa massiccia perdita di riflettanza nel vicino infrarosso documenta una quasi totale perdita di vegetazione
 
 ## 🌾 Calcolo degli indici vegetazionali 
 
@@ -220,26 +221,6 @@ Il confronto multitemporale delle mappe di NDVI mostra una progressiva diminuzio
 
 <img src="Immagini/NDVI_anni.png" width="800">
 
-### Calcolo della differenza multitemporale dell'NDVI
-Per analizzare l'evoluzione temporale dell'area di studio, viene calcolata la differenza tra NDVI, permettendo di mappare il gradiente di variazione del vigore vegetativo, dove i valori negativi evidenziano i processi di degrado ambientale avvenuti negli anni.
-
-````r
-# Calcolo delle differenze temporali dell'NDVI tra i diversi periodi
-dif_22_21 <- ndvi_2022 - ndvi_2021 
-dif_26_22 <- ndvi_2026 - ndvi_2022 
-dif_26_21 <- ndvi_2026 - ndvi_2021
-
-# Configurazione dello schermo su 1 riga e 3 colonne
-im.multiframe(1, 3)
-
-# Visualizzazione delle variazioni di NDVI con palette inferno
-plot(dif_22_21, col=inferno(100), main="dif_NDVI_2022-2021") 
-plot(dif_26_22, col=inferno(100), main="dif_NDVI_2026-2022") 
-plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021")
-````
-<img src="Immagini/dif_NDVI.png" width="800">  
-Le mappe di differenza evidenziano una forte variazione spaziale. Nella prima fase (2021-2022) i valori variano tra +1.0 e -0.5, mostrando una situazione ancora parzialmente stabile. Nelle mappe successive, che includono il 2026, la scala dei valori si sposta verso il basso, variando tra +0.5 e -1.0; la diffusione delle tonalità scure e arancioni documenta il calo generalizzato dell'NDVI e l'estensione del degrado ambientale.
-
 ### Analisi statistica della densità di distribuzione dell'NDVI
 Al fine di poter valutare quantitativamente le variazioni spaziali osservate nei cartogrammi dell'NDVI e nelle relative mappe differenziali, viene utilizzata l'analisi statistica della distribuzione dei valori dei pixel per ciascun anno. A tale scopo, viene utilizzato il grafico a cresta (ridgeline plot), uno strumento specifico per il confronto multitemporale immediato della densità dei dati. Per osservare la variazione temporale continua in un unico grafico, i singoli layer raster dell'NDVI vengono uniti in uno stack.
 
@@ -259,6 +240,26 @@ Il grafico evidenzia:
 - **2021**: la distribuzione è sbilanciata verso destra con un picco acuto verso lo 0.9, indicando una forte prevalenza di vegetazione densa.
 - **2022**: si individua uno spostamento della massa verso valori intorno a 0.7 con una parziale riduzione del picco massimo di vigore rispetto al 2021.
 - **2026**: La distribuzione subisce una contrazione drastica e un netto spostamento verso sinistra. Il picco si sposta verso valori dello 0.3, con una scomparsa di valori >0.7 (componente di vegetazione ad alto vigore).
+
+### Calcolo della differenza multitemporale dell'NDVI
+Per analizzare l'evoluzione temporale dell'area di studio, viene calcolata la differenza tra NDVI, permettendo di mappare il gradiente di variazione del vigore vegetativo, dove i valori negativi evidenziano i processi di degrado ambientale avvenuti negli anni.
+
+````r
+# Calcolo delle differenze temporali dell'NDVI tra i diversi periodi
+dif_22_21 <- ndvi_2022 - ndvi_2021 
+dif_26_22 <- ndvi_2026 - ndvi_2022 
+dif_26_21 <- ndvi_2026 - ndvi_2021
+
+# Configurazione dello schermo su 1 riga e 3 colonne
+im.multiframe(1, 3)
+
+# Visualizzazione delle variazioni di NDVI con palette inferno
+plot(dif_22_21, col=inferno(100), main="dif_NDVI_2022-2021") 
+plot(dif_26_22, col=inferno(100), main="dif_NDVI_2026-2022") 
+plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021")
+````
+<img src="Immagini/dif_NDVI.png" width="800">  
+Le mappe di differenza evidenziano una forte variazione spaziale. Nella prima fase (2021-2022) i valori variano tra +1.0 e -0.5, mostrando una situazione ancora parzialmente stabile. Nelle mappe successive, che includono il 2026, la scala dei valori si sposta verso il basso, variando tra +0.5 e -1.0; la diffusione delle tonalità scure e arancioni documenta il calo generalizzato dell'NDVI e l'estensione del degrado ambientale.
 
 ## Classificazione 
 Tramite la classificazione è possibile stabilire la frequenza dei pixel della copertura vegetale e di quella del suolo nudo. Per questo studio è stata scelta una classificazione a due classi.
@@ -286,7 +287,7 @@ plot(class_2022, main="2022")
 plot(class_2026, main="2026")
 ````
 <img src="Immagini/Area_classificata.png" width="800">
-Al fine di validare quantitativamente le variazioni spaziali osservate nei cartogrami, vengono calcolate le frequenze percentuali sei pixel per ciascuna classe nei tre anni considerati.Dal confronto visivo delle mappe si rileva una progressiva e marcata espansione delle aree classificate come suolo nudo (in viola) a scapito della copertura vegetale (in giallo), fenomeno che trova riscontro analitico nel calcolo delle frequenze.
+Al fine di validare quantitativamente le variazioni spaziali osservate nei cartogrami, vengono calcolate le frequenze percentuali dei pixel per ciascuna classe nei tre anni considerati. Dal confronto visivo delle mappe si rileva una progressiva e marcata espansione delle aree classificate come suolo nudo (in viola) a scapito della copertura vegetale (in giallo), fenomeno che trova riscontro analitico nel calcolo delle frequenze.
 
 ````r
 # Calcolo della frequenza assoluta dei pixel per ciascuna classe
@@ -323,7 +324,7 @@ tabella
 | **suolo nudo** | 27.64959 | 35.74551 | 51.67242 |
 | **vegetazione** | 72.35041 | 64.25449 | 48.32796 |
 
-Come si può vedere dai dati ottenuti la vegetazione ha avuto un forte calo di circa l' 8% nel 2022 a causa del conflitto  con un ulteriore calo nel 2026 con un valore di circa del 24% rispetto al 2021.
+Come si può vedere dai dati ottenuti la vegetazione ha avuto un forte calo di circa l' 8% nel 2022 a causa del conflitto, con un ulteriore calo nel 2026 con un valore di circa del 24% rispetto al 2021.
 Con i dati forniti dalla tabella prodotta vengono generati tre grafici a barre.
 
 ````r
