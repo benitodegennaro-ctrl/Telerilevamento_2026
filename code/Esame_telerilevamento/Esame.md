@@ -25,7 +25,7 @@ Le immagini sono state acquisite dal portale web di [Google Earth Engine](https:
 Per l'analisi è stato utilizzato il satellite Sentinel-2 (programma Copernicus), scelto per le sue caratteristiche tecniche:
 - **Risoluzione spaziale**: 10 metri nelle bande del visibile e nel NIR, essenziale per il dettaglio agrario.
 - **Risoluzione temporale**: Alta frequenza di rivisitazione, ideale per serie storiche multitemporali (2021-2026).
-- **Bande spettrali**: Presenza delle banda NIR, necessarie per il calcolo preciso degli indice NDVI.
+- **Bande spettrali**: Presenza delle banda NIR, necessarie per il calcolo preciso degli indici DVI e NDVI.
 
 | Banda | Nome Comune |
 | :---: | :--- |
