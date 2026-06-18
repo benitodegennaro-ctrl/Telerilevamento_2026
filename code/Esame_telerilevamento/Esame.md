@@ -44,7 +44,7 @@ Per l'analisi è stato utilizzato il satellite Sentinel-2 (programma Copernicus)
 
 ````r
 # Impostazione della cartella di lavoro del progetto
-setwd("~/Desktop/Progetto_ucraina.R")
+setwd("~/Desktop/Progetto_ucraina")
 
 # Verifica del percorso corrente
 getwd()
