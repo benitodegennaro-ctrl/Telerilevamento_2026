@@ -276,13 +276,16 @@ levels(class_2021) <- data.frame(value = c(2, 1), label = c("vegetazione", "suol
 levels(class_2022) <- data.frame(value = c(2, 1), label = c("vegetazione", "suolo nudo"))
 levels(class_2026) <- data.frame(value = c(2, 1), label = c("vegetazione", "suolo nudo"))
 
+#personalizzazione della palette di colori 
+col_classes <- c("suolo nudo" = "lightsalmon4", "vegetazione" = "chartreuse4")
+
 # Configurazione dello schermo su 1 riga e 3 colonne
 im.multiframe(1, 3)
 
 # Visualizzazione delle mappe classificate per il confronto temporale
-plot(class_2021, main="2021")
-plot(class_2022, main="2022")
-plot(class_2026, main="2026")
+plot(class_2021, col=col_class, main="2021")
+plot(class_2022, col=col_class, main="2022")
+plot(class_2026, col=col_class, main="2026")
 ````
 <img src="Immagini/Area_classificata.png" width="800">
 Al fine di validare quantitativamente le variazioni spaziali osservate nei cartogrami, vengono calcolate le frequenze percentuali dei pixel per ciascuna classe nei tre anni considerati. Dal confronto visivo delle mappe si rileva una progressiva e marcata espansione delle aree classificate come suolo nudo (in viola) a scapito della copertura vegetale (in giallo), fenomeno che trova riscontro analitico nel calcolo delle frequenze.
