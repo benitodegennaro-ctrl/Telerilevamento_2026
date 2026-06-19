@@ -184,7 +184,7 @@ plot(dvi_2021, col=inferno(100), main="DVI 2021")
 plot(dvi_2022, col=inferno(100), main="DVI 2022") 
 plot(dvi_2026, col=inferno(100), main="DVI 2026")
 ````
-<img src="Immagini/Calcolo_DVI.png" width="800">
+<img src="Immagini/DVI.png" width="800">
 
 Dal confronto del DVI si può osservare un progressivo e drastico calo del vigore vegetativo, rilevando una forte diminuzione di biomassa nel 2022, processo che appare ulteriormente accentuato nel 2026.
 Osservando le scale si può notare come i valori nel 2021 e 2022 siano superiori a 5000, mentre nel 2026 la scala si contrae fino a un valore di 3500 e compaiono valori negativi, indice di suolo completamente nudo e degradato.
@@ -215,7 +215,7 @@ plot(ndvi_2021, col=mako(100), main="NDVI 2021")
 plot(ndvi_2022, col=mako(100), main="NDVI 2022") 
 plot(ndvi_2026, col=mako(100), main="NDVI 2026")
 ````
-<img src="Immagini/NDVI_anni.png" width="800">
+<img src="Immagini/NDVI.png" width="800">
 
 Il confronto multitemporale delle mappe di NDVI mostra una progressiva diminuzione dei valori dell'indice a partire dal 2022, indicativa di una significativa riduzione del vigore vegetativo durante la fase più intensa del conflitto. Tale fenomeno di degrado non manifesta segni di ripresa, evidenziando un ulteriore e progressivo peggioramento nel 2026.
 
@@ -230,7 +230,7 @@ names(ndvi_stack) <- c("NDVI_2021", "NDVI_2022", "NDVI_2026")
 # Generazione del ridgeline plot per il confronto delle distribuzioni con palette inferno
 im.ridgeline(ndvi_stack, scale=1, palette="mako")
 ````
-<img src="Immagini/rifgline.png" width="800">  
+<img src="Immagini/Stak.png" width="800">  
 
 Il grafico mostra chiaramente l'evoluzione temporale della distribuzione dell'NDVI per gli anni 2021, 2022 e 2026.
 Il grafico evidenzia: 
@@ -256,7 +256,7 @@ plot(dif_22_21, col=inferno(100), main="dif_NDVI_2022-2021")
 plot(dif_26_22, col=inferno(100), main="dif_NDVI_2026-2022") 
 plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021")
 ````
-<img src="Immagini/dif_NDVI.png" width="800">  
+<img src="Immagini/Dif NDVI.png" width="800">  
 Le mappe di differenza evidenziano una forte variazione spaziale. Nella prima fase (2021-2022) i valori variano tra +1.0 e -0.5, mostrando una situazione ancora parzialmente stabile. Nelle mappe successive, che includono il 2026, la scala dei valori si sposta verso il basso, variando tra +0.5 e -1.0; la diffusione delle tonalità scure e arancioni documenta il calo generalizzato dell'NDVI e l'estensione del degrado ambientale.
 
 ## Classificazione 
@@ -268,7 +268,7 @@ class_2021 <- im.classify(ndvi_2021, seed=42, num_clusters=2)
 class_2022 <- im.classify(ndvi_2022, seed=42, num_clusters=2)
 class_2026 <- im.classify(ndvi_2026, seed=42, num_clusters=2)
 ````
-<img src="Immagini/Classidicazione_senza_legenda.png" width="800">
+<img src="Immagini/Livelli.png" width="800">
 
 ````r
 # Definizione della legenda a due classi (valori basati sull'ordine dei cluster generati)
@@ -287,7 +287,7 @@ plot(class_2021, col=col_class, main="2021")
 plot(class_2022, col=col_class, main="2022")
 plot(class_2026, col=col_class, main="2026")
 ````
-<img src="Immagini/Area_classificata.png" width="800">
+<img src="Immagini/Classificazione.png" width="800">
 Al fine di validare quantitativamente le variazioni spaziali osservate nei cartogrami, vengono calcolate le frequenze percentuali dei pixel per ciascuna classe nei tre anni considerati. Dal confronto visivo delle mappe si rileva una progressiva e marcata espansione delle aree classificate come suolo nudo (in viola) a scapito della copertura vegetale (in giallo), fenomeno che trova riscontro analitico nel calcolo delle frequenze.
 
 ````r
@@ -312,46 +312,49 @@ Per una visualizzazione diretta viene generata una tabella.
 # Creazione del dataframe riassuntivo con le percentuali di suolo nudo e vegetazione per ogni anno
 tabella <- data.frame(
   class = c("suolo nudo", "vegetazione"),
-  percentuale_2021 = perc2021,
-  percentuale_2022 = perc2022,
-  percentuale_2026 = perc2026
+  percentuale2021 = perc2021,
+  percentuale2022 = perc2022,
+  percentuale2026 = perc2026
 )
 
 # Visualizzazione della tabella finale
 tabella
 ````
-| class | percentuale_2021 | percentuale_2022 | percentuale_2026 |
+| class | percentuale2021 | percentuale2022 | percentuale2026 |
 | :--- | :---: | :---: | :---: |
-| **suolo nudo** | 27.64959 | 35.74551 | 51.67242 |
-| **vegetazione** | 72.35041 | 64.25449 | 48.32796 |
+| **vegetazione**| 71.39699  | 60.47196 | 11.47691 |
+| **suolo nudo** | 28.60301 | 39.52804 | 88.52309 |
 
 Come si può vedere dai dati ottenuti la vegetazione ha avuto un forte calo di circa l' 8% nel 2022 a causa del conflitto, con un ulteriore calo nel 2026 con un valore di circa del 24% rispetto al 2021.
 Con i dati forniti dalla tabella prodotta vengono generati tre grafici a barre.
 
 ````r
 # Generazione dei grafici a barre per il confronto della copertura percentuale negli anni (2021, 2022, 2026)
-p1 <- ggplot(tabella, aes(x=class, y=percentuale_2021, color=class)) + 
-  geom_bar(stat="identity", fill="white") + 
+p1 <- ggplot(tabella, aes(x = class, y = percentuale2021, fill = class)) + 
+  geom_bar(stat = "identity") + 
   ylim(c(0,100)) + 
   labs(title="Copertura 2021", x="Classe", y="Percentuale (%)") +
+  scale_fill_manual(values = col_classes) +
   theme(legend.position="none")
 
-p2 <- ggplot(tabella, aes(x=class, y=percentuale_2022, color=class)) + 
-  geom_bar(stat="identity", fill="white") + 
+p2 <- ggplot(tabella, aes(x = class, y = percentuale2022, fill = class)) + 
+  geom_bar(stat = "identity") + 
   ylim(c(0,100)) + 
   labs(title="Copertura 2022", x="Classe", y="Percentuale (%)") +
+  scale_fill_manual(values = col_classes) +
   theme(legend.position="none")
 
-p3 <- ggplot(tabella, aes(x=class, y=percentuale_2026, color=class)) + 
-  geom_bar(stat="identity", fill="white") + 
+p3 <- ggplot(tabella, aes(x = class, y = percentuale2026, fill = class)) + 
+  geom_bar(stat = "identity") + 
   ylim(c(0,100)) + 
   labs(title="Copertura 2026", x="Classe", y="Percentuale (%)") +
+  scale_fill_manual(values = col_classes) +
   theme(legend.position="none")
 
 # Visualizzazione a schermo dei grafici affiancati
 p1 + p2 + p3
 ````
-<img src="Immagini/grafico.png" width="800">
+<img src="Immagini/Grafico_a_barre.png" width="800">
 
 # Conclusioni 
 Lo studio condotto tramite telerilevamento satellitare multitemporale ha permesso di quantificare e confrontare l'evoluzione del danno ambientale nell'area di studio tra il 2021 e il 2026. L'integrazione degli indici spettrali (DVI e NDVI), dell'analisi statistica della densità dei pixel mediante ridgeline plot e della classificazione finale ha evidenziato un processo di degrado continuo e cumulativo del territorio.
