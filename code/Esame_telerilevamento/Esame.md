@@ -219,6 +219,8 @@ Il confronto multitemporale delle mappe di NDVI mostra una progressiva diminuzio
 
 <img src="Immagini/NDVI_anni.png" width="800">
 
+Il confronto multitemporale delle mappe di NDVI mostra una progressiva diminuzione dei valori dell'indice a partire dal 2022, indicativa di una significativa riduzione del vigore vegetativo durante la fase più intensa del conflitto. Tale fenomeno di degrado non manifesta segni di ripresa, evidenziando un ulteriore e progressivo peggioramento nel 2026.
+
 ### Analisi statistica della densità di distribuzione dell'NDVI
 Al fine di poter valutare quantitativamente le variazioni spaziali osservate nei cartogrammi dell'NDVI e nelle relative mappe differenziali, viene utilizzata l'analisi statistica della distribuzione dei valori dei pixel per ciascun anno. A tale scopo, viene utilizzato il grafico a cresta (ridgeline plot), uno strumento specifico per il confronto multitemporale immediato della densità dei dati. Per osservare la variazione temporale continua in un unico grafico, i singoli layer raster dell'NDVI vengono uniti in uno stack.
 
@@ -228,7 +230,7 @@ ndvi_stack <- c(ndvi_2021, ndvi_2022, ndvi_2026)
 names(ndvi_stack) <- c("NDVI_2021", "NDVI_2022", "NDVI_2026")
 
 # Generazione del ridgeline plot per il confronto delle distribuzioni con palette inferno
-im.ridgeline(ndvi_stack, scale=1, palette="inferno")
+im.ridgeline(ndvi_stack, scale=1, palette="mako")
 ````
 <img src="Immagini/rifgline.png" width="800">  
 
