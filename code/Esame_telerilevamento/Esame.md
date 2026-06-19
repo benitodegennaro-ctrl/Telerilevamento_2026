@@ -6,7 +6,7 @@
 ### 🗓️ Periodo di studio: 2021-2026
 ---
 # 📕 Introduzione 
-Il progetto si propone di analizzare gli effetti ambientali del conflitto armato nella regione di **Charkiv (area di Izjum)**, un territorio storicamente caratterizzato da suoli altamente fertili e da un'intensa vocazione agricola. Le ostilità in quest'area hanno innescato severi processi di degrado fisico ed ecologico, riconducibili principalmente all'abbandono prolungato delle pratiche colturali, al passaggio di mezzi pesanti e agli incendi causati dalle esplosioni. 
+Il progetto si propone di analizzare gli effetti ambientali del conflitto armato nella regione di **Kharkiv (area di Izjum)**, un territorio storicamente caratterizzato da suoli altamente fertili e da un'intensa vocazione agricola. Le ostilità in quest'area hanno innescato severi processi di degrado fisico ed ecologico, riconducibili principalmente all'abbandono prolungato delle pratiche colturali, al passaggio di mezzi pesanti e agli incendi causati dalle esplosioni. 
 Attraverso l'impiego delle immagini satellitari di Sentinel-2 (programma Copernicus), è stato possibile osservare le dinamiche di trasformazione del territorio. 
 L'analisi si è articolata in tre momenti chiave:
 - **2021** (Baseline): rappresenta il territorio in condizioni di normalità, prima dell'escalation del conflitto.
@@ -186,8 +186,8 @@ plot(dvi_2026, col=inferno(100), main="DVI 2026")
 ````
 <img src="Immagini/DVI.png" width="800">
 
-Dal confronto del DVI si può osservare un progressivo e drastico calo del vigore vegetativo, rilevando una forte diminuzione di biomassa nel 2022, processo che appare ulteriormente accentuato nel 2026.
-Osservando le scale si può notare come i valori nel 2021 e 2022 siano superiori a 5000, mentre nel 2026 la scala si contrae fino a un valore di 3500 e compaiono valori negativi, indice di suolo completamente nudo e degradato.
+Dal confronto del DVI si può osservare un progressivo e drastico calo del vigore vegetativo, rilevando una diminuzione di biomassa nel 2022, processo che appare ulteriormente accentuato nel 2026.
+Osservando le scale si può notare come i valori massimi nel 2021 e 2022 arrivino a 0.50, mentre nel 2026 la scala si contrae fino a un valore di 0.40; in nessuna mappa compaiono valori negativi, poiché il limite inferiore è stabilito a 0.00.
 
 ### Normalized Difference Vegetation Index (NDVI)
 Il *Normalized Difference Vegetation Index*  si utilizza per valutare lo stato di salute e la densità di copertura vegetale. L'indice NDVI analogamente all'indice DVI sfrutta la differente risposta spettrale della vegetazione nelle bande del rosso (Red) e del vicino infrarosso (NIR). Tuttavia grazie alla normalizzazione l'NDVI assume valori compresi tra -1 e +1, facilitando il confronto tra immagini acquisite in periodi differenti. 
@@ -211,13 +211,13 @@ La distribuzione spaziale del vigore fotosintetico calcolato viene visualizzata 
 im.multiframe(1, 3) 
 
 # Visualizzazione dell'indice NDVI con palette mako per il confronto temporale
-plot(ndvi_2021, col=mako(100), main="NDVI 2021") 
-plot(ndvi_2022, col=mako(100), main="NDVI 2022") 
-plot(ndvi_2026, col=mako(100), main="NDVI 2026")
+plot(ndvi_2021, col=plasma(100), main="NDVI 2021") 
+plot(ndvi_2022, col=plasma(100), main="NDVI 2022") 
+plot(ndvi_2026, col=plasma(100), main="NDVI 2026")
 ````
 <img src="Immagini/NDVI.png" width="800">
 
-Il confronto multitemporale delle mappe di NDVI mostra una progressiva diminuzione dei valori dell'indice a partire dal 2022, indicativa di una significativa riduzione del vigore vegetativo durante la fase più intensa del conflitto. Tale fenomeno di degrado non manifesta segni di ripresa, evidenziando un ulteriore e progressivo peggioramento nel 2026.
+Il confronto multitemporale delle mappe di NDVI mostra una progressiva diminuzione dei valori dell'indice a partire dal 2022, indicativa di una riduzione del vigore vegetativo durante la fase più intensa del conflitto. Tale fenomeno di degrado non manifesta segni di ripresa, evidenziando un ulteriore e progressivo peggioramento nel 2026.
 
 ### Analisi statistica della densità di distribuzione dell'NDVI
 Al fine di poter valutare quantitativamente le variazioni spaziali osservate nei cartogrammi dell'NDVI e nelle relative mappe differenziali, viene utilizzata l'analisi statistica della distribuzione dei valori dei pixel per ciascun anno. A tale scopo, viene utilizzato il grafico a cresta (ridgeline plot), uno strumento specifico per il confronto multitemporale immediato della densità dei dati. Per osservare la variazione temporale continua in un unico grafico, i singoli layer raster dell'NDVI vengono uniti in uno stack.
@@ -228,16 +228,16 @@ ndvi_stack <- c(ndvi_2021, ndvi_2022, ndvi_2026)
 names(ndvi_stack) <- c("NDVI_2021", "NDVI_2022", "NDVI_2026")
 
 # Generazione del ridgeline plot per il confronto delle distribuzioni con palette inferno
-im.ridgeline(ndvi_stack, scale=1, palette="mako")
+im.ridgeline(ndvi_stack, scale=1, palette="plasma")
 ````
 <img src="Immagini/Stak.png" width="800">  
 
 Il grafico mostra chiaramente l'evoluzione temporale della distribuzione dell'NDVI per gli anni 2021, 2022 e 2026.
 Il grafico evidenzia: 
 
-- **2021**: la distribuzione è sbilanciata verso destra con un picco acuto verso lo 0.9, indicando una forte prevalenza di vegetazione densa.
-- **2022**: si individua uno spostamento della massa verso valori intorno a 0.7 con una parziale riduzione del picco massimo di vigore rispetto al 2021.
-- **2026**: La distribuzione subisce una contrazione drastica e un netto spostamento verso sinistra. Il picco si sposta verso valori dello 0.3, con una scomparsa di valori >0.7 (componente di vegetazione ad alto vigore).
+- **2021**: la distribuzione è sbilanciata verso destra con un picco acuto verso lo 0.7, indicando una forte prevalenza di vegetazione densa.
+- **2022**: si individua uno spostamento della massa verso valori intorno a 0.68 con una parziale riduzione del picco massimo di vigore rispetto al 2021.
+- **2026**: La distribuzione subisce una contrazione drastica e un netto spostamento verso sinistra. Il picco si sposta verso valori dello 0.35, con una scomparsa quasi totale di valori >0.75 (componente di vegetazione ad alto vigore).
 
 ### Calcolo della differenza multitemporale dell'NDVI
 Per analizzare l'evoluzione temporale dell'area di studio, viene calcolata la differenza tra NDVI, permettendo di mappare il gradiente di variazione del vigore vegetativo, dove i valori negativi evidenziano i processi di degrado ambientale avvenuti negli anni.
@@ -257,8 +257,7 @@ plot(dif_26_22, col=inferno(100), main="dif_NDVI_2026-2022")
 plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021")
 ````
 <img src="Immagini/Dif NDVI.png" width="800">  
-Le mappe di differenza evidenziano una forte variazione spaziale. Nella prima fase (2021-2022) i valori variano tra +1.0 e -0.5, mostrando una situazione ancora parzialmente stabile. Nelle mappe successive, che includono il 2026, la scala dei valori si sposta verso il basso, variando tra +0.5 e -1.0; la diffusione delle tonalità scure e arancioni documenta il calo generalizzato dell'NDVI e l'estensione del degrado ambientale.
-
+Le mappe di differenza evidenziano una forte variazione spaziale. Nella prima fase (2021-2022) i valori variano tra +0.10 e -0.60, mostrando una situazione ancora parzialmente stabile. Nelle mappe successive, che includono il 2026, i valori variano tra +0.4 e -0.5 nella differenza 2026-2022 e tra +0.20 e -0.60 nella differenza 2026-2021; la diffusione delle tonalità scure (viola e nero) documenta il calo generalizzato dell'NDVI e l'estensione del degrado ambientale.
 ## Classificazione 
 Tramite la classificazione è possibile stabilire la frequenza dei pixel della copertura vegetale e di quella del suolo nudo. Per questo studio è stata scelta una classificazione a due classi.
 
@@ -325,7 +324,7 @@ tabella
 | **vegetazione**| 71.39699  | 60.47196 | 11.47691 |
 | **suolo nudo** | 28.60301 | 39.52804 | 88.52309 |
 
-Come si può vedere dai dati ottenuti la vegetazione ha avuto un forte calo di circa l' 8% nel 2022 a causa del conflitto, con un ulteriore calo nel 2026 con un valore di circa del 24% rispetto al 2021.
+Come si può vedere dai dati ottenuti la vegetazione ha avuto un calo di circa l' 11% nel 2022 a causa del conflitto, con un ulteriore calo nel 2026 con un valore di circa del 60%% rispetto al 2021.
 Con i dati forniti dalla tabella prodotta vengono generati tre grafici a barre.
 
 ````r
@@ -358,11 +357,11 @@ p1 + p2 + p3
 
 # Conclusioni 
 Lo studio condotto tramite telerilevamento satellitare multitemporale ha permesso di quantificare e confrontare l'evoluzione del danno ambientale nell'area di studio tra il 2021 e il 2026. L'integrazione degli indici spettrali (DVI e NDVI), dell'analisi statistica della densità dei pixel mediante ridgeline plot e della classificazione finale ha evidenziato un processo di degrado continuo e cumulativo del territorio.
-I risultati analitici mostrano che i danni non sono riconducibili esclusivamente al periodo iniziale del conflitto nel 2022, ma che essi risultano associati a una significativa e progressiva diminuzione della biomassa fotosinteticamente attiva. Nel 2026 il suolo nudo è diventato la matrice dominante con una copertura di circa il 51,67% del totale, mentre la vegetazione è scesa a una copertura di circa il 48,33%, confermando i gravi impatti ecologici in atto nel territorio ucraino.
+I risultati analitici mostrano che i danni non sono riconducibili esclusivamente al periodo iniziale del conflitto nel 2022, ma che essi risultano associati a una significativa e progressiva diminuzione della biomassa fotosinteticamente attiva. Nel 2026 il suolo nudo è diventato la matrice dominante con una copertura di circa il 88% del totale, mentre la vegetazione è scesa a una copertura di circa l' 11%, confermando i gravi impatti ecologici in atto nel territorio ucraino.
 
 # 🌐 Sitografia 
 ## Contesto storico e geopolitico 
-"Kharkiv, la città martire sotto il tiro dei razzi: 'Ma resisteremo'" (2 marzo 2022). Articolo giornalistico che documenta l'inizio dell'offensiva militare e i bombardamenti sistematici nella regione di Kharkiv. L'intensificarsi delle ostilità sul territorio ha determinato il progressivo abbandono delle attività agricole e la conseguente alterazione della copertura vegetale nell'area di studio. Disponibile al link: https://www.repubblica.it/esteri/2022/03/02/news/kharkiv_la_citta_martire_sotto_il_tiro_dei_razzi_ma_resisteremo-339910718/
+- **La Republica** "Kharkiv, la città martire sotto il tiro dei razzi: 'Ma resisteremo'" (2 marzo 2022). Articolo giornalistico che documenta l'inizio dell'offensiva militare e i bombardamenti sistematici nella regione di Kharkiv. L'intensificarsi delle ostilità sul territorio ha determinato il progressivo abbandono delle attività agricole e la conseguente alterazione della copertura vegetale nell'area di studio. Disponibile al link: https://www.repubblica.it/esteri/2022/03/02/news/kharkiv_la_citta_martire_sotto_il_tiro_dei_razzi_ma_resisteremo-339910718/
 ### Piattaforme dati e librerie software
 - **Google Earth Engine:** https://earthengine.google.com/ (Piattaforma cloud per il pre-processing e l'estrazione dei dati raster).
 - **CRAN Repository:** https://cran.r-project.org/ (Documentazione ufficiale dei pacchetti R utilizzati: `terra`, `ggplot2`, `ggridges`, `viridis`,`imageRy`, `patchwork`).
