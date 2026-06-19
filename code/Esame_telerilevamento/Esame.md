@@ -20,8 +20,9 @@ L'obiettivo è quantificare l'impatto bellico, non solo attraverso un'analisi qu
 
 # 🛠️Materiali e metodi 
 ## Acquisizione dati 
-Le immagini sono state acquisite dal portale web di [Google Earth Engine](https://earthengine.google.com/), selezionando una delle aree colpite nel conflitto.
-## Caratteristiche del sensore (sentinel 2) 
+Le immagini sono state acquisite dal portale web di [Google Earth Engine](https://earthengine.google.com/), selezionando una delle aree colpite nel conflitto. 
+Le immagini sono state selezionate nello stesso periodo stagionale per minimizzare gli effetti fenologici.
+## Caratteristiche del sensore (Sentinel 2) 
 Per l'analisi è stato utilizzato il satellite Sentinel-2 (programma Copernicus), scelto per le sue caratteristiche tecniche:
 - **Risoluzione spaziale**: 10 metri nelle bande del visibile e nel NIR, essenziale per il dettaglio agrario.
 - **Risoluzione temporale**: Alta frequenza di rivisitazione, ideale per serie storiche multitemporali (2021-2026).
@@ -163,7 +164,7 @@ Dall'osservazione delle immagini emerge una netta variazione nella banda del vic
 
 ## 🌾 Calcolo degli indici vegetazionali 
 
-### Different vegetation index (DVI) 
+### Different Vegetation Index (DVI) 
 Il DVI, viene utilizzato per valutare la presenza di vegetazione. Il DVI sfrutta la differente risposta spettrale della vegetazione nelle bande del vicino infrarosso **(NIR)** e del rosso **(RED)**. Le piante sane assorbono gran parte della radiazione nella banda del rosso per i processi fotosintetici e riflettono intensamente la radiazione nel vicino infrarosso. Di conseguenza, la differenza tra queste due bande consente di stimare la presenza e la vigoria della copertura vegetale.
 
 $` DVI = NIR - RED `$   
