@@ -89,7 +89,7 @@ Dall'interrogazione degli oggetti, risulta che tutti e tre i dataset presentano 
 - la risoluzione : 8.983153e-05, 8.983153e-05
 - l'estensione : 37.19995, 37.60006, 48.97992, 49.26002
 - il sistema di riferimento : WGS 84 (EPSG:4326)
-- le bande : B2, B3, B4, B8, B11
+- le bande : B2, B3, B4, B8,
 
 ## Visualizzazione delle immagini 
 **2021**
@@ -97,21 +97,21 @@ Dall'interrogazione degli oggetti, risulta che tutti e tre i dataset presentano 
 #visualizzazione delle bande spettrali (2021)
 plot(Ucraina_2021)
 ````
-<img src="Immagini/plot_2021.png" width="800">
+<img src="Immagini/Plot_2021.png" width="800">
 
 **2022**
 ````r
 #visualizzazione delle bande spettrali (2022)
 plot(Ucraina_2022)
 ````
-<img src="Immagini/plot_2022.png" width="800">
+<img src="Immagini/Plot_2022.png" width="800">
 
 **2026**
 ````r
 #visualizzazione delle bande spettrali (2026)
 plot(Ucraina_2026)
 ````
-<img src="Immagini/plot_2026.png" width="800">
+<img src="Immagini/Plot_2026.png" width="800">
 
 ## Composizione in Colori Naturali (True Color)
 ````r
