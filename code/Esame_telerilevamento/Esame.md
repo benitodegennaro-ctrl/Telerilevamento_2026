@@ -272,12 +272,12 @@ class_2026 <- im.classify(ndvi_2026, seed=42, num_clusters=2)
 
 ````r
 # Definizione della legenda a due classi (valori basati sull'ordine dei cluster generati)
-levels(class_2021) <- data.frame(value = c(2, 1), label = c("vegetazione", "suolo nudo"))
-levels(class_2022) <- data.frame(value = c(2, 1), label = c("vegetazione", "suolo nudo"))
-levels(class_2026) <- data.frame(value = c(2, 1), label = c("vegetazione", "suolo nudo"))
+levels(class_2021) <- data.frame(value = c(1, 2), label = c("vegetazione", "suolo nudo"))
+levels(class_2022) <- data.frame(value = c(1, 2), label = c("vegetazione", "suolo nudo"))
+levels(class_2026) <- data.frame(value = c(1, 2), label = c("vegetazione", "suolo nudo"))
 
 #personalizzazione della palette di colori 
-col_classes <- c("suolo nudo" = "lightsalmon4", "vegetazione" = "chartreuse4")
+col_classes <- c("vegetazione" = "chartreuse4","suolo nudo" = "lightsalmon4")
 
 # Configurazione dello schermo su 1 riga e 3 colonne
 im.multiframe(1, 3)
