@@ -215,8 +215,6 @@ plot(ndvi_2021, col=mako(100), main="NDVI 2021")
 plot(ndvi_2022, col=mako(100), main="NDVI 2022") 
 plot(ndvi_2026, col=mako(100), main="NDVI 2026")
 ````
-Il confronto multitemporale delle mappe di NDVI mostra una progressiva diminuzione dei valori dell'indice a partire dal 2022, indicativa di una significativa riduzione del vigore vegetativo durante la fase più intensa del conflitto. Tale fenomeno di degrado non manifesta segni di ripresa, evidenziando un ulteriore e progressivo peggioramento nel 2026.
-
 <img src="Immagini/NDVI_anni.png" width="800">
 
 Il confronto multitemporale delle mappe di NDVI mostra una progressiva diminuzione dei valori dell'indice a partire dal 2022, indicativa di una significativa riduzione del vigore vegetativo durante la fase più intensa del conflitto. Tale fenomeno di degrado non manifesta segni di ripresa, evidenziando un ulteriore e progressivo peggioramento nel 2026.
