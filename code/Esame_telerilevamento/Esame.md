@@ -277,7 +277,7 @@ levels(class_2022) <- data.frame(value = c(1, 2, 3), label = c("vegetazione", "s
 levels(class_2026) <- data.frame(value = c(1, 2, 3), label = c("vegetazione", "suolo nudo ","vegetazione rada"))
 
 #personalizzazione della palette di colori 
-col_classes <- c("vegetazione" = "chartreuse4","suolo nudo" = "lightsalmon4", "vegetazione rada"="darkseagreen")
+col_classes <- c("vegetazione" = "chartreuse4","suolo nudo" = "lightsalmon4", "vegetazione rada"="khaki1")
 
 # Configurazione dello schermo su 1 riga e 3 colonne
 im.multiframe(1, 3)
@@ -311,11 +311,12 @@ Per una visualizzazione diretta viene generata una tabella.
 ````r
 # Creazione del dataframe riassuntivo con le percentuali di suolo nudo e vegetazione per ogni anno
 tabella <- data.frame(
-  class = c("suolo nudo", "vegetazione"),
+  class = c("vegetazione", "suolo nudo","vegetazione rada"),
   percentuale2021 = perc2021,
   percentuale2022 = perc2022,
   percentuale2026 = perc2026
 )
+
 
 # Visualizzazione della tabella finale
 tabella
