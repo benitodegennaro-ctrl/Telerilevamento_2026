@@ -366,7 +366,7 @@ I risultati analitici mostrano che i danni non sono riconducibili esclusivamente
 
 # 🌐 Sitografia 
 ## Contesto storico e geopolitico 
-- **La Republica** "Kharkiv, la città martire sotto il tiro dei razzi: 'Ma resisteremo'" (2 marzo 2022). Articolo giornalistico che documenta l'inizio dell'offensiva militare e i bombardamenti sistematici nella regione di Kharkiv. L'intensificarsi delle ostilità sul territorio ha determinato il progressivo abbandono delle attività agricole e la conseguente alterazione della copertura vegetale nell'area di studio. Disponibile al link: https://www.repubblica.it/esteri/2022/03/02/news/kharkiv_la_citta_martire_sotto_il_tiro_dei_razzi_ma_resisteremo-339910718/
+- **La Repubblica** "Kharkiv, la città martire sotto il tiro dei razzi: 'Ma resisteremo'" (2 marzo 2022). Articolo giornalistico che documenta l'inizio dell'offensiva militare e i bombardamenti sistematici nella regione di Kharkiv. L'intensificarsi delle ostilità sul territorio ha determinato il progressivo abbandono delle attività agricole e la conseguente alterazione della copertura vegetale nell'area di studio. Disponibile al link: https://www.repubblica.it/esteri/2022/03/02/news/kharkiv_la_citta_martire_sotto_il_tiro_dei_razzi_ma_resisteremo-339910718/
 ### Piattaforme dati e librerie software
 - **Google Earth Engine:** https://earthengine.google.com/ (Piattaforma cloud per il pre-processing e l'estrazione dei dati raster).
 - **CRAN Repository:** https://cran.r-project.org/ (Documentazione ufficiale dei pacchetti R utilizzati: `terra`, `ggplot2`, `ggridges`, `viridis`,`imageRy`, `patchwork`).
