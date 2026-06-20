@@ -57,7 +57,7 @@ Caricamento dei pacchetti che verranno utilizzati nello studio.
 library(terra)     # Per la gestione di dati raster. 
 library(imageRy)   # Gestione, analisi e visualizzazione multiframe di immagini raster
 library(ggplot2)   # Creazione di grafici statici basata sulla Grammatica della Grafica
-library(patchwork) # Combinazione e composizione flessibile di più grafici
+library(patchwork) # Per la combinazione flessibile dei grafici a barre in un'unica interfaccia;
 library(viridis)   # Palette di colori ad alta leggibilità per daltonici
 library(ggridges)  # Grafici a cresta (ridgeline) per visualizzare distribuzioni continue
 ````
