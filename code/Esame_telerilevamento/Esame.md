@@ -259,6 +259,7 @@ plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021")
 ````
 <img src="Immagini/Dif NDVI.png" width="800">  
 Le mappe di differenza evidenziano una forte variazione spaziale. Nella prima fase (2021-2022) i valori variano tra +0.10 e -0.60, mostrando una situazione ancora parzialmente stabile. Nelle mappe successive, che includono il 2026, i valori variano tra +0.4 e -0.5 nella differenza 2026-2022 e tra +0.20 e -0.60 nella differenza 2026-2021; la diffusione delle tonalità scure (viola e nero) documenta il calo generalizzato dell'NDVI e l'estensione del degrado ambientale.
+
 ## Classificazione 
 Tramite la classificazione è possibile stabilire la frequenza dei pixel della copertura vegetale e di quella del suolo nudo. Per questo studio è stata scelta una classificazione a due classi.
 
