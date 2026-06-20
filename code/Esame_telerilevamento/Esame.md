@@ -355,7 +355,7 @@ p3 <- ggplot(tabella, aes(x = class, y = percentuale2026, fill = class)) +
 # Visualizzazione a schermo dei grafici affiancati
 p1 + p2 + p3
 ````
-<img src="Immagini/Grafico_a_barre.png" width="800">
+<img src="Immagini/Grafico_a_Barre.png" width="800">
 
 # Conclusioni 
 Lo studio condotto tramite telerilevamento satellitare multitemporale ha permesso di quantificare e confrontare l'evoluzione del danno ambientale nell'area di studio tra il 2021 e il 2026. L'integrazione degli indici spettrali (DVI e NDVI), dell'analisi statistica della densità dei pixel mediante ridgeline plot e della classificazione finale ha evidenziato un processo di degrado continuo e cumulativo del territorio.
