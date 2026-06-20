@@ -261,24 +261,23 @@ plot(dif_26_21, col=inferno(100), main="dif_NDVI_2026-2021")
 Le mappe di differenza evidenziano una forte variazione spaziale. Nella prima fase (2021-2022) i valori variano tra +0.10 e -0.60, mostrando una situazione ancora parzialmente stabile. Nelle mappe successive, che includono il 2026, i valori variano tra +0.4 e -0.5 nella differenza 2026-2022 e tra +0.20 e -0.60 nella differenza 2026-2021; la diffusione delle tonalità scure (viola e nero) documenta il calo generalizzato dell'NDVI e l'estensione del degrado ambientale.
 
 ## Classificazione 
-Tramite la classificazione è possibile stabilire la frequenza dei pixel della copertura vegetale e di quella del suolo nudo. Per questo studio è stata scelta una classificazione a due classi.
+Tramite la classificazione è possibile stabilire la frequenza dei pixel della copertura vegetale, vegetazione rada e di quella del suolo nudo. Per questo studio è stata scelta una classificazione a tre classi.
 
 ````r
-# Classificazione non supervisionata in 2 cluster (es. vegetazione e suolo nudo)
-class_2021 <- im.classify(ndvi_2021, seed=42, num_clusters=2)
-class_2022 <- im.classify(ndvi_2022, seed=42, num_clusters=2)
-class_2026 <- im.classify(ndvi_2026, seed=42, num_clusters=2)
+# Classificazione non supervisionata in 3 cluster (es. vegetazione e suolo nudo)
+class_2021 <- im.classify(ndvi_2021, seed=42, num_clusters=3)
+class_2022 <- im.classify(ndvi_2022, seed=42, num_clusters=3)
+class_2026 <- im.classify(ndvi_2026, seed=42, num_clusters=3)
 ````
 <img src="Immagini/Livelli.png" width="800">
 
 ````r
-# Definizione della legenda a due classi (valori basati sull'ordine dei cluster generati)
-levels(class_2021) <- data.frame(value = c(1, 2), label = c("vegetazione", "suolo nudo"))
-levels(class_2022) <- data.frame(value = c(1, 2), label = c("vegetazione", "suolo nudo"))
-levels(class_2026) <- data.frame(value = c(1, 2), label = c("vegetazione", "suolo nudo"))
+levels(class_2021) <- data.frame(value = c(1, 2, 3), label = c("vegetazione", "suolo nudo", "vegetazione rada"))
+levels(class_2022) <- data.frame(value = c(1, 2, 3), label = c("vegetazione", "suolo nudo ", "vegetazione rada"))
+levels(class_2026) <- data.frame(value = c(1, 2, 3), label = c("vegetazione", "suolo nudo ","vegetazione rada"))
 
 #personalizzazione della palette di colori 
-col_classes <- c("vegetazione" = "chartreuse4","suolo nudo" = "lightsalmon4")
+col_classes <- c("vegetazione" = "chartreuse4","suolo nudo" = "lightsalmon4", "vegetazione rada"="darkseagreen")
 
 # Configurazione dello schermo su 1 riga e 3 colonne
 im.multiframe(1, 3)
@@ -289,13 +288,13 @@ plot(class_2022, col=col_classes, main="2022")
 plot(class_2026, col=col_classes, main="2026")
 ````
 <img src="Immagini/Classificazione.png" width="800">
-Al fine di validare quantitativamente le variazioni spaziali osservate nei cartogrami, vengono calcolate le frequenze percentuali dei pixel per ciascuna classe nei tre anni considerati. Dal confronto visivo delle mappe si rileva una progressiva e marcata espansione delle aree classificate come suolo nudo (in viola) a scapito della copertura vegetale (in giallo), fenomeno che trova riscontro analitico nel calcolo delle frequenze.
+Al fine di validare quantitativamente le variazioni spaziali osservate nei cartogrammi, vengono calcolate le frequenze percentuali dei pixel per ciascuna classe nei tre anni considerati. Dal confronto visivo delle mappe si rileva una progressiva e marcata espansione delle aree classificate come suolo nudo (in marrone) a scapito della copertura vegetale (in verde), mentre la vegetazione rada rimane tutto sommato invariata, fenomeno che trova riscontro analitico nel calcolo delle frequenze.
 
 ````r
 # Calcolo della frequenza assoluta dei pixel per ciascuna classe
 f2021 <- freq(class_2021) 
 f2022 <- freq(class_2022) 
-f2026 <- freq(class_2026) 
+f2026 <- freq(class_2026)
 
 # Calcolo della proporzione (frequenza relativa) rispetto al numero totale di celle
 prop2021 <- f2021$count / ncell(class_2021) 
@@ -321,13 +320,16 @@ tabella <- data.frame(
 # Visualizzazione della tabella finale
 tabella
 ````
-| class | percentuale2021 | percentuale2022 | percentuale2026 |
+| Class | Percentuale 2021 | Percentuale 2022 | Percentuale 2026 |
 | :--- | :---: | :---: | :---: |
-| **vegetazione**| 71.39699  | 60.47196 | 11.47691 |
-| **suolo nudo** | 28.60301 | 39.52804 | 88.52309 |
+| **Vegetazione** | 50.56% | 41.41% | 6.84% |
+| **Suolo nudo** | 22.34% | 28.59% | 59.80% |
+| **Vegetazione rada** | 27.10% | 30.00% | 33.36% |
 
-Come si può vedere dai dati ottenuti la vegetazione ha avuto un calo di circa l' 11% nel 2022 a causa del conflitto, con un ulteriore calo nel 2026 con un valore di circa del 60%% rispetto al 2021.
-Con i dati forniti dalla tabella prodotta vengono generati tre grafici a barre.
+Come si può vedere dai dati ottenuti la vegetazione ha avuto un calo di circa il 9,15% nel 2022 a causa del conflitto, con un ulteriore calo nel 2026 con un valore di circa  43,72% rispetto al 2021, mentre la copertura di suolo nudo aumenta del 37,55% nel 2026 rispetto al 2021.
+La copertura di vegetazione rada invece resta quasi invariata con un aumento di circa il 3% per ogni anno considerato.
+
+Con i dati forniti dalla tabella, vengono generati tre grafici a barre.
 
 ````r
 # Generazione dei grafici a barre per il confronto della copertura percentuale negli anni (2021, 2022, 2026)
@@ -359,7 +361,7 @@ p1 + p2 + p3
 
 # Conclusioni 
 Lo studio condotto tramite telerilevamento satellitare multitemporale ha permesso di quantificare e confrontare l'evoluzione del danno ambientale nell'area di studio tra il 2021 e il 2026. L'integrazione degli indici spettrali (DVI e NDVI), dell'analisi statistica della densità dei pixel mediante ridgeline plot e della classificazione finale ha evidenziato un processo di degrado continuo e cumulativo del territorio.
-I risultati analitici mostrano che i danni non sono riconducibili esclusivamente al periodo iniziale del conflitto nel 2022, ma che essi risultano associati a una significativa e progressiva diminuzione della biomassa fotosinteticamente attiva. Nel 2026 il suolo nudo è diventato la matrice dominante con una copertura di circa il 88% del totale, mentre la vegetazione è scesa a una copertura di circa l' 11%, confermando i gravi impatti ecologici in atto nel territorio ucraino.
+I risultati analitici mostrano che i danni non sono riconducibili esclusivamente al periodo iniziale del conflitto nel 2022, ma che essi risultano associati a una significativa e progressiva diminuzione della biomassa attiva. Nel 2026 il suolo nudo è diventato la matrice dominante con una copertura di circa il 59.80% del totale, mentre la vegetazione è scesa a una copertura di circa il 40.20% tra vegetazione rada e vegetazione fittta, confermando i gravi impatti ecologici in atto nel territorio ucraino.
 
 # 🌐 Sitografia 
 ## Contesto storico e geopolitico 
