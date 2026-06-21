@@ -374,7 +374,7 @@ Lo studio condotto tramite telerilevamento satellitare multitemporale ha permess
 I risultati analitici mostrano che i danni non sono riconducibili esclusivamente al periodo iniziale del conflitto nel 2022, ma che essi risultano associati a una significativa e progressiva diminuzione della biomassa attiva. Nel 2026 il suolo nudo è diventato la matrice dominante con una copertura di circa il 59.80% del totale, mentre la vegetazione è scesa a una copertura di circa il 40.20% tra vegetazione rada e vegetazione fittta, confermando i gravi impatti ecologici in atto nel territorio ucraino.
 
 # 🌐 Sitografia 
-## Contesto storico e geopolitico 
+### Contesto storico e geopolitico 
 - **La Repubblica** "Kharkiv, la città martire sotto il tiro dei razzi: 'Ma resisteremo'" (2 marzo 2022). Articolo giornalistico che documenta l'inizio dell'offensiva militare e i bombardamenti sistematici nella regione di Kharkiv. L'intensificarsi delle ostilità sul territorio ha determinato il progressivo abbandono delle attività agricole e la conseguente alterazione della copertura vegetale nell'area di studio. Disponibile al link: https://www.repubblica.it/esteri/2022/03/02/news/kharkiv_la_citta_martire_sotto_il_tiro_dei_razzi_ma_resisteremo-339910718/
 ### Piattaforme dati e librerie software
 - **Google Earth Engine:** https://earthengine.google.com/ (Piattaforma cloud per il pre-processing e l'estrazione dei dati raster).
