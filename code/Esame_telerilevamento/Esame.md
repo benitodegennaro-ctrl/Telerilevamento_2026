@@ -69,29 +69,6 @@ Ucraina_2022<-rast("Ucraina_2022_bands.tif") # Dati fase intermedia (2022)
 Ucraina_2026<-rast("Ucraina_2026_bands.tif") # Dati correnti (2026)
 ````
 
-## Verifica dei metadati dei raster  
-
-Prima di procedere con l'elaborazione, interrogo i tre oggetti ````Ucraina_2021````, ````Ucraina_2022````e ```` Ucraina_2026````per validare le loro proprietà spaziali e strutturali. Questo passaggio è necessario per confermare che i dati siano correttamente allineati e pronti per l'analisi comparativa. In particolare, verifico:
-
-- **Dimensioni**:Risoluzione spaziale e numero di pixel.
-- **Bande**:Numero e tipologia di bande spettrali disponibili.
-- **Sistema di riferimento** Fondamentale per garantire la sovrapponibilità geografica dei layer.
-- **Estensione** Coordinate dei limiti dell'area di studio.
-
-````r
-# Verifica dei metadati e delle proprietà spaziali dei dataset (2021, 2022, 2026)
-Ucraina_2021
-Ucraina_2022
-Ucraina_2026
-````
-Dall'interrogazione degli oggetti, risulta che tutti e tre i dataset presentano le medesime caratteristiche strutturali, nello specifico:
-- la classe : SpatRaster
-- la dimensione : 636, 1461, 4
-- la risoluzione : 8.983153e-05, 8.983153e-05
-- l'estensione : 37.41959, 37.55084, 49.10641, 49.16354
-- il sistema di riferimento : WGS 84 (EPSG:4326)
-- le bande : B2, B3, B4, B8
-
 ## Visualizzazione delle immagini 
 **2021**
 ````r
