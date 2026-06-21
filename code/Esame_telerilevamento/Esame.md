@@ -272,6 +272,7 @@ class_2026 <- im.classify(ndvi_2026, seed=42, num_clusters=3)
 <img src="Immagini/Livelli.png" width="800">
 
 ````r
+# Definizione della legenda a tre classi
 levels(class_2021) <- data.frame(value = c(1, 2, 3), label = c("vegetazione", "suolo nudo", "vegetazione rada"))
 levels(class_2022) <- data.frame(value = c(1, 2, 3), label = c("vegetazione", "suolo nudo ", "vegetazione rada"))
 levels(class_2026) <- data.frame(value = c(1, 2, 3), label = c("vegetazione", "suolo nudo ","vegetazione rada"))
