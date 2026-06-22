@@ -197,8 +197,8 @@ Il *Normalized Difference Vegetation Index*  si utilizza per valutare lo stato d
 $NDVI = \frac{NIR - Red}{NIR + Red}$
 
 - Valori prossimi a +1 indicano vegetazione sana e vigorosa
-- Valori vicini allo 0 indicano vegetazione rada
-- Valori negativi sono generalmente associati a superfici d'acqua, aree urbanizzate o suoli privi di vegetazione.
+- Valori vicini allo 0 indicano vegetazione rada o suoli privi di vegetazione
+- Valori negativi sono generalmente associati a superfici d'acqua, aree urbanizzate 
 
 ````r
 # Calcolo del Normalized Difference Vegetation Index (NDVI) tramite bande 4 (NIR) e 3 (Rosso)
