@@ -71,8 +71,8 @@ dvi_2026 <- im.dvi(Ucraina_2026, 4, 3)
 im.multiframe(1, 3) 
 
 # Visualizzazione dell'indice DVI con palette inferno per il confronto temporale
-plot(dvi_2021, col=inferno(100), main="DVI 2021") 
 plot(dvi_2022, col=inferno(100), main="DVI 2022") 
+plot(dvi_2021, col=inferno(100), main="DVI 2021") 
 plot(dvi_2026, col=inferno(100), main="DVI 2026")
 
 # Calcolo del Normalized Difference Vegetation Index (NDVI) tramite bande 4 (NIR) e 3 (Rosso)
@@ -113,7 +113,6 @@ class_2021 <- im.classify(ndvi_2021, seed=42, num_clusters=3)
 class_2022 <- im.classify(ndvi_2022, seed=42, num_clusters=3)
 class_2026 <- im.classify(ndvi_2026, seed=42, num_clusters=3)
 
-# Definizione della legenda a tre classi
 levels(class_2021) <- data.frame(value = c(1, 2, 3), label = c("vegetazione", "suolo nudo", "vegetazione rada"))
 levels(class_2022) <- data.frame(value = c(1, 2, 3), label = c("vegetazione", "suolo nudo", "vegetazione rada"))
 levels(class_2026) <- data.frame(value = c(1, 2, 3), label = c("vegetazione", "suolo nudo","vegetazione rada"))
@@ -121,6 +120,9 @@ levels(class_2026) <- data.frame(value = c(1, 2, 3), label = c("vegetazione", "s
 #personalizzazione della palette di colori 
 col_classes <- c("vegetazione" = "chartreuse4","suolo nudo" = "lightsalmon4", "vegetazione rada" ="khaki1")
 
+
+
+# Configurazione dello schermo su 1 riga e 3 colonne
 # Configurazione dello schermo su 1 riga e 3 colonne
 im.multiframe(1, 3)
 
