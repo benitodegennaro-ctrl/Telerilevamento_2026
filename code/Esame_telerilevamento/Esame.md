@@ -158,7 +158,7 @@ plot(Ucraina_2026[[4]], col=cividis(100), main="2026 - B8")
 ````
 <img src="Immagini/Scomposizione.png" width="800">
 
-Dall'osservazione delle immagini emerge una netta variazione nella banda del vicino infrarosso (B8), dove la perdita di riflettanza tra il 2021 e il 2026 evidenzia una significativa distruzione della copertura vegetale. 
+Dall'osservazione delle immagini emerge una variazione nella banda del vicino infrarosso (B8), dove la diminuzione della riflettanza tra il 2021 e il 2026 suggerisce una modifica delle condizioni della copertura vegetale. 
 - Nel **2021** la presenza di pixel gialli nella banda (B8) indica una elevata riflettanza nel vicino infrarosso, caratteristica tipica di una vegetazione sana e vigorosa
 - ⁠Nel **2022** si osserva una riduzione delle aree caratterizzate da elevata riflettanza, suggerendo un primo cambiamento nelle condizioni della copertura vegetale.
 - ⁠Nel **2026** la distribuzione dei valori radiometrici appare ulteriormente modificata, con una prevalenza di tonalità più scure che indicano una diminuzione della riflettanza nel vicino infrarosso. Tale evidenza suggerisce una riduzione del vigore vegetativo e della biomassa presente nell'area di studio
