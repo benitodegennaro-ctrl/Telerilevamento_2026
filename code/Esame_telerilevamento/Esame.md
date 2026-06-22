@@ -84,13 +84,13 @@ Ucraina_2021
 Ucraina_2022
 Ucraina_2026
 ````
+
 Dall'interrogazione degli oggetti, risulta che tutti e tre i dataset presentano le medesime caratteristiche strutturali, nello specifico:
 - la classe : SpatRaster
 - la dimensione : 636, 1461, 4  
 - la risoluzione : 8.983153e-05, 8.983153e-05
 - l'estensione : 37.41959, 37.55084, 49.10641, 49.16354
 - il sistema di riferimento : WGS 84 (EPSG:4326)
-
 - le bande : B2, B3, B4, B8
   
 ## Visualizzazione delle immagini 
